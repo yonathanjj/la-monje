@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <title>La Monje</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <h1>La Monje</h1>
+                </div>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <h1>Welcome to La Monje</h1>
+                <p>We tell stories that resonate and drive results.</p>
+                <a href="#about" class="cta-button">Learn More</a>
+            </div>
+        </section>
+        <section id="about" class="about">
+            <div class="container">
+                <h1>Our Story</h1>
+                <p>La Monje is a passionate data-driven creative firm with a heart for storytelling...</p>
+            </div>
+        </section>
+        <section id="services" class="services">
+            <div class="container">
+                <h1>Our Services</h1>
+                <ul>
+                    <li>
+                        <h2>Event design and facilitation</h2>
+                        <p>We meticulously plan and execute every aspect of your event...</p>
+                    </li>
+                    <li>
+                        <h2>Multimedia content curation</h2>
+                        <p>We source, curate, and develop multimedia content...</p>
+                    </li>
+                    <li>
+                        <h2>Creative Marketing</h2>
+                        <p>We develop innovative and data-driven marketing campaigns...</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section id="portfolio" class="portfolio">
+            <div class="container">
+                <h1>Our Portfolio</h1>
+                <ul>
+                    <li>Psy Addis</li>
+                    <li>Action Aid Ethiopia</li>
+                    <li>HAFW</li>
+                    <li>Mignot Bazaar</li>
+                    <li>LookUp</li>
+                </ul>
+            </div>
+        </section>
+        <section id="contact" class="contact">
+            <div class="container">
+                <h1>Contact Us</h1>
+                <p>Addis Ababa, Ethiopia</p>
+                <p>+251942471649</p>
+                <p>Yeabkal Demissew</p>
+                <p>yeabkaldemissew14@gmail.com</p>
+                <p>Behind 22, Golagol Building Haile Gebre Silase St, Addis Ababa</p>
+                <p>Hawassa, Ethiopia</p>
+                <p>+25191 631 3972</p>
+                <p>Meareg Mngisteab</p>
+                <p>yeabkaldemissew14@gmail.com</p>
+                <p>Just behind the old bus station, around Cecelia school</p>
+                <p>Kigali, Rwanda</p>
+                <p>Phone number</p>
+                <p>Bethlehem Ghidey</p>
+                <p>bettyghgm@gmail.com</p>
+                <p>Address</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 La Monje</p>
+        </div>
+    </footer>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav ul li a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
