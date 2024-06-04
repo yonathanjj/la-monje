@@ -65,6 +65,7 @@ header ul li a:hover {
 
 .hero {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
     height: 100vh;
@@ -74,26 +75,22 @@ header ul li a:hover {
 
 .hero .container {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
+    text-align: center;
 }
 
-.hero .home-content img {
-    max-width: 50%;
-    height: auto;
-}
-
-.hero .home-content .text-content {
+.hero .text-content {
     max-width: 50%;
     padding: 20px;
 }
 
-.hero .home-content .text-content h1 {
+.hero .text-content h1 {
     font-size: 48px;
     color: #ff8f00;
 }
 
-.hero .home-content .text-content p {
+.hero .text-content p {
     font-size: 24px;
     color: #000000;
     margin-top: 20px;
@@ -101,99 +98,233 @@ header ul li a:hover {
     transition: color 0.3s ease-in-out;
 }
 
-.hero .home-content .text-content p:hover {
+.hero .text-content p:hover {
     color: #ff8f00;
 }
 
-.hero .home-content .text-content p:hover::before {
-    content: "";
-    animation: slide-in 0.5s forwards;
-}
-
-@keyframes slide-in {
-    from {
-        transform: translateY(50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-@keyframes slide-out {
-    from {
-        transform: translateY(0);
-        opacity: 1;
-    }
-    to {
-        transform: translateY(50px);
-        opacity: 0;
-    }
-}
-
-.about-services {
-    padding: 40px 0;
-    background: #ffffff;
-    color: #000000;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.about, .services {
-    margin-bottom: 20px;
-}
-
-.contact {
-    padding: 40px 0;
-    background: #ffffff;
-    color: #000000;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.contact .social-media {
-    margin-bottom: 20px;
-}
-
-footer {
-    background: #000000;
-    color: #ffffff;
-    text-align: center;
-    padding: 20px 0;
-    margin-top: 40px;
-    position: relative;
-}
-
-footer .container {
-    max-width: 600px;
-    margin: auto;
-}
-
-footer p {
-    margin: 5px 0;
-}
-
-.portfolio .categories {
+.hero .image-content {
     display: flex;
-    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     gap: 20px;
 }
 
-.portfolio .category {
-    flex: 1 1 45%;
-    padding: 20px;
-    background: #ffffff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.hero .image-content img {
+    max-width: 200px;
+    height: auto;
+    border: 2px solid #ff8f00;
+    padding: 10px;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
 }
 
-.portfolio .category img {
+.hero .image-content img:hover {
+    transform: scale(1.05);
+}
+
+/* Brand logos section */
+.brand-logos {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 20px 0;
+    background: #000000;
+    border-radius: 20px; /* Add border-radius for curved corners */
+}
+
+.slider {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    animation: scroll 10s linear infinite;
+}
+
+.slide-track {
+    display: flex;
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+.slide {
+    min-width: 200px;
+    margin: 0 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+}
+
+.slide img {
     width: 100%;
     height: auto;
-    transition: opacity 0.3s ease-in-out;
+    display: block;
 }
 
-.portfolio .category img:hover {
+.about-service {
+    background: #f4f4f4;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.about-service h2 {
+    font-size: 36px;
+    color: #ff8f00;
+    margin-bottom: 20px;
+}
+
+.about-service .cards {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.about-service .card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border: 2px solid #ff8f00;
+    flex: 1;
+    max-width: 30%;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+}
+
+.about-service .card h3 {
+    font-size: 24px;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.about-service .card p {
+    font-size: 16px;
+    color: #555555;
+}
+
+.portfolio {
+    background: #444444;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.portfolio h2 {
+    font-size: 36px;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.portfolio .portfolio-slider {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.portfolio .card {
+    background: #555555;
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.portfolio .card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.portfolio .card:hover {
+    transform: scale(1.05);
+    opacity: 1;
+}
+
+.portfolio .card:not(:hover) {
     opacity: 0.5;
+}
+
+.contact {
+    background: #f4f4f4;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 36px;
+    color: #ff8f00;
+    margin-bottom: 20px;
+}
+
+.contact .contact-cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.contact .contact-card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    flex: 1;
+    max-width: 45%;
+}
+
+.contact .contact-left {
+    text-align: left;
+}
+
+.contact .contact-right {
+    text-align: right;
+}
+
+.contact .contact-card h3 {
+    font-size: 24px;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.contact .contact-card p, .contact .contact-card a {
+    font-size: 16px;
+    color: #555555;
+}
+
+.contact .contact-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.contact .contact-card ul li {
+    margin: 10px 0;
+}
+
+.contact .contact-card ul li a {
+    color: #ff8f00;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.contact .contact-card ul li a:hover {
+    color: #000000;
+}
+
+/* Animation for sliding in the cards */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.about-service .card.visible {
+    opacity: 1;
+    transform: translateY(0);
+    animation: slideUp 0.6s ease-in-out;
 }
