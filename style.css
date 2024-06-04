@@ -10,7 +10,7 @@ body {
     line-height: 1.6;
     padding: 0;
     background-color: #ffffff;
-    color: #000000;
+    color: #343a40;
 }
 
 .container {
@@ -20,7 +20,7 @@ body {
 }
 
 header {
-    background: #000000;
+    background: #343a40;
     color: #ffffff;
     padding: 10px 0;
     position: fixed;
@@ -74,15 +74,13 @@ header ul li a:hover {
 }
 
 .hero .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    flex-direction: row; /* change from column to row */
+    justify-content: space-between; /* add space between the text and image */
 }
 
 .hero .text-content {
-    max-width: 50%;
-    padding: 20px;
+    align-items: flex-start; /* align the text to the start (right side) of the flex container */
+    text-align: left; /* align the text to the left */
 }
 
 .hero .text-content h1 {
@@ -103,16 +101,14 @@ header ul li a:hover {
 }
 
 .hero .image-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
+    align-items: flex-end; /* align the image to the end (left side) of the flex container */
+    justify-content: flex-start; /* align the image to the start of its container */
 }
 
 .hero .image-content img {
     max-width: 200px;
     height: auto;
-    border: 2px solid #ff8f00;
+    border: 2px solid #343a40;
     padding: 10px;
     border-radius: 10px;
     transition: transform 0.3s ease-in-out;
@@ -128,7 +124,7 @@ header ul li a:hover {
     overflow: hidden;
     position: relative;
     padding: 20px 0;
-    background: #000000;
+    background: #343a40;
     border-radius: 20px; /* Add border-radius for curved corners */
 }
 
