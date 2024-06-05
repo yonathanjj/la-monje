@@ -3,120 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-        <script src="script.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
-    <title>La-Monje</title>
+    <title>La-monje</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap');
+        :root {
+            --black: #000000ff;
+            --safety-orange: #FF7A00ff;
+            --white: #FFFFFFff;
+            --white-2: #FFFFFFff;
+            --safety-orange-2: #FF7900ff;
+        }
+        body {
+            font-family: 'Lato', sans-serif;
+            scroll-behavior: smooth;
+            background-color: var(--white);
+            color: var(--black);
+        }
+        .header-logo {
+            font-family: 'Pacifico', cursive;
+            color: var(--safety-orange);
+        }
+        .animate-marquee {
+            display: flex;
+            animation: marquee 15s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .nav-link {
+            position: relative;
+            display: inline-block;
+            color: var(--safety-orange);
+        }
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--safety-orange);
+            visibility: hidden;
+            transform: scaleX(0);
+            transition: all 0.3s ease-in-out;
+        }
+        .nav-link:hover::before {
+            visibility: visible;
+            transform: scaleX(1);
+        }
+        .nav-link:hover {
+            color: var(--safety-orange-2);
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="container">
-                <div class="logo">
-                    <h1>La-Monje</h1>
-                </div>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about-service">About-Service</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
-                </ul>
-            </div>
+
+    <!-- Header -->
+    <header class="bg-black p-4 fixed w-full z-10 shadow-lg">
+        <nav class="container mx-auto flex justify-between items-center">
+            <a href="#home" class="text-3xl header-logo">La-monje</a>
+            <ul class="hidden md:flex space-x-4">
+                <li><a href="#home" class="nav-link p-2 rounded-full">Home</a></li>
+                <li><a href="#about" class="nav-link p-2 rounded-full">About-Service</a></li>
+                <li><a href="#portfolio" class="nav-link p-2 rounded-full">Portfolio</a></li>
+                <li><a href="#contact" class="nav-link p-2 rounded-full">Contact Us</a></li>
+            </ul>
+            <button class="md:hidden text-safety-orange focus:outline-none" id="navToggle">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
         </nav>
+        <div class="md:hidden hidden" id="mobileMenu">
+            <ul class="flex flex-col space-y-4 mt-2 bg-black p-4">
+                <li><a href="#home" class="block text-safety-orange p-2 hover:bg-gray-700 rounded-full">Home</a></li>
+                <li><a href="#about" class="block text-safety-orange p-2 hover:bg-gray-700 rounded-full">About-Service</a></li>
+                <li><a href="#portfolio" class="block text-safety-orange p-2 hover:bg-gray-700 rounded-full">Portfolio</a></li>
+                <li><a href="#contact" class="block text-safety-orange p-2 hover:bg-gray-700 rounded-full">Contact Us</a></li>
+            </ul>
+        </div>
     </header>
-    <main>
-        <!-- Home Section -->
-       <section id="home" class="hero">
-    <div class="container">
-        <div class="text-content">
-            <h1>Welcome to La-Monje</h1>
-            <p>We tell stories that resonate and drive results</p>
-        </div>
-        <div class="brand-logos">
-            <div class="slider">
-                <div class="slide-track">
-                    <span class="trusted-by">Trusted by</span>
-                    <!-- Add company names here -->
-                    <div class="slide">Airbnb</div>
-                    <div class="slide">Nafta</div>
-                    <div class="slide">Starbucks</div>
-                    <div class="slide">Nike</div>
-                    <div class="slide">McDonald's</div>
-                    <div class="slide">Pepsi</div>
-                    <!-- Add more company names as needed -->
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-    </div>
-</section>
 
-
-        <!-- About-Service Section -->
-        <section id="about-service" class="about-service">
-            <div class="container">
-                <h2>About Us & Services</h2>
-                <div class="cards">
-                    <div class="card">
-                        <h3>About Us</h3>
-                        <p>Information about the company.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Our Services</h3>
-                        <p>Details about the services offered.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Our Mission</h3>
-                        <p>Information about the mission of the company.</p>
-                    </div>
-                </div>
+    <!-- Home Section -->
+    <section id="home" class="h-screen flex items-center justify-between bg-white">
+        <div class="container mx-auto flex flex-col-reverse md:flex-row items-center justify-between px-4">
+            <div class="md:w-1/2 mt-8 md:mt-0">
+                <h1 class="text-5xl font-bold header-logo">La-monje</h1>
+                <p class="mt-4 text-gray-700 text-lg">
+                    Dedicated to empowering businesses through data and design, we believe that data-driven insights are the key to more informed decisions and optimizing operations.
+                </p>
+                <button class="mt-6 px-6 py-3 bg-safety-orange text-white rounded-full shadow-lg hover:bg-safety-orange-2 transition duration-300">Learn More</button>
             </div>
-        </section>
-
-        <!-- Portfolio Section -->
-        <section id="portfolio" class="portfolio">
-            <div class="container">
-                <h2>Portfolio</h2>
-                <div class="portfolio-slider">
-                    <div class="card">
-                        <img src="post_3.png" alt="Portfolio Image 1">
-                    </div>
-                    <div class="card">
-                        <img src="post_2.png" alt="Portfolio Image 2">
-                    </div>
-                    <div class="card">
-                        <img src="post_1.png" alt="Portfolio Image 3">
-                    </div>
-                    <div class="card">
-                        <img src="post_4.png" alt="Portfolio Image 4">
-                    </div>
-                </div>
-            </div>
-        </section>
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Contact</h2>
-            <div class="contact-cards">
-                <div class="contact-card contact-left">
-                    <h3>Social Media</h3>
-                    <ul>
-                        <li><a href="#">Facebook</a></li>
-                        <li><a href="#">Twitter</a></li>
-                        <li><a href="#">Instagram</a></li>
-                        <!-- Add more social media links as needed -->
-                    </ul>
-                </div>
-                <div class="contact-card contact-right">
-                    <h3>Contact Information</h3>
-                    <p>Address: 123 Main St, Anytown, USA</p>
-                    <p>Email: info@example.com</p>
-                    <p>Phone: (123) 456-7890</p>
-                    <p>PO Box: 12345</p>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative group">
+                    <img src="lamonjelogo2.png" alt="Placeholder Image" class="rounded-lg shadow-lg transform transition duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-25 transition duration-500"></div>
                 </div>
             </div>
         </div>
     </section>
-    </main>
+
+    <!-- Trusted By Slider -->
+    <section class="py-8">
+        <div class="container mx-auto text-center">
+            <h2 class="text-2xl font-semibold text-black">Trusted By</h2>
+            <div class="mt-4 overflow-hidden relative h-16 bg-gray-700 rounded-full">
+                <div class="flex animate-marquee space-x-8 text-lg text-gray-100 py-2">
+                    <span class="text-lg text-gray-100">lookup</span>
+                    <span class="text-lg text-gray-100">psy-addis</span>
+                    <span class="text-lg text-gray-100">HAWF</span>
+                    <span class="text-lg text-gray-100">Mignot-bazaar</span>
+                    <span class="text-lg text-gray-100">Action-aid-Ethiopia</span>
+                    <span class="text-lg text-gray-100">lookup</span>
+                    <span class="text-lg text-gray-100">psy-addis</span>
+                    <span class="text-lg text-gray-100">HAWF</span>
+                    <span class="text-lg text-gray-100">Mignot-bazaar</span>
+                    <span class="text-lg text-gray-100">Action-aid-Ethiopia</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
 </body>
 </html>
