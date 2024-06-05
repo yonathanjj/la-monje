@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -60,9 +59,10 @@
       background-color: var(--white);
     }
     .nav-link:hover::before {
-      visibility: visible;
-      transform: scaleX(1);
-    }
+  visibility: visible;
+  transform:}
+  
+
 
     .nav-link:hover {
       color: var(--safety-orange-2);
@@ -212,7 +212,6 @@
 }
 </style>
 </head>
-
 <body>
 
   <!-- Header -->
@@ -259,25 +258,49 @@
   </section>
 
   <!-- Trusted By Slider -->
-  <section class="py-8 mt-4">
-        <div class="container mx-auto text-center">
-            <h2 class="text-2xl font-semibold text-black">Trusted By</h2>
-            <div class="mt-4 overflow-hidden relative h-16 bg-gray-700 rounded-full">
-                <div class="flex animate-marquee space-x-8 text-lg text-gray-100 py-2">
-                    <span class="text-lg text-gray-100">lookup</span>
-                    <span class="text-lg text-gray-100">psyaddis</span>
-                    <span class="text-lg text-gray-100">HAWF</span>
-                    <span class="text-lg text-gray-100">Mignotbazaar</span>
-                    <span class="text-lg text-gray-100">ActionaidEthiopia</span>
-                    <span class="text-lg text-gray-100">lookup</span>
-                    <span class="text-lg text-gray-100">psyaddis</span>
-                    <span class="text-lg text-gray-100">HAWF</span>
-                    <span class="text-lg text-gray-100">Mignotbazaar</span>
-                    <span class="text-lg text-gray-100">ActionaidEthiopia</span>
-                </div>
+  <section class="py-8 mt-4 bg-safety-orange">
+      <div class="container mx-auto text-center trusted-slider-container">
+        <h2 class="text-2xl font-semibold text-black">Trusted By</h2>
+        <div class="mt-4 overflow-hidden relative h-16 bg-transparent rounded-full"> <!-- Changed bg-gray-700 to bg-transparent -->
+            <div class="flex animate-marquee space-x-8 text-lg text-black py-2"> <!-- Changed text-gray-100 to text-black -->
+                <span class="text-lg">lookup</span>
+                <span class="text-lg">psyaddis</span>
+                <span class="text-lg">HAWF</span>
+                <span class="text-lg">Mignotbazaar</span>
+                <span class="text-lg">ActionaidEthiopia</span>
+                <span class="text-lg">lookup</span>
+                <span class="text-lg">psyaddis</span>
+                <span class="text-lg">HAWF</span>
+                <span class="text-lg">Mignotbazaar</span>
+                <span class="text-lg">ActionaidEthiopia</span>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+<style>
+
+   .trusted-slider-container {
+  border-radius: 50px; /* Adjust the border-radius value to control the curvature */
+  overflow: hidden; /* Ensure the content stays within the curved container */
+}
+    .bg-safety-orange {
+    background-color: var(--safety-orange); /* Use the appropriate variable for your orange color */
+}
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.animate-marquee {
+    animation: marquee 20s linear infinite; /* Adjust the duration and timing function as needed */
+}
+
+</style>
+
 
   <!-- About-Service Section -->
     <section id="about-service" class="py-12">
