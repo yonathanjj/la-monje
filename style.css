@@ -1,326 +1,36 @@
-/* Reset some basic styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Lato', sans-serif;
-    line-height: 1.6;
-    padding: 0;
-    background-color: #ffffff;
-    color: #343a40;
-}
-
-.container {
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
-}
-
-header {
-    background: #343a40;
-    color: #ffffff;
-    padding: 10px 0;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-}
-
-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-header .logo h1 {
-    margin: 0;
-    font-size: 24px;
-    color: #ff8f00;
-}
-
-header ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-}
-
-header ul li {
-    margin: 0 10px;
-}
-
-header ul li a {
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 14px;
-    transition: color 0.3s ease-in-out;
-}
-
-header ul li a:hover {
-    color: #ff8f00;
-}
-
-.hero {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    height: 100vh;
-    padding: 100px 0;
-    background: #ffffff;
-}
-
-.hero .container {
-    flex-direction: row; /* change from column to row */
-    justify-content: space-between; /* add space between the text and image */
-}
-
-.hero .text-content {
-    align-items: flex-start; /* align the text to the start (right side) of the flex container */
-    text-align: left; /* align the text to the left */
-}
-
-.hero .text-content h1 {
-    font-size: 48px;
-    color: #ff8f00;
-}
-
-.hero .text-content p {
-    font-size: 24px;
-    color: #000000;
-    margin-top: 20px;
-    cursor: pointer;
-    transition: color 0.3s ease-in-out;
-}
-
-.hero .text-content p:hover {
-    color: #ff8f00;
-}
-
-.hero .image-content {
-    align-items: flex-end; /* align the image to the end (left side) of the flex container */
-    justify-content: flex-start; /* align the image to the start of its container */
-}
-
-.hero .image-content img {
-    max-width: 200px;
-    height: auto;
-    border: 2px solid #343a40;
-    padding: 10px;
-    border-radius: 10px;
-    transition: transform 0.3s ease-in-out;
-}
-
-.hero .image-content img:hover {
-    transform: scale(1.05);
-}
-
-/* Brand logos section */
-.brand-logos {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-    padding: 20px 0;
-    background: #343a40;
-    border-radius: 20px; /* Add border-radius for curved corners */
-}
-
-.slider {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    animation: scroll 10s linear infinite;
-}
-
-.slide-track {
-    display: flex;
-}
-
-@keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
-}
-
-.slide {
-    min-width: 200px;
-    margin: 0 10px;
-    font-size: 20px;
-    font-weight: bold;
-    color: #ffffff;
-    text-align: center;
-}
-
-.slide img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.about-service {
-    background: #f4f4f4;
-    padding: 50px 0;
-    text-align: center;
-}
-
-.about-service h2 {
-    font-size: 36px;
-    color: #ff8f00;
-    margin-bottom: 20px;
-}
-
-.about-service .cards {
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    gap: 20px;
-}
-
-.about-service .card {
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    border: 2px solid #ff8f00;
-    flex: 1;
-    max-width: 30%;
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
-}
-
-.about-service .card h3 {
-    font-size: 24px;
-    color: #000000;
-    margin-bottom: 10px;
-}
-
-.about-service .card p {
-    font-size: 16px;
-    color: #555555;
-}
-
-.portfolio {
-    background: #444444;
-    padding: 50px 0;
-    text-align: center;
-}
-
-.portfolio h2 {
-    font-size: 36px;
-    color: #ffffff;
-    margin-bottom: 20px;
-}
-
-.portfolio .portfolio-slider {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.portfolio .card {
-    background: #555555;
-    padding: 20px;
-    border-radius: 10px;
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-}
-
-.portfolio .card img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
-
-.portfolio .card:hover {
-    transform: scale(1.05);
-    opacity: 1;
-}
-
-.portfolio .card:not(:hover) {
-    opacity: 0.5;
-}
-
-.contact {
-    background: #f4f4f4;
-    padding: 50px 0;
-    text-align: center;
-}
-
-.contact h2 {
-    font-size: 36px;
-    color: #ff8f00;
-    margin-bottom: 20px;
-}
-
-.contact .contact-cards {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-}
-
-.contact .contact-card {
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    flex: 1;
-    max-width: 45%;
-}
-
-.contact .contact-left {
-    text-align: left;
-}
-
-.contact .contact-right {
-    text-align: right;
-}
-
-.contact .contact-card h3 {
-    font-size: 24px;
-    color: #000000;
-    margin-bottom: 10px;
-}
-
-.contact .contact-card p, .contact .contact-card a {
-    font-size: 16px;
-    color: #555555;
-}
-
-.contact .contact-card ul {
-    list-style: none;
-    padding: 0;
-}
-
-.contact .contact-card ul li {
-    margin: 10px 0;
-}
-
-.contact .contact-card ul li a {
-    color: #ff8f00;
-    text-decoration: none;
-    transition: color 0.3s ease-in-out;
-}
-
-.contact .contact-card ul li a:hover {
-    color: #000000;
-}
-
-/* Animation for sliding in the cards */
-@keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(50px);
+    @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap');
+    body {
+        font-family: 'Lato', sans-serif;
+        scroll-behavior: smooth;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    .header-logo {
+        font-family: 'Pacifico', cursive;
     }
-}
-
-.about-service .card.visible {
-    opacity: 1;
-    transform: translateY(0);
-    animation: slideUp 0.6s ease-in-out;
-}
+    .animate-marquee {
+        display: flex;
+        animation: marquee 15s linear infinite;
+    }
+    @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+    }
+    .nav-link {
+        position: relative;
+        display: inline-block;
+    }
+    .nav-link::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: -5px;
+        left: 0;
+        background-color: #ff9f00;
+        visibility: hidden;
+        transform: scaleX(0);
+        transition: all 0.3s ease-in-out;
+    }
+    .nav-link:hover::before {
+        visibility: visible;
+        transform: scaleX(1);
+    }
