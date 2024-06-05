@@ -1,485 +1,622 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
-    <title>La-Monje</title>
-    <style>
-        /* Reset some basic styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La-monje</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap');
 
-        body {
-            font-family: 'Lato', sans-serif;
-            line-height: 1.6;
-            padding: 0;
-            background-color: #ffffff;
-            color: #343a40;
-            transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
-        }
+     :root {
+      --black: #000000ff;
+      --safety-orange: #FF7A00ff;
+      --white: #FFFFFFff;
+      --white-2: #FFFFFFff;
+      --safety-orange-2: #FF7900ff;
+    }
 
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-        }
+    .header-logo {
+      font-family: 'Pacifico', cursive;
+      color: var(--black);
+    }
 
-        header {
-            background: #343a40;
-            color: #ffffff;
-            padding: 10px 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
+    .nav-link {
+      position: relative;
+      display: inline-block;
+      color: var(--safety-orange);
+      background-color: var(--black);
+      padding: 8px 16px;
+      border-radius: 50px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
 
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    .nav-link:hover {
+      background-color: var(--safety-orange);
+      color: var(--black);
+    }
 
-        header .logo h1 {
-            margin: 0;
-            font-size: 24px;
-            color: #ff8f00;
-        }
+    .nav-link::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: var(--safety-orange);
+      visibility: hidden;
+      transform: scaleX(0);
+      transition: all 0.3s ease-in-out;
+    }
 
-        header ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-        }
+    .nav-link:hover::before {
+      visibility: visible;
+      transform: scaleX(1);
+    }
 
-        header ul li {
-            margin: 0 10px;
-        }
+    .nav-wrapper {
+      background-color: var(--white);
+    }
+    .nav-link:hover::before {
+  visibility: visible;
+  transform:}
 
-        header ul li a {
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 14px;
-            transition: color 0.3s ease-in-out;
-        }
+    .nav-link:hover {
+      color: var(--safety-orange-2);
+    }
 
-        header ul li a:hover {
-            color: #ff8f00;
-        }
+    /*2nd page
 
-        .hero {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            height: 100vh;
-            padding: 100px 0;
-        }
 
-        .hero .container {
-            flex-direction: row;
-            justify-content: space-between;
-        }
+    /* Card styling */
+       .card {
+    border: 2px solid var(--safety-orange); /* Orange border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 1rem; /* Padding inside the card */
+    transition: border-color 0.3s, transform 0.3s, background-color 0.3s, color 0.3s; /* Smooth transition for border color */
+    background-color: var(--white); /* White background */
+    color: var(--black); /* Black text color */
+    margin: 0.5rem; /* Add margin between cards */
+    flex: 1; /* Allow cards to grow and shrink */
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+}
 
-        .hero .text-content {
-            align-items: flex-start;
-            text-align: left;
-        }
 
-        .hero .text-content h1 {
-            font-size: 48px;
-            color: #ff8f00;
-        }
-
-        .hero .text-content p {
-            font-size: 24px;
-            color: #000000;
-            margin-top: 20px;
-            cursor: pointer;
-            transition: color 0.3s ease-in-out;
-        }
-
-        .hero .text-content p:hover {
-            color: #ff8f00;
-        }
-
-        .hero .image-content {
-            align-items: flex-end;
-            justify-content: flex-start;
-        }
-
-        .hero .image-content img {
-            max-width: 200px;
-            height: auto;
-            border: 2px solid #343a40;
-            padding: 10px;
-            border-radius: 10px;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .hero .image-content img:hover {
+    /* Hover effect for the cards */
+    .card:hover {
+        border-color: var(--safety-orange-2); /* Darker orange on hover */
+    }
+     .card:hover {
             transform: scale(1.05);
         }
 
-        /* Brand logos section */
-        .brand-logos {
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-            padding: 20px 0;
-            background: #343a40;
-            border-radius: 20px;
+       .card:hover {
+    transform: scale(1.05);
+    border-color: var(--safety-orange-2); /* Darker orange on hover */
+    background-color: var(--safety-orange); /* Orange background on hover */
+    color: var(--white); /* White text color on hover */
+}
+
+   .flex-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem; /* Adjust gap as needed for spacing */
+}
+    /* 3rd page
+
+
+
+
+    /* 4th page
+
+   body {
+        opacity: 0;
+        transition: opacity 0.5s ease; /* Add transition effect */
+    }
+
+    body.loaded {
+        opacity: 1; /* Make the page visible after loading */
+    }
+
+    /* Address Section Styles */
+    .address-card {
+        background-color: var(--white);
+        border: 2px solid var(--safety-orange);
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    /* Social Media Links Styles */
+    .social-media-links {
+        margin-bottom: 20px;
+    }
+
+    .social-media-links a {
+        display: inline-block;
+        margin-right: 10px;
+        color: var(--black);
+        text-decoration: none;
+    }
+
+    .social-media-links a:hover {
+        color: var(--safety-orange);
+    }
+
+    .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
         }
 
-        .slider {
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            animation: scroll 10s linear infinite;
-        }
-
-        .slide-track {
-            display: flex;
-        }
-
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-100%); }
-        }
-
-        .slide {
-            min-width: 200px;
-            margin: 0 10px;
-            font-size: 20px;
-            font-weight: bold;
-            color: #ffffff;
-            text-align: center;
-        }
-
-        .slide img {
-            width: 100%;
-            height: auto;
+        .contact-form label {
             display: block;
+            margin-bottom: 0.5rem;
         }
 
-        .about-service {
-            padding: 50px 0;
-            text-align: center;
-        }
-
-        .about-service h2 {
-            font-size: 36px;
-            color: #ff8f00;
-            margin-bottom: 20px;
-        }
-
-        .about-service .cards {
-            display: flex;
-            justify-content: space-around;
-            align-items: flex-start;
-            gap: 20px;
-        }
-
-        .about-service .card {
-            background: #343a40;
-            color: #ffffff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            border: 2px solid #ff8f00;
-            flex: 1;
-            max-width: 30%;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
-        }
-
-        .about-service .card h3 {
-            font-size: 24px;
-            color: #ff8f00;
-            margin-bottom: 10px;
-        }
-
-        .about-service .card p {
-            font-size: 16px;
-            color: #ffffff;
-        }
-
-        .portfolio {
-            padding: 50px 0;
-            text-align: center;
-        }
-
-        .portfolio h2 {
-            font-size: 36px;
-            color: #ff8f00;
-            margin-bottom: 20px;
-        }
-
-        .portfolio .portfolio-slider {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .portfolio .card {
-            background: #555555;
-            padding: 20px;
-            border-radius: 10px;
-            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-        }
-
-        .portfolio .card img {
+        .contact-form input,
+        .contact-form textarea {
             width: 100%;
-            height: auto;
-            border-radius: 10px;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 2px solid transparent;
+            border-radius: 0.25rem;
+            transition: border-color 0.3s ease;
         }
 
-        .portfolio .card:hover {
-            transform: scale(1.05);
-            opacity: 1;
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--safety-orange);
+            outline: none;
         }
 
-        .portfolio .card:not(:hover) {
-            opacity: 0.5;
+        .contact-form button {
+            background-color: var(--safety-orange);
+            color: var(--white);
+            padding: 0.75rem 1rem;
+            border: none;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
-        .contact {
-            padding: 50px 0;
-            text-align: center;
+        .contact-form button:hover {
+            background-color: var(--safety-orange-2);
         }
 
-        .contact h2 {
-            font-size: 36px;
-            color: #ff8f00;
-            margin-bottom: 20px;
+        /* Orange Accent Styles */
+        .orange-accent {
+            background-color: var(--safety-orange);
+            color: var(--white);
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
 
-        .contact .contact-cards {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
+        .orange-accent:hover {
+            background-color: var(--safety-orange-2);
         }
+        .form-input {
+    border: 2px solid var(--orange-accent);
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    transition: border-color 0.3s ease;
+}
 
-        .contact .contact-card {
-            background: #343a40;
-            color: #ffffff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            flex: 1;
-            max-width: 45%;
-        }
-
-        .contact .contact-left {
-            text-align: left;
-        }
-
-        .contact .contact-right {
-            text-align: right;
-        }
-
-        .contact .contact-card h3 {
-            font-size: 24px;
-            color: #ff8f00;
-            margin-bottom: 10px;
-        }
-
-        .contact .contact-card p, .contact .contact-card a {
-            font-size: 16px;
-            color: #ffffff;
-        }
-
-        .contact .contact-card ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .contact .contact-card ul li {
-            margin: 10px 0;
-        }
-
-        .contact .contact-card ul li a {
-            color: #ff8f00;
-            text-decoration: none;
-            transition: color 0.3s ease-in-out;
-        }
-
-        .contact .contact-card ul li a:hover {
-            color: #ffffff;
-        }
-
-        /* Animation for sliding in the cards */
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .about-service .card.visible {
-            opacity: 1;
-            transform: translateY(0);
-            animation: slideUp 0.6s ease-in-out;
-        }
-
-        /* Add specific background color classes */
-        .white-background {
-            background-color: #ffffff;
-        }
-
-        .black-background {
-            background-color: #343a40;
-            color: #ffffff;
-        }
-    </style>
+.form-input:focus {
+    border-color: var(--orange-accent);
+}
+</style>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="container">
-                <div class="logo">
-                    <h1>La-Monje</h1>
-                </div>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about-service">About-Service</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-    <main>
-        <!-- Home Section -->
-        <section id="home" class="hero white-background">
-            <div class="container">
-                <div class="text-content">
-                    <h1>Welcome to La-Monje</h1>
-                    <p>We tell stories that resonate and drive results</p>
-                    <div class="image-content">
-                        <img src="post_1.png" alt="Description of image" class="hero-image">
-                    </div>
-                </div>
-                <div class="brand-logos">
-                    <div class="slider">
-                        <div class="slide-track">
-                            <!-- Add company names here -->
-                            <div class="slide">lookup</div>
-                            <div class="slide">Psy addis</div>
-                            <div class="slide">Action aid Ethiopia</div>
-                            <div class="slide">HAFW</div>
-                            <div class="slide">Mignot bazaar</div>
-                            <!-- Add more company names as needed -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- About-Service Section -->
-        <section id="about-service" class="about-service black-background">
-            <div class="container">
-                <h2>About Us & Services</h2>
-                <div class="cards">
-                    <div class="card">
-                        <h3>About Us</h3>
-                        <p>La Monje is a passionate data-driven creative firm with a heart for storytelling. We believe in the power of "telling your story" to forge connections and achieve results. Our team of passionate creatives combines strategic data analysis with captivating narratives to craft impactful events, curate compelling multimedia content, and develop innovative marketing campaigns. We don't just tell stories, we tell stories that resonate and drive results.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Our Services</h3>
-                        <p>We provide a unique blend of services to help businesses thrive:
 
-                        - Event design and facilitation: We meticulously plan and execute every aspect of your event, from conceptualization to execution.
+  <!-- Header -->
+  <header class="bg-white p-4 fixed w-full z-10 shadow-lg">
+    <nav class="container mx-auto flex justify-between items-center">
+      <a href="#home" class="text-3xl header-logo">La-monje</a>
+      <ul class="hidden md:flex space-x-4">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about-service" class="nav-link">About-Service</a></li>
+        <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+        <li><a href="#contact" class="nav-link">Contact Us</a></li>
+      </ul>
+      <button class="md:hidden text-black focus:outline-none" id="navToggle">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </nav>
+    <div class="md:hidden hidden" id="mobileMenu">
+      <ul class="flex flex-col space-y-4 mt-2 bg-white p-4">
+        <li><a href="#home" class="block text-black p-2 hover:bg-gray-700 rounded-full">Home</a></li>
+        <li><a href="#about-service" class="block text-black p-2 hover:bg-gray-700 rounded-full">About-Service</a></li>
+        <li><a href="#portfolio" class="block text-black p-2 hover:bg-gray-700 rounded-full">Portfolio</a></li>
+        <li><a href="#contact" class="block text-black p-2 hover:bg-gray-700 rounded-full">Contact Us</a></li>
+      </ul>
+    </div>
+  </header>
 
-                        - Multimedia content curation: We source, curate, and develop multimedia content (video, audio, text) tailored to your specific needs.
 
-                        - Creative Marketing: We develop innovative and data-driven marketing campaigns that amplify your brand story and achieve your marketing objectives.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Our Mission</h3>
-                        <p>At La Monje, we're a passionate team of data-driven storytellers. We believe in the transformative power of storytelling, and we're dedicated to helping businesses connect with their audiences through impactful narratives. Our unique blend of services empowers businesses to thrive in today's competitive landscape. We partner with you to tell your story in a way that resonates with your audience and achieves your goals.</p>
-                    </div>
+  <!-- Home Section -->
+  <section id="home" class="h-screen flex items-center justify-between bg-white">
+    <div class="container mx-auto flex flex-col-reverse md:flex-row-reverse items-center justify-between px-4">
+      <div class="md:w-1/2 mt-8 md:mt-```html
+      <div class="md:w- mt-8 md:mt-0 md:order-2 transition duration-500 transform hover:scale-105">
+
+        <img src="lamonjelogo2.png" alt="Welcome Image" class="w-80 h-auto rounded-lg">
+     <p class="mt-4 text-xl">                    Dedicated to empowering businesses through data and design, we believe that data-driven insights are the key to more informed decisions and optimizing operations.
+</p>
+      </div>
+      <div class="md:w-1/2 flex justify-center md:order-1 transition duration-500 transform hover:scale-105">
+     <img src="12grid.png" alt="Welcome Image" class="w-80 h-auto rounded-full">
+      </div>
+    </div>
+  </section>
+
+  <!-- Trusted By Slider -->
+  <section class="py-8 mt-4 bg-safety-orange">
+      <div class="container mx-auto text-center trusted-slider-container">
+        <h2 class="text-2xl font-semibold text-black">Trusted By</h2>
+        <div class="mt-4 overflow-hidden relative h-16 bg-transparent rounded-full"> <!-- Changed bg-gray-700 to bg-transparent -->
+            <div class="flex animate-marquee space-x-8 text-lg text-black py-2"> <!-- Changed text-gray-100 to text-black -->
+                <span class="text-lg">lookup</span>
+                <span class="text-lg">psyaddis</span>
+                <span class="text-lg">HAWF</span>
+                <span class="text-lg">Mignotbazaar</span>
+                <span class="text-lg">ActionaidEthiopia</span>
+                <span class="text-lg">lookup</span>
+                <span class="text-lg">psyaddis</span>
+                <span class="text-lg">HAWF</span>
+                <span class="text-lg">Mignotbazaar</span>
+                <span class="text-lg">ActionaidEthiopia</span>
+            </div>
+        </div>
+    </div>
+</section>
+<style>
+
+   .trusted-slider-container {
+  border-radius: 50px; /* Adjust the border-radius value to control the curvature */
+  overflow: hidden; /* Ensure the content stays within the curved container */
+}
+    .bg-safety-orange {
+    background-color: var(--safety-orange); /* Use the appropriate variable for your orange color */
+}
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.animate-marquee {
+    animation: marquee 20s linear infinite; /* Adjust the duration and timing function as needed */
+}
+
+</style>
+
+
+  <!-- About-Service Section -->
+    <section id="about-service" class="py-12">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-semibold text-center mb-8">About Us & Service</h2>
+            <div class="flex flex-wrap justify-center items-center">
+                <!-- About Us Card -->
+                <div class="card w-full md:w-1/3">
+                    <p class="text-lg">
+                        About-us <br>
+                        <br>
+                        La Monje is a passionate data-driven creative firm with a heart for storytelling. We believe in the power of "telling your story" to forge connections and achieve results. Our team of passionate creatives combines strategic data analysis with captivating narratives to craft impactful events, curate compelling multimedia content, and develop innovative marketing campaigns. We don't just tell stories, we tell stories that resonate and drive results.</p>
+
+                </div>
+                <!-- Service Card -->
+                <div class="card w-full md:w-1/3">
+                    <p class="text-lg">
+                        services<br>
+                        <br>
+                        We provide a unique blend of services to help businesses thrive: - Event design and facilitation: We meticulously plan and execute every aspect of your event, from conceptualization to execution. - Multimedia content curation: We source, curate, and develop multimedia content (video, audio, text) tailored to your specific needs. - Creative Marketing: We develop innovative and data-driven marketing campaigns that amplify your brand story and achieve your marketing objectives.</p>
+                </div>
+                <!-- Our Goals Card -->
+                <div class="card w-full md:w-1/3">
+                    <p class="text-lg">
+                        our goals<br>
+                        <br>
+                        At La Monje, we're a passionate team of data-driven storytellers. We believe in the transformative power of storytelling, and we're dedicated to helping businesses connect with their audiences through impactful narratives.
+
+                    We don't just tell stories, we tell stories that resonate and drive results. Our unique blend of services empowers businesses to thrive in today's competitive landscape. We partner with you to tell your story in a way that resonates with your audience and achieves your goals.</p>
                 </div>
             </div>
-        </section>
-        <!-- Portfolio Section -->
-        <section id="portfolio" class="portfolio white-background">
-            <div class="container">
-                <h2>Portfolio</h2>
-                <div class="portfolio-slider">
-                    <div class="card">
-                        <img src="post_3.png" alt="Portfolio Image 1">
-                    </div>
-                    <div class="card">
-                        <img src="post_2.png" alt="Portfolio Image 2">
-                    </div>
-                    <div class="card">
-                        <img src="post_1.png" alt="Portfolio Image 3">
-                    </div>
-                    <div class="card">
-                        <img src="post_4.png" alt="Portfolio Image 4">
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Contact Section -->
-        <section id="contact" class="contact black-background">
-            <div class="container">
-                <h2>Contact</h2>
-                <div class="contact-cards">
-                    <div class="contact-card contact-left">
-                        <h3>Social Media</h3>
-                        <ul>
-                            <li><a href="#">Facebook</a></li>
-                            <li><a href="#">Twitter</a></li>
-                            <li><a href="#">Instagram</a></li>
-                            <!-- Add more social media links as needed -->
-                        </ul>
-                    </div>
-                    <div class="contact-card contact-right">
-                        <h3>Contact Information</h3>
-                        <p>Address: 123 Main St, Anytown, USA</p>
-                        <p>Email: info@example.com</p>
-                        <p>Phone: (123) 456-7890</p>
-                        <p>PO Box: 12345</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+        </div>
+    </section>
+
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const sections = document.querySelectorAll('.hero, .about-service, .portfolio, .contact');
-            const options = {
-                root: null,
-                threshold: 0.1
+        // Add smooth transition class to body on page load
+        document.body.classList.add('smooth-transition');
+    </script>
+
+
+  <!-- Portfolio Section -->
+<section id="portfolio" class="py-12">
+    <div class="container mx-auto">
+        <h2 class="text-4xl font-bold text-orange-600 text-center mb-12">Portfolio</h2>
+
+        <!-- Mignot-Bazaar -->
+        <div class="mb-12">
+            <h3 class="text-3xl font-bold text-orange-600 text-center mb-6">Mignot-Bazaar</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="portfolio-item">
+                    <img src="bazaar1.jpg" alt="Mignot-Bazaar Image 1" class="w-full h-auto rounded-lg transition-transform duration-300">
+                    <div class="overlay"></div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="bazaar2.jpg" alt="Mignot-Bazaar Image 2" class="w-full h-auto rounded-lg transition-transform duration-300">
+                    <div class="overlay"></div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="bazaar3.jpg" alt="Mignot-Bazaar Image 3" class="w-full h-auto rounded-lg transition-transform duration-300">
+                    <div class="overlay"></div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="bazaar4.jpg" alt="Mignot-Bazaar Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
+                    <div class="overlay"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lookup -->
+        <div class="mb-12">
+            <h3 class="text-3xl font-bold text-orange-600 text-center mb-6">Lookup</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="portfolio-item">
+                    <img src="lookup1.jpg" alt="Lookup Image 1" class="w-full h-auto rounded-lg transition-transform duration-300">
+                    <div class="overlay"></div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="lookup2.jpg" alt="Lookup Image 2" class="w-full h-auto rounded-lg transition-transform duration-300">
+                    <div class="overlay"></div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="lookup3.jpg" alt="Lookup Image 3" class="w-full h-auto rounded-lg transition-transform duration-300">
+                    <div class="overlay"></div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="lookup4.jpg" alt="Lookup Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
+                    <div class="overlay"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Psy-addis -->
+        <div class="mb-12">
+            <h3 class="text-3xl font-bold text-orange-600 text-center mb-6">Psy-addis</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="portfolio-item">
+                    <img src="psy1.jpg" alt="Psy-addis Image 1" class="w-full h-auto rounded-lg transition-transform duration-300">
+                    <div class="overlay"></div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="psy2.jpg" alt="Psy-addis Image 2" class="w-full h-auto rounded-lg transition-transform duration-300">
+                    <div class="overlay"></div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="psy3.jpg" alt="Psy-addis Image 3" class="w-full h-auto rounded-lg transition-transform duration-300">
+                    <div class="overlay"></div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="psy4.jpg" alt="Psy-addis Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
+                    <div class="overlay"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action-aid-Ethiopia -->
+        <div class="mb-12">
+            <h3 class="text-3xl font-bold text-orange-600 text-center mb-6">Action-aid-Ethiopia</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="portfolio-item">
+                    <img src="aid1.jpg" alt="Action-aid-Ethiopia Image 1" class="w-full h-auto rounded-lg transition-transform duration-300">
+                    <div class="overlay"></div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="aid2.jpg" alt="Action-aid-Ethiopia Image 2" class="w-full h-auto rounded-lg transition-transform duration-300">
+                    <div class="overlay"></div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="aid3.jpg" alt="Action-aid-Ethiopia Image 3" class="w-full h-auto rounded-lg transition-transform duration-300">
+                    <div class="overlay"></div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="aid4.jpg" alt="Action-aid-Ethiopia Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
+                    <div class="overlay"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- HAFW -->
+        <div class="mb-12">
+            <h3 class="text-3xl font-bold text-orange-600 text-center mb-6">HAFW</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="portfolio-item">
+                    <img src="post_1.png" alt="HAFW Image 1" class="w-full h-auto rounded-lg transition-transform duration-300">
+                    <div class="overlay"></div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="post_2.png" alt="HAFW Image 2" class="w-full h-auto rounded-lg transition-transform duration-300">
+                    <div class="overlay"></div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="post_3.png" alt="HAFW Image 3" class="w-full h-auto rounded-lg transition-transform duration-300">
+                    <div class="overlay"></div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="post_4.png" alt="HAFW Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
+                    <div class="overlay"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 165, 0, 0.5); /* semi-transparent orange */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 0.5rem; /* rounded corners */
+  }
+
+  .portfolio-item:hover .overlay {
+    opacity: 1;
+  }
+
+  .overlay-content {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+    font-size: 1.25rem;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .portfolio-item:hover .overlay-content {
+    opacity: 1;
+  }
+
+  .portfolio-item img {
+    transition: transform 0.3s ease;
+  }
+
+  .portfolio-item:hover img {
+    transform: scale(1.1);
+  }
+
+  h3 {
+    font-size: 2.5rem;
+  }
+</style>
+
+
+  <!-- Contact Us Section -->
+  <section id="contact" class="py-12 bg-gray-100">
+    <div class="container mx-auto">
+        <h2 class="text-3xl font-semibold text-black text-center mb-8">Contact Us</h2>
+        <div class="flex flex-wrap justify-center space-x-8">
+            <!-- Address Cards -->
+            <div class="w-72 bg-white rounded-lg shadow-lg p-6 mb-8">
+                <h3 class="text-lg font-semibold mb-4">Address</h3>
+                <p>Addis Ababa, Ethiopia</p>
+                <p>+251942471649</p>
+                <p>Yeabkal Demissew</p>
+                <p>yeabkaldemissew14@gmail.com</p>
+            </div>
+            <div class="w-72 bg-white rounded-lg shadow-lg p-6 mb-8">
+                <h3 class="text-lg font-semibold mb-4">Address</h3>
+                <p>Hawassa, Ethiopia</p>
+                <p>+25191 631 3972</p>
+                <p>Meareg Mngisteab</p>
+                <p>mearegmngisteab@gmail.com</p>
+            </div>
+            <div class="w-72 bg-white rounded-lg shadow-lg p-6 mb-8">
+                <h3 class="text-lg font-semibold mb-4">Address</h3>
+                <p>Kigali, Rwanda</p>
+                <p>+250 794 555 111</p>
+                <p>Bethlehem Ghidey</p>
+                <p>bettyghgm@gmail.com</p>
+            </div>
+            <!-- Social Media Links -->
+            <div class="w-72 bg-white rounded-lg shadow-lg p-6 mb-8">
+                <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
+                <a href="#" class="flex items-center text-gray-700 hover:text-orange-accent mb-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"></path>
+                    </svg>
+                    Facebook
+                </a>
+                <a href="#" class="flex items-center text-gray-700 hover:text-orange-accent">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-4.349-4.646a4.5 4.5 0 00-6.364 0l-1.414 1.414a4.5 4.5 0 000 6.364l3.535 3.535a4.5 4.5 0 006.364 0l1.414-1.414a4.5 4.5 0 000-6.364l-3.535-3.535z"></path>
+                    </svg>
+                    Instagram
+                </a>
+            </div>
+        </div>
+        <!-- Contact Form -->
+<div class="bg-white rounded-lg shadow-lg p-8 max-w-md mx-auto">
+    <h3 class="text-2xl font-semibold text-center mb-4">Send Us a Message</h3>
+    <form class="contact-form">
+        <input type="text" id="first-name" name="first-name" placeholder="First Name" required class="form-input mb-4">
+        <input type="text" id="last-name" name="last-name" placeholder="Last Name" required class="form-input mb-4">
+        <input type="tel" id="phone" name="phone" placeholder="Phone" required class="form-input mb-4">
+        <input type="email" id="email" name="email" placeholder="Email" required class="form-input mb-4">
+        <textarea id="message" name="message" rows="4" placeholder="Message" required class="form-input mb-4"></textarea>
+        <button type="submit" class="bg-orange-accent hover:bg-orange-accent-dark text-white font-bold py-2 px-4 rounded-full w-full transition duration-300">Submit</button>
+    </form>
+</div>
+
+    </div>
+</section>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('contactForm');
+         document.addEventListener('DOMContentLoaded', function () {
+        document.body.classList.add('loaded');
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Validate form fields
+            const firstName = form.elements['firstName'].value;
+            const lastName = form.elements['lastName'].value;
+            const phoneNumber = form.elements['phoneNumber'].value;
+            const email = form.elements['email'].value;
+            const message = form.elements['message'].value;
+
+            // Basic validation example (you can add more complex validation as needed)
+            if (!firstName || !lastName || !phoneNumber || !email || !message) {
+                alert('Please fill in all fields.');
+                return;
+            }
+
+            // Form data
+            const formData = {
+                firstName,
+                lastName,
+                phoneNumber,
+                email,
+                message
             };
 
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        document.body.className = entry.target.className.split(' ')[0];
-                    } else {
-                        entry.target.classList.remove('visible');
-                    }
-                });
-            }, options);
-
-            sections.forEach(section => {
-                observer.observe(section);
-            });
+            // Display form data (you can send this data to a server or use it in other ways)
+            console.log(formData);
         });
-    </script>
+    });
+</script>
+
+  <!-- Footer -->
+  <footer class="bg-black text-white py-4">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2024 La-monje. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    navToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
 </body>
 </html>
