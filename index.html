@@ -65,32 +65,140 @@
     .nav-link:hover {
       color: var(--safety-orange-2);
     }
-     /* Smooth transition */
-        .smooth-transition {
-            transition: background-color 0.5s ease;
-        }
 
-        /* Apply smooth transition to body */
-        .dark-theme body {
-            background-color: var(--black);
-            color: var(--white);
-        }
+    /*2nd page
 
-        /* Card styling */
+
+    /* Card styling */
         .card {
-            background-color: var(--safety-orange);
-            border-radius: 10px;
-            padding: 20px;
-            margin: 10px;
-            width: calc(33.33% - 20px);
-            transition: transform 0.3s ease;
-        }
+        border: 2px solid var(--safety-orange); /* Orange border */
+        border-radius: 8px; /* Rounded corners */
+        padding: 1rem; /* Padding inside the card */
+        transition: border-color 0.3s; /* Smooth transition for border color */
+         background-color: var(--white); /* White background */
+        color: var(--black); /* Black text color */
 
-        /* Enlarge card on hover */
-        .card:hover {
+    }
+
+    /* Hover effect for the cards */
+    .card:hover {
+        border-color: var(--safety-orange-2); /* Darker orange on hover */
+    }
+     .card:hover {
             transform: scale(1.05);
         }
-  </style>
+       .card:hover {
+        border-color: var(--safety-orange); /* Orange border on hover */
+        background-color: var(--safety-orange); /* Orange background on hover */
+        color: var(--white); /* White text color on hover */
+    }
+
+    /* 3rd page
+
+
+
+
+    /* 4th page
+
+   body {
+        opacity: 0;
+        transition: opacity 0.5s ease; /* Add transition effect */
+    }
+
+    body.loaded {
+        opacity: 1; /* Make the page visible after loading */
+    }
+
+    /* Address Section Styles */
+    .address-card {
+        background-color: var(--white);
+        border: 2px solid var(--safety-orange);
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    /* Social Media Links Styles */
+    .social-media-links {
+        margin-bottom: 20px;
+    }
+
+    .social-media-links a {
+        display: inline-block;
+        margin-right: 10px;
+        color: var(--black);
+        text-decoration: none;
+    }
+
+    .social-media-links a:hover {
+        color: var(--safety-orange);
+    }
+
+    .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 2px solid transparent;
+            border-radius: 0.25rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--safety-orange);
+            outline: none;
+        }
+
+        .contact-form button {
+            background-color: var(--safety-orange);
+            color: var(--white);
+            padding: 0.75rem 1rem;
+            border: none;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: var(--safety-orange-2);
+        }
+
+        /* Orange Accent Styles */
+        .orange-accent {
+            background-color: var(--safety-orange);
+            color: var(--white);
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .orange-accent:hover {
+            background-color: var(--safety-orange-2);
+        }
+        .form-input {
+    border: 2px solid var(--orange-accent);
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+    border-color: var(--orange-accent);
+}
+</style>
 </head>
 
 <body>
@@ -165,15 +273,25 @@
             <div class="flex flex-wrap justify-center items-center">
                 <!-- About Us Card -->
                 <div class="card w-full md:w-1/3">
-                    <p class="text-lg">La Monje is a passionate data-driven creative firm with a heart for storytelling. We believe in the power of "telling your story" to forge connections and achieve results. Our team of passionate creatives combines strategic data analysis with captivating narratives to craft impactful events, curate compelling multimedia content, and develop innovative marketing campaigns. We don't just tell stories, we tell stories that resonate and drive results.</p>
+                    <p class="text-lg">
+                        About-us <br>
+                        <br>
+                        La Monje is a passionate data-driven creative firm with a heart for storytelling. We believe in the power of "telling your story" to forge connections and achieve results. Our team of passionate creatives combines strategic data analysis with captivating narratives to craft impactful events, curate compelling multimedia content, and develop innovative marketing campaigns. We don't just tell stories, we tell stories that resonate and drive results.</p>
+
                 </div>
                 <!-- Service Card -->
                 <div class="card w-full md:w-1/3">
-                    <p class="text-lg">We provide a unique blend of services to help businesses thrive: - Event design and facilitation: We meticulously plan and execute every aspect of your event, from conceptualization to execution. - Multimedia content curation: We source, curate, and develop multimedia content (video, audio, text) tailored to your specific needs. - Creative Marketing: We develop innovative and data-driven marketing campaigns that amplify your brand story and achieve your marketing objectives.</p>
+                    <p class="text-lg">
+                        services<br>
+                        <br>
+                        We provide a unique blend of services to help businesses thrive: - Event design and facilitation: We meticulously plan and execute every aspect of your event, from conceptualization to execution. - Multimedia content curation: We source, curate, and develop multimedia content (video, audio, text) tailored to your specific needs. - Creative Marketing: We develop innovative and data-driven marketing campaigns that amplify your brand story and achieve your marketing objectives.</p>
                 </div>
                 <!-- Our Goals Card -->
                 <div class="card w-full md:w-1/3">
-                    <p class="text-lg">At La Monje, we're a passionate team of data-driven storytellers. We believe in the transformative power of storytelling, and we're dedicated to helping businesses connect with their audiences through impactful narratives.
+                    <p class="text-lg">
+                        our goals<br>
+                        <br>
+                        At La Monje, we're a passionate team of data-driven storytellers. We believe in the transformative power of storytelling, and we're dedicated to helping businesses connect with their audiences through impactful narratives.
 
                     We don't just tell stories, we tell stories that resonate and drive results. Our unique blend of services empowers businesses to thrive in today's competitive landscape. We partner with you to tell your story in a way that resonates with your audience and achieves your goals.</p>
                 </div>
@@ -199,11 +317,99 @@
   <!-- Contact Us Section -->
   <section id="contact" class="py-12 bg-gray-100">
     <div class="container mx-auto">
-      <h2 class="text-3xl font-semibold text-black text-center">Contact Us</h2>
-      <!-- Section content -->
-      <!-- ... -->
+        <h2 class="text-3xl font-semibold text-black text-center mb-8">Contact Us</h2>
+        <div class="flex flex-wrap justify-center space-x-8">
+            <!-- Address Cards -->
+            <div class="w-72 bg-white rounded-lg shadow-lg p-6 mb-8">
+                <h3 class="text-lg font-semibold mb-4">Address</h3>
+                <p>Addis Ababa, Ethiopia</p>
+                <p>+251942471649</p>
+                <p>Yeabkal Demissew</p>
+                <p>yeabkaldemissew14@gmail.com</p>
+            </div>
+            <div class="w-72 bg-white rounded-lg shadow-lg p-6 mb-8">
+                <h3 class="text-lg font-semibold mb-4">Address</h3>
+                <p>Hawassa, Ethiopia</p>
+                <p>+25191 631 3972</p>
+                <p>Meareg Mngisteab</p>
+                <p>mearegmngisteab@gmail.com</p>
+            </div>
+            <div class="w-72 bg-white rounded-lg shadow-lg p-6 mb-8">
+                <h3 class="text-lg font-semibold mb-4">Address</h3>
+                <p>Kigali, Rwanda</p>
+                <p>+250 794 555 111</p>
+                <p>Bethlehem Ghidey</p>
+                <p>bettyghgm@gmail.com</p>
+            </div>
+            <!-- Social Media Links -->
+            <div class="w-72 bg-white rounded-lg shadow-lg p-6 mb-8">
+                <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
+                <a href="#" class="flex items-center text-gray-700 hover:text-orange-accent mb-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"></path>
+                    </svg>
+                    Facebook
+                </a>
+                <a href="#" class="flex items-center text-gray-700 hover:text-orange-accent">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-4.349-4.646a4.5 4.5 0 00-6.364 0l-1.414 1.414a4.5 4.5 0 000 6.364l3.535 3.535a4.5 4.5 0 006.364 0l1.414-1.414a4.5 4.5 0 000-6.364l-3.535-3.535z"></path>
+                    </svg>
+                    Instagram
+                </a>
+            </div>
+        </div>
+        <!-- Contact Form -->
+        <!-- Contact Form -->
+<div class="bg-white rounded-lg shadow-lg p-8 max-w-md mx-auto">
+    <h3 class="text-2xl font-semibold text-center mb-4">Send Us a Message</h3>
+    <form class="contact-form">
+        <input type="text" id="first-name" name="first-name" placeholder="First Name" required class="form-input mb-4">
+        <input type="text" id="last-name" name="last-name" placeholder="Last Name" required class="form-input mb-4">
+        <input type="tel" id="phone" name="phone" placeholder="Phone" required class="form-input mb-4">
+        <input type="email" id="email" name="email" placeholder="Email" required class="form-input mb-4">
+        <textarea id="message" name="message" rows="4" placeholder="Message" required class="form-input mb-4"></textarea>
+        <button type="submit" class="bg-orange-accent hover:bg-orange-accent-dark text-white font-bold py-2 px-4 rounded-full w-full transition duration-300">Submit</button>
+    </form>
+</div>
+
     </div>
-  </section>
+</section>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('contactForm');
+         document.addEventListener('DOMContentLoaded', function () {
+        document.body.classList.add('loaded');
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Validate form fields
+            const firstName = form.elements['firstName'].value;
+            const lastName = form.elements['lastName'].value;
+            const phoneNumber = form.elements['phoneNumber'].value;
+            const email = form.elements['email'].value;
+            const message = form.elements['message'].value;
+
+            // Basic validation example (you can add more complex validation as needed)
+            if (!firstName || !lastName || !phoneNumber || !email || !message) {
+                alert('Please fill in all fields.');
+                return;
+            }
+
+            // Form data
+            const formData = {
+                firstName,
+                lastName,
+                phoneNumber,
+                email,
+                message
+            };
+
+            // Display form data (you can send this data to a server or use it in other ways)
+            console.log(formData);
+        });
+    });
+</script>
 
   <!-- Footer -->
   <footer class="bg-black text-white py-4">
