@@ -16,7 +16,7 @@
       --white-2: #FFFFFFff;
       --safety-orange-2: #FF7900ff;
     }
-  
+
 
     .header-logo {
       font-family: 'Pacifico', cursive;
@@ -65,6 +65,31 @@
     .nav-link:hover {
       color: var(--safety-orange-2);
     }
+     /* Smooth transition */
+        .smooth-transition {
+            transition: background-color 0.5s ease;
+        }
+
+        /* Apply smooth transition to body */
+        .dark-theme body {
+            background-color: var(--black);
+            color: var(--white);
+        }
+
+        /* Card styling */
+        .card {
+            background-color: var(--safety-orange);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            width: calc(33.33% - 20px);
+            transition: transform 0.3s ease;
+        }
+
+        /* Enlarge card on hover */
+        .card:hover {
+            transform: scale(1.05);
+        }
   </style>
 </head>
 
@@ -113,7 +138,7 @@
   </section>
 
   <!-- Trusted By Slider -->
-   <section class="py-10">
+  <section class="py-8 mt-4">
         <div class="container mx-auto text-center">
             <h2 class="text-2xl font-semibold text-black">Trusted By</h2>
             <div class="mt-4 overflow-hidden relative h-16 bg-gray-700 rounded-full">
@@ -134,13 +159,33 @@
     </section>
 
   <!-- About-Service Section -->
-  <section id="about" class="py-12 bg-gray-100">
-    <div class="container mx-auto">
-      <h2 class="text-3xl font-semibold text-black text-center">About-Service</h2>
-      <!-- Section content -->
-      <!-- ... -->
-    </div>
-  </section>
+    <section id="about-service" class="py-12">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-semibold text-center mb-8">About Us & Service</h2>
+            <div class="flex flex-wrap justify-center items-center">
+                <!-- About Us Card -->
+                <div class="card w-full md:w-1/3">
+                    <p class="text-lg">La Monje is a passionate data-driven creative firm with a heart for storytelling. We believe in the power of "telling your story" to forge connections and achieve results. Our team of passionate creatives combines strategic data analysis with captivating narratives to craft impactful events, curate compelling multimedia content, and develop innovative marketing campaigns. We don't just tell stories, we tell stories that resonate and drive results.</p>
+                </div>
+                <!-- Service Card -->
+                <div class="card w-full md:w-1/3">
+                    <p class="text-lg">We provide a unique blend of services to help businesses thrive: - Event design and facilitation: We meticulously plan and execute every aspect of your event, from conceptualization to execution. - Multimedia content curation: We source, curate, and develop multimedia content (video, audio, text) tailored to your specific needs. - Creative Marketing: We develop innovative and data-driven marketing campaigns that amplify your brand story and achieve your marketing objectives.</p>
+                </div>
+                <!-- Our Goals Card -->
+                <div class="card w-full md:w-1/3">
+                    <p class="text-lg">At La Monje, we're a passionate team of data-driven storytellers. We believe in the transformative power of storytelling, and we're dedicated to helping businesses connect with their audiences through impactful narratives.
+
+                    We don't just tell stories, we tell stories that resonate and drive results. Our unique blend of services empowers businesses to thrive in today's competitive landscape. We partner with you to tell your story in a way that resonates with your audience and achieves your goals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Add smooth transition class to body on page load
+        document.body.classList.add('smooth-transition');
+    </script>
+
 
   <!-- Portfolio Section -->
   <section id="portfolio" class="py-12">
