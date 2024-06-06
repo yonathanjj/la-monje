@@ -87,7 +87,9 @@
 
 /* Styling for the headers in service cards */
 .service-header {
-    font-size: 5rem; /* Increase the font size */
+    font-size: 2rem; /* Increase the font size */
+    font-weight: bold; /* Make the text bold */
+    margin-bottom: 1rem; /* Add some space below the header */
 }
 
 /* Hover effect for the cards */
@@ -240,7 +242,9 @@
   <!-- Header -->
   <header class="bg-white p-4 fixed w-full z-10 shadow-lg">
     <nav class="container mx-auto flex justify-between items-center">
-      <a href="#home" class="text-3xl header-logo">La-monje</a>
+      <a href="#home" class="header-logo">
+        <img src="monk1.png" alt="La-monje Logo" class="h-10"> <!-- Adjust the path and height as necessary -->
+      </a>
       <ul class="hidden md:flex space-x-4">
         <li><a href="#home" class="nav-link">Home</a></li>
         <li><a href="#about-service" class="nav-link">About-Service</a></li>
@@ -263,7 +267,6 @@
     </div>
   </header>
 
-
   <!-- Home Section -->
   <section id="home" class="h-screen flex items-center justify-between bg-white">
     <div class="container mx-auto flex flex-col-reverse md:flex-row-reverse items-center justify-between px-4">
@@ -275,40 +278,51 @@
 </p>
       </div>
       <div class="md:w-1/2 flex justify-center md:order-1 transition duration-500 transform hover:scale-105">
-     <img src="12grid.png" alt="Welcome Image" class="w-80 h-auto rounded-full">
+     <img src="monk1.png" alt="Welcome Image" class="w-80 h-auto rounded-full">
       </div>
     </div>
   </section>
 
   <!-- Trusted By Slider -->
-  <section class="py-8 mt-4 bg-safety-orange">
-      <div class="container mx-auto text-center trusted-slider-container">
+  <!-- Trusted By Slider -->
+<section class="py-8 mt-4 bg-safety-orange">
+    <div class="container mx-auto text-center trusted-slider-container">
         <h2 class="text-2xl font-semibold text-black">Trusted By</h2>
         <div class="mt-4 overflow-hidden relative h-16 bg-transparent rounded-full"> <!-- Changed bg-gray-700 to bg-transparent -->
             <div class="flex animate-marquee space-x-8 text-lg text-black py-2"> <!-- Changed text-gray-100 to text-black -->
-                <span class="text-lg">lookup</span>
-                <span class="text-lg">psyaddis</span>
-                <span class="text-lg">HAWF</span>
-                <span class="text-lg">Mignotbazaar</span>
-                <span class="text-lg">ActionaidEthiopia</span>
-                <span class="text-lg">lookup</span>
-                <span class="text-lg">psyaddis</span>
-                <span class="text-lg">HAWF</span>
-                <span class="text-lg">Mignotbazaar</span>
-                <span class="text-lg">ActionaidEthiopia</span>
+                <img src="images/lookup.png" alt="Lookup" class="trusted-logo">
+                <img src="images/psyaddis.png" alt="Psyaddis" class="trusted-logo">
+                <img src="images/hawf.png" alt="HAWF" class="trusted-logo">
+                <img src="images/mignotbazaar.png" alt="Mignotbazaar" class="trusted-logo">
+                <img src="images/actionaidethiopia.png" alt="ActionaidEthiopia" class="trusted-logo">
+                <img src="images/lookup.png" alt="Lookup" class="trusted-logo">
+                <img src="images/psyaddis.png" alt="Psyaddis" class="trusted-logo">
+                <img src="images/hawf.png" alt="HAWF" class="trusted-logo">
+                <img src="images/mignotbazaar.png" alt="Mignotbazaar" class="trusted-logo">
+                <img src="images/actionaidethiopia.png" alt="ActionaidEthiopia" class="trusted-logo">
+                <img src="gulitsacco.png" alt="gulitsacco" class="trusted-logo">
+                <img src="gulitmart.png" alt="gulitmart" class="trusted-logo">
+                <img src="yewenzelij.png" alt="Yewenzelij" class="trusted-logo">
+                <img src="asian.png" alt="Asian" class="trusted-logo">
+                <img src="goldenvalley.png" alt="Goldenvalley" class="trusted-logo">
+
+
             </div>
         </div>
     </div>
 </section>
-<style>
 
-   .trusted-slider-container {
-  border-radius: 50px; /* Adjust the border-radius value to control the curvature */
-  overflow: hidden; /* Ensure the content stays within the curved container */
+<style>
+   <style>
+.trusted-slider-container {
+    border-radius: 50px; /* Adjust the border-radius value to control the curvature */
+    overflow: hidden; /* Ensure the content stays within the curved container */
 }
-    .bg-safety-orange {
+
+.bg-safety-orange {
     background-color: var(--safety-orange); /* Use the appropriate variable for your orange color */
 }
+
 @keyframes marquee {
     0% {
         transform: translateX(0);
@@ -322,6 +336,13 @@
     animation: marquee 20s linear infinite; /* Adjust the duration and timing function as needed */
 }
 
+.trusted-logo {
+    height: 50px; /* Set a consistent height for all logos */
+    width: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure the image fits within the specified dimensions */
+}
+</style>
+
 </style>
 
 
@@ -332,15 +353,15 @@
         <div class="flex flex-wrap justify-center items-start">
             <!-- Service Cards -->
             <div class="card w-full md:w-1/3 p-6">
-                <h3 class="text-xl font-semibold mb-4">Event design and facilitation:</h3>
+                <h3 class="service-header">Event design and facilitation:</h3>
                 <p>We meticulously plan and execute every aspect of your event, from conceptualization to execution.</p>
             </div>
             <div class="card w-full md:w-1/3 p-6">
-                <h3 class="text-xl font-semibold mb-4">Multimedia content curation:</h3>
+                <h3 class="service-header">Multimedia content curation:</h3>
                 <p>We source, curate, and develop multimedia content (video, audio, text) tailored to your specific needs.</p>
             </div>
             <div class="card w-full md:w-1/3 p-6">
-                <h3 class="text-xl font-semibold mb-4">Creative Marketing:</h3>
+                <h3 class="service-header">Creative Marketing:</h3>
                 <p>We develop innovative and data-driven marketing campaigns that amplify your brand story and achieve your marketing objectives.</p>
             </div>
         </div>
@@ -635,4 +656,3 @@ h3 {
   </script>
 </body>
 </html>
-
