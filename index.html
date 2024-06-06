@@ -71,8 +71,8 @@
     /*2nd page
 
 
-    /* Card styling */
-       .card {
+  /* Card styling */
+.card {
     border: 2px solid var(--safety-orange); /* Orange border */
     border-radius: 8px; /* Rounded corners */
     padding: 1rem; /* Padding inside the card */
@@ -82,29 +82,51 @@
     margin: 0.5rem; /* Add margin between cards */
     flex: 1; /* Allow cards to grow and shrink */
     box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+    max-width: 100%;
 }
 
+/* Styling for the headers in service cards */
+.service-header {
+    font-size: 5rem; /* Increase the font size */
+}
 
-    /* Hover effect for the cards */
-    .card:hover {
-        border-color: var(--safety-orange-2); /* Darker orange on hover */
-    }
-     .card:hover {
-            transform: scale(1.05);
-        }
-
-       .card:hover {
-    transform: scale(1.05);
+/* Hover effect for the cards */
+.card:hover {
     border-color: var(--safety-orange-2); /* Darker orange on hover */
+    transform: scale(1.05);
     background-color: var(--safety-orange); /* Orange background on hover */
     color: var(--white); /* White text color on hover */
 }
 
-   .flex-wrap {
+/* Flex container for the cards */
+.flex-wrap {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem; /* Adjust gap as needed for spacing */
 }
+
+/* Adjust width for about and goals cards */
+.card.w-full.lg\\:w-1\\/2 {
+    max-width: 48%;
+}
+
+/* Add padding for the sections */
+#about-service {
+    padding: 3rem 0;
+}
+
+/* Section headers */
+#about-service h2 {
+    margin-bottom: 2rem;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 1024px) {
+    .card.w-full.lg\\:w-1\\/2 {
+        max-width: 100%;
+    }
+}
+
     /* 3rd page
 
 
@@ -304,42 +326,46 @@
 
 
   <!-- About-Service Section -->
-    <section id="about-service" class="py-12">
-        <div class="container mx-auto">
-            <h2 class="text-3xl font-semibold text-center mb-8">About Us & Service</h2>
-            <div class="flex flex-wrap justify-center items-center">
-                <!-- About Us Card -->
-                <div class="card w-full md:w-1/3">
-                    <p class="text-lg">
-                        About-us <br>
-                        <br>
-                        La Monje is a passionate data-driven creative firm with a heart for storytelling. We believe in the power of "telling your story" to forge connections and achieve results. Our team of passionate creatives combines strategic data analysis with captivating narratives to craft impactful events, curate compelling multimedia content, and develop innovative marketing campaigns. We don't just tell stories, we tell stories that resonate and drive results.</p>
-
-                </div>
-                <!-- Service Card -->
-                <div class="card w-full md:w-1/3">
-                    <p class="text-lg">
-                        services<br>
-                        <br>
-                        We provide a unique blend of services to help businesses thrive: - Event design and facilitation: We meticulously plan and execute every aspect of your event, from conceptualization to execution. - Multimedia content curation: We source, curate, and develop multimedia content (video, audio, text) tailored to your specific needs. - Creative Marketing: We develop innovative and data-driven marketing campaigns that amplify your brand story and achieve your marketing objectives.</p>
-                </div>
-                <!-- Our Goals Card -->
-                <div class="card w-full md:w-1/3">
-                    <p class="text-lg">
-                        our goals<br>
-                        <br>
-                        At La Monje, we're a passionate team of data-driven storytellers. We believe in the transformative power of storytelling, and we're dedicated to helping businesses connect with their audiences through impactful narratives.
-
-                    We don't just tell stories, we tell stories that resonate and drive results. Our unique blend of services empowers businesses to thrive in today's competitive landscape. We partner with you to tell your story in a way that resonates with your audience and achieves your goals.</p>
-                </div>
+<section id="about-service" class="py-12">
+    <div class="container mx-auto">
+        <h2 class="text-3xl font-semibold text-center mb-8">Services</h2>
+        <div class="flex flex-wrap justify-center items-start">
+            <!-- Service Cards -->
+            <div class="card w-full md:w-1/3 p-6">
+                <h3 class="text-xl font-semibold mb-4">Event design and facilitation:</h3>
+                <p>We meticulously plan and execute every aspect of your event, from conceptualization to execution.</p>
+            </div>
+            <div class="card w-full md:w-1/3 p-6">
+                <h3 class="text-xl font-semibold mb-4">Multimedia content curation:</h3>
+                <p>We source, curate, and develop multimedia content (video, audio, text) tailored to your specific needs.</p>
+            </div>
+            <div class="card w-full md:w-1/3 p-6">
+                <h3 class="text-xl font-semibold mb-4">Creative Marketing:</h3>
+                <p>We develop innovative and data-driven marketing campaigns that amplify your brand story and achieve your marketing objectives.</p>
             </div>
         </div>
-    </section>
 
-    <script>
-        // Add smooth transition class to body on page load
-        document.body.classList.add('smooth-transition');
-    </script>
+        <h2 class="text-3xl font-semibold text-center mb-8 mt-12">About Us & Goals</h2>
+        <div class="flex flex-wrap justify-center items-center">
+            <!-- About Us Card -->
+            <div class="card w-full lg:w-1/2 p-6">
+                <h3 class="text-xl font-semibold mb-4">About Us</h3>
+                <p>La Monje is a passionate data-driven creative firm with a heart for storytelling. We believe in the power of "telling your story" to forge connections and achieve results. Our team of passionate creatives combines strategic data analysis with captivating narratives to craft impactful events, curate compelling multimedia content, and develop innovative marketing campaigns. We don't just tell stories, we tell stories that resonate and drive results.</p>
+            </div>
+            <!-- Our Goals Card -->
+            <div class="card w-full lg:w-1/2 p-6">
+                <h3 class="text-xl font-semibold mb-4">Our Goals</h3>
+                <p>At La Monje, we're a passionate team of data-driven storytellers. We believe in the transformative power of storytelling, and we're dedicated to helping businesses connect with their audiences through impactful narratives. We don't just tell stories, we tell stories that resonate and drive results. Our unique blend of services empowers businesses to thrive in today's competitive landscape. We partner with you to tell your story in a way that resonates with your audience and achieves your goals.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Add smooth transition class to body on page load
+    document.body.classList.add('smooth-transition');
+</script>
+
 
 
   <!-- Portfolio Section -->
@@ -609,3 +635,4 @@ h3 {
   </script>
 </body>
 </html>
+
