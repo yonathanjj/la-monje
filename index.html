@@ -542,16 +542,7 @@ nav {
             </div>
              <div class="slide">
                 <img src="psy15.jpg" alt="Image 3" class="w-full h-auto">
-            </div>
-             <div class="slide">
-                <img src="aid11.png" alt="Image 3" class="w-full h-auto">
-            </div>
-             <div class="slide">
-                <img src="aid12.png" alt="Image 3" class="w-full h-auto">
-            </div>
-             <div class="slide">
-                <img src="aid13.png" alt="Image 3" class="w-full h-auto">
-            </div>
+             </div>
              <div class="slide">
                 <img src="bazaar11.png" alt="Image 3" class="w-full h-auto">
             </div>
@@ -576,7 +567,7 @@ nav {
             display: flex;
             transition: transform 0.5s ease-in-out;
             width: 100%;
-            height: 1000px; /* Adjust height to match image size */
+            height: 1050px; /* Adjust height to match image size */
         }
 
         .slide {
@@ -586,7 +577,7 @@ nav {
 
         .slide img {
             width: 100%;
-            height: 1000px; /* Ensure images fit the defined height */
+            height: 1050px; /* Ensure images fit the defined height */
             object-fit: cover; /* Ensures the images cover the area without distortion */
         }
 
@@ -862,35 +853,57 @@ nav {
                     <img src="post_4.png" alt="HAFW Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
                 </div>
             </div>
+            <button class="portfolio-nav right" id="nextBtn">›</button>
         </div>
     </div>
 </section>
 <style>
-  .portfolio-container {
+.portfolio-wrapper {
+    position: relative;
     display: flex;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-behavior: smooth;
+    align-items: center;
+    overflow: hidden;
+}
+
+.portfolio-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    color: orange; /* Adjust button color */
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.portfolio-nav.left {
+    left: 0;
+}
+
+.portfolio-nav.right {
+    right: 0;
+}
+
+.portfolio-container {
+    display: flex;
     gap: 1rem;
-    white-space: nowrap; /* Ensure the content stays in a single line */
-    padding-bottom: 1rem;
 }
 
 .portfolio-item {
     flex: 0 0 auto;
-    position: relative;
-    width: 300px; /* Adjust the width to make the images appropriately sized */
+    width: 400px; /* Adjust the width to make the images appropriately sized */
+    transition: transform 0.3s ease;
 }
 
 .portfolio-item img {
     width: 100%;
     height: auto;
     border-radius: 0.5rem;
-    transition: transform 0.3s ease;
 }
 
-.portfolio-item:hover img {
-    transform: scale(1.1);
+.portfolio-item.active {
+    transform: scale(1.5); /* Adjust the scale factor for enlarged images */
 }
 
 h3 {
@@ -901,21 +914,35 @@ h3 {
 .text-center p {
     margin-bottom: 1rem;
 }
-
 </style>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const containers = document.querySelectorAll('.portfolio-container');
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const container = document.getElementById('mignot-bazaar');
+    const items = container.querySelectorAll('.portfolio-item');
+    let currentImageIndex = 0;
 
-        containers.forEach(container => {
-            container.addEventListener('wheel', function(event) {
-                event.preventDefault();
-                container.scrollLeft += event.deltaY * 2; // Adjust the scroll speed by changing the multiplier
-            });
-        });
+    function showImage(index) {
+        items.forEach(item => item.classList.remove('active'));
+        items[index].classList.add('active');
+    }
+
+    document.getElementById('nextBtn').addEventListener('click', function() {
+        currentImageIndex = (currentImageIndex + 1) % items.length;
+        showImage(currentImageIndex);
     });
-</script>
 
+    document.getElementById('prevBtn').addEventListener('click', function() {
+        currentImageIndex = (currentImageIndex - 1 + items.length) % items.length;
+        showImage(currentImageIndex);
+    });
+
+    // Automatically slide images every 4 seconds
+    setInterval(function() {
+        currentImageIndex = (currentImageIndex + 1) % items.length;
+        showImage(currentImageIndex);
+    }, 4000);
+});
+</script>
   <!-- Contact Us Section -->
   <section id="contact" class="py-12 bg-gray-100">
     <div class="container mx-auto">
