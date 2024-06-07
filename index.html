@@ -218,6 +218,12 @@ header {
 #about-service h2 {
     margin-bottom: 2rem;
 }
+/* Service headers */
+.service-header {
+    font-size: 2rem; /* Adjust the font size as needed */
+    margin-bottom: 0.5rem; /* Reduce the bottom margin to bring the header closer to the paragraph */
+    line-height: 1.2; /* Adjust line height to reduce spacing between lines */
+}
 
 /* Media query for smaller screens */
 @media (max-width: 1024px) {
@@ -342,7 +348,7 @@ header {
   <header class="bg-white p-4 fixed w-full z-10 shadow-lg">
     <nav class="container mx-auto flex justify-between items-center">
         <a href="#home" class="text-3xl header-logo">
-            <img src="monk1.png" alt="La Monje" class="h-8"> <!-- Replace with the path to your logo image -->
+            <img src="monk1.png" alt="La Monje" class="h-8"> <!-- Replace with your logo image path -->
         </a>
         <ul class="hidden md:flex space-x-4">
             <li><a href="#home" class="nav-link">Home</a></li>
@@ -366,6 +372,95 @@ header {
     </div>
 </header>
 
+<script>
+    // Toggle mobile menu
+    document.getElementById('navToggle').addEventListener('click', function() {
+        var mobileMenu = document.getElementById('mobileMenu');
+        if (mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.remove('hidden');
+        } else {
+            mobileMenu.classList.add('hidden');
+        }
+    });
+</script>
+  <style>
+/* Base styles for all screens */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    box-sizing: border-box;
+}
+
+header {
+    width: 100%;
+}
+
+/* Navigation links */
+.nav-link {
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    margin-top: 5px;
+    right: 0;
+    background: #000; /* Line color */
+    transition: width 0.3s ease;
+    -webkit-transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+    left: 0;
+    background: #000; /* Line color on hover */
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .header-logo img {
+        height: 40px; /* Adjust as needed */
+    }
+
+    .nav-link {
+        display: block;
+        padding: 10px 0;
+    }
+
+    .flex {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Tablet styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .header-logo img {
+        height: 50px; /* Adjust as needed */
+    }
+
+    .nav-link {
+        padding: 10px 15px;
+    }
+}
+
+/* Desktop styles */
+@media (min-width: 1025px) {
+    .header-logo img {
+        height: 60px; /* Adjust as needed */
+    }
+
+    .nav-link {
+        padding: 10px 20px;
+    }
+}
+</style>
 
   <!-- Home Section -->
   <section id="home" class="h-screen flex items-center justify-between bg-white">
@@ -383,7 +478,6 @@ header {
     </div>
   </section>
 
-  <!-- Trusted By Slider -->
   <!-- Trusted By Slider -->
 <section class="py-8 mt-4 bg-safety-orange">
     <div class="container mx-auto text-center trusted-slider-container">
