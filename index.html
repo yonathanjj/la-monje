@@ -26,8 +26,13 @@ body, html {
     box-sizing: border-box;
 }
 
+/* Transparent navigation bar */
 header {
     width: 100%;
+    background-color: transparent; /* Make header background transparent */
+    position: fixed;
+    top: 0;
+    z-index: 10;
 }
 
 /* Mobile styles */
@@ -37,6 +42,7 @@ header {
     }
 
     .nav-link {
+        background-color: transparent; /* Make nav background transparent */
         display: block;
         padding: 10px 0;
     }
@@ -100,6 +106,7 @@ header {
 
     .nav-link {
         padding: 10px 20px;
+            background-color: transparent; /* Make nav background transparent */
     }
 
     .trusted-slider-container img {
@@ -119,51 +126,59 @@ header {
       color: var(--black);
     }
 
-    .nav-link {
-      position: relative;
-      display: inline-block;
-      color: var(--safety-orange);
-      background-color: var(--black);
-      padding: 8px 16px;
-      border-radius: 50px;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
+    ./* Base styles for all screens */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    box-sizing: border-box;
+}
 
-    .nav-link:hover {
-      background-color: var(--safety-orange);
-      color: var(--black);
-    }
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+}
 
-    .nav-link::before {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 2px;
-      bottom: -5px;
-      left: 0;
-      background-color: var(--safety-orange);
-      visibility: hidden;
-      transform: scaleX(0);
-      transition: all 0.3s ease-in-out;
-    }
+/* Transparent navigation bar */
+nav {
+    background-color: transparent; /* Make nav background transparent */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
 
-    .nav-link:hover::before {
-      visibility: visible;
-      transform: scaleX(1);
-    }
+/* Navigation links */
+.nav-link {
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s;
+}
 
-    .nav-wrapper {
-      background-color: var(--white);
-    }
-    .nav-link:hover::before {
-  visibility: visible;
-  transform:}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    margin-top: 5px;
+    right: 0;
+    background: #000; /* Line color */
+    transition: width 0.3s ease;
+    -webkit-transition: width 0.3s ease;
+}
 
+.nav-link:hover::after {
+    width: 100%;
+    left: 0;
+    background: #000; /* Keep line color on hover */
+}
 
+/* Rest of the styles remain unchanged */
 
-    .nav-link:hover {
-      color: var(--safety-orange-2);
-    }
 
     /*2nd page
 
@@ -348,7 +363,7 @@ header {
   <header class="bg-white p-4 fixed w-full z-10 shadow-lg">
     <nav class="container mx-auto flex justify-between items-center">
         <a href="#home" class="text-3xl header-logo">
-            <img src="monk1.png" alt="La Monje" class="h-8"> <!-- Replace with your logo image path -->
+            <img src="monk1.png" alt="La Monje" class="h-8">
         </a>
         <ul class="hidden md:flex space-x-4">
             <li><a href="#home" class="nav-link">Home</a></li>
@@ -394,6 +409,19 @@ body, html {
 
 header {
     width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+}
+
+/* Transparent navigation bar */
+nav {
+    background-color: transparent; /* Make nav background transparent */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
 }
 
 /* Navigation links */
@@ -419,13 +447,15 @@ header {
 .nav-link:hover::after {
     width: 100%;
     left: 0;
-    background: #000; /* Line color on hover */
+    background: #000; /* Keep line color on hover */
 }
+
+/* Rest of the styles remain unchanged */
 
 /* Mobile styles */
 @media (max-width: 768px) {
     .header-logo img {
-        height: 40px; /* Adjust as needed */
+        height: 40px;
     }
 
     .nav-link {
@@ -442,7 +472,7 @@ header {
 /* Tablet styles */
 @media (min-width: 769px) and (max-width: 1024px) {
     .header-logo img {
-        height: 50px; /* Adjust as needed */
+        height: 50px;
     }
 
     .nav-link {
@@ -453,7 +483,7 @@ header {
 /* Desktop styles */
 @media (min-width: 1025px) {
     .header-logo img {
-        height: 60px; /* Adjust as needed */
+        height: 60px;
     }
 
     .nav-link {
@@ -474,10 +504,71 @@ header {
             <div class="slide">
                 <img src="fashion3.png" alt="Image 3" class="w-full h-auto">
             </div>
-            <!-- Add more images as needed -->
-        </div>
+             <div class="slide">
+                <img src="fashion4.png" alt="Image 3" class="w-full h-auto">
+            </div>
+             <div class="slide">
+                <img src="fashion5.png" alt="Image 3" class="w-full h-auto">
+            </div>
+             <div class="slide">
+                <img src="fashion6.png" alt="Image 3" class="w-full h-auto">
+            </div>
+             <div class="slide">
+                <img src="fashion7.png" alt="Image 3" class="w-full h-auto">
+            </div>
+             <div class="slide">
+                <img src="fashion8.png" alt="Image 3" class="w-full h-auto">
+            </div>
+             <div class="slide">
+                <img src="lookup11.png" alt="Image 3" class="w-full h-auto">
+            </div>
+             <div class="slide">
+                <img src="lookup12.png" alt="Image 3" class="w-full h-auto">
+            </div>
+             <div class="slide">
+                <img src="lookup13.png" alt="Image 3" class="w-full h-auto">
+            </div>
+             <div class="slide">
+                <img src="psy11.jpg" alt="Image 3" class="w-full h-auto">
+            </div>
+             <div class="slide">
+                <img src="psy12.jpg" alt="Image 3" class="w-full h-auto">
+            </div>
+             <div class="slide">
+                <img src="psy13.jpg" alt="Image 3" class="w-full h-auto">
+            </div>
+             <div class="slide">
+                <img src="psy14.jpg" alt="Image 3" class="w-full h-auto">
+            </div>
+             <div class="slide">
+                <img src="psy15.jpg" alt="Image 3" class="w-full h-auto">
+            </div>
+             <div class="slide">
+                <img src="aid11.png" alt="Image 3" class="w-full h-auto">
+            </div>
+             <div class="slide">
+                <img src="aid12.png" alt="Image 3" class="w-full h-auto">
+            </div>
+             <div class="slide">
+                <img src="aid13.png" alt="Image 3" class="w-full h-auto">
+            </div>
+             <div class="slide">
+                <img src="bazaar11.png" alt="Image 3" class="w-full h-auto">
+            </div>
+             <div class="slide">
+                <img src="bazaar12.png" alt="Image 3" class="w-full h-auto">
+            </div>
+             <div class="slide">
+                <img src="bazaar13.png" alt="Image 3" class="w-full h-auto">
+            </div>
+             <div class="slide">
+                <img src="bazaar14.png" alt="Image 3" class="w-full h-auto">
+            </div>
+             <div class="slide">
+                <img src="bazaar15.png" alt="Image 3" class="w-full h-auto">
+            </div>
         <button class="prev absolute left-0 top-1/2 transform -translate-y-1/2 p-4 bg-black bg-opacity-50 text-white hover:bg-opacity-75 rounded-full">‹</button>
-        <button class="next absolute right-0 top-1/2 transform -translate-y-1/2 p-4 bg-black bg-opacity-50 text-white hover:bg-opacity-75 rounded-full">›</button>
+            <button class="next absolute right-0 top-1/2 transform -translate-y-1/2 p-4 bg-black bg-opacity-50 text-white hover:bg-opacity-75 rounded-full">›</button>
     </section>
     <style>
         /* CSS Styles */
@@ -485,7 +576,7 @@ header {
             display: flex;
             transition: transform 0.5s ease-in-out;
             width: 100%;
-            height: 810px; /* Adjust height to match image size */
+            height: 1000px; /* Adjust height to match image size */
         }
 
         .slide {
@@ -495,7 +586,7 @@ header {
 
         .slide img {
             width: 100%;
-            height: 810px; /* Ensure images fit the defined height */
+            height: 1000px; /* Ensure images fit the defined height */
             object-fit: cover; /* Ensures the images cover the area without distortion */
         }
 
