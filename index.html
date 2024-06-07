@@ -462,6 +462,101 @@ header {
 }
 </style>
 
+      <!-- Image Slider Section -->
+    <section class="relative overflow-hidden">
+        <div class="slider">
+            <div class="slide">
+                <img src="fashion1.png" alt="Image 1" class="w-full h-auto">
+            </div>
+            <div class="slide">
+                <img src="fashion2.png" alt="Image 2" class="w-full h-auto">
+            </div>
+            <div class="slide">
+                <img src="fashion3.png" alt="Image 3" class="w-full h-auto">
+            </div>
+            <!-- Add more images as needed -->
+        </div>
+        <button class="prev absolute left-0 top-1/2 transform -translate-y-1/2 p-4 bg-black bg-opacity-50 text-white hover:bg-opacity-75 rounded-full">‹</button>
+        <button class="next absolute right-0 top-1/2 transform -translate-y-1/2 p-4 bg-black bg-opacity-50 text-white hover:bg-opacity-75 rounded-full">›</button>
+    </section>
+    <style>
+        /* CSS Styles */
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+            height: 810px; /* Adjust height to match image size */
+        }
+
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 810px; /* Ensure images fit the defined height */
+            object-fit: cover; /* Ensures the images cover the area without distortion */
+        }
+
+        .prev, .next {
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 2rem;
+            transition: background 0.3s;
+        }
+
+        .prev:hover, .next:hover {
+            background: rgba(0, 0, 0, 0.75);
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+    </style>
+    <script>
+        // JavaScript for slider functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const slides = document.querySelectorAll('.slide');
+            const prevButton = document.querySelector('.prev');
+            const nextButton = document.querySelector('.next');
+            let currentIndex = 0;
+
+            function showSlide(index) {
+                if (index >= slides.length) {
+                    currentIndex = 0;
+                } else if (index < 0) {
+                    currentIndex = slides.length - 1;
+                } else {
+                    currentIndex = index;
+                }
+                document.querySelector('.slider').style.transform = `translateX(-${currentIndex * 100}%)`;
+            }
+
+            nextButton.addEventListener('click', function () {
+                showSlide(currentIndex + 1);
+            });
+
+            prevButton.addEventListener('click', function () {
+                showSlide(currentIndex - 1);
+            });
+
+            setInterval(function () {
+                showSlide(currentIndex + 1);
+            }, 4000); // Auto-slide interval
+        });
+    </script>
+
   <!-- Home Section -->
   <section id="home" class="h-screen flex items-center justify-between bg-white">
     <div class="container mx-auto flex flex-col-reverse md:flex-row-reverse items-center justify-between px-4">
@@ -492,8 +587,8 @@ header {
                 <img src="rotaract.png" alt="rotaract" class="trusted-logo">
                 <img src="icehawassa.png" alt="icehawassa" class="trusted-logo">
                 <img src="eyakis.png" alt="eyakis" class="trusted-logo">
-                <img src="HAWF.png" alt="HAWF" class="trusted-logo">
-                
+                <img src="HAFW.png" alt="HAFW" class="trusted-logo">
+
             </div>
         </div>
     </div>
