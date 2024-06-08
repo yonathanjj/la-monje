@@ -531,6 +531,61 @@ perspective: 1000px;
 100% { transform: translateX(-100%) rotateY(360deg); }
 }
 </style>
+<section>
+<div class="mb-12 company-section">
+    <h3 class="text-3xl font-bold text-orange-600 text-center mb-6">Mignot-Bazaar</h3>
+    <div class="portfolio-container">
+        <button class="portfolio-nav prev">‹</button>
+        <div class="portfolio-item">
+            <img src="bazaar1.jpg" alt="Mignot-Bazaar Image 1" class="w-full h-auto rounded-lg transition-transform duration-300">
+        </div>
+        <div class="portfolio-item">
+            <img src="bazaar2.jpg" alt="Mignot-Bazaar Image 2" class="w-full h-auto rounded-lg transition-transform duration-300">
+        </div>
+        <div class="portfolio-item">
+            <img src="bazaar3.jpg" alt="Mignot-Bazaar Image 3" class="w-full h-auto rounded-lg transition-transform duration-300">
+        </div>
+        <div class="portfolio-item">
+            <img src="bazaar4.jpg" alt="Mignot-Bazaar Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
+        </div>
+        <button class="portfolio-nav next">›</button>
+    </div>
+</div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const containers = document.querySelectorAll('.portfolio-container');
+
+    containers.forEach(container => {
+        const items = container.querySelectorAll('.portfolio-item');
+        const prevBtn = container.querySelector('.prev');
+        const nextBtn = container.querySelector('.next');
+        let currentImageIndex = 0;
+
+        function showImage(index) {
+            items.forEach(item => item.style.display = 'none');
+            items[index].style.display = 'block';
+        }
+
+        // Show the first image initially
+        showImage(currentImageIndex);
+
+        // Event listener for next button
+        nextBtn.addEventListener('click', function() {
+            currentImageIndex = (currentImageIndex + 1) % items.length;
+            showImage(currentImageIndex);
+        });
+
+        // Event listener for previous button
+        prevBtn.addEventListener('click', function() {
+            currentImageIndex = (currentImageIndex - 1 + items.length) % items.length;
+            showImage(currentImageIndex);
+        });
+    });
+});
+
+</script>
 
 <!-- Home Section -->
 <section id="home" class="h-screen flex items-center justify-between bg-white">
