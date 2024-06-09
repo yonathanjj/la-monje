@@ -2,248 +2,285 @@
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>La-monje</title>
-<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap');
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La-monje</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap');
 
-:root {
---black: #000000ff;
---safety-orange: #FF7A00ff;
---white: #FFFFFFff;
---white-2: #FFFFFFff;
---safety-orange-2: #FF7900ff;
-}
+        :root {
+            --black: #000000ff;
+            --safety-orange: #FF7A00ff;
+            --white: #FFFFFFff;
+            --white-2: #FFFFFFff;
+            --safety-orange-2: #FF7900ff;
+        }
 
-/* making the website responsive
+        /* making the website responsive
 /* Base styles for all screens */
-body, html {
-margin: 0;
-padding: 0;
-font-family: 'Arial', sans-serif;
-box-sizing: border-box;
-}
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            box-sizing: border-box;
+        }
 
-/* Transparent navigation bar */
-header {
-width: 100%;
-background-color: transparent; /* Make header background transparent */
-position: fixed;
-top: 0;
-z-index: 10;
-}
+        /* Transparent navigation bar */
+        header {
+            width: 100%;
+            background-color: transparent;
+            /* Make header background transparent */
+            position: fixed;
+            top: 0;
+            z-index: 10;
+        }
 
-/* Mobile styles */
-@media (max-width: 768px) {
-.header-logo img {
-height: 40px; /* Adjust as needed */
-}
+        /* Mobile styles */
+        @media (max-width: 768px) {
+            .header-logo img {
+                height: 40px;
+                /* Adjust as needed */
+            }
 
-.nav-link {
-background-color: transparent; /* Make nav background transparent */
-display: block;
-padding: 10px 0;
-}
+            .nav-link {
+                background-color: transparent;
+                /* Make nav background transparent */
+                display: block;
+                padding: 10px 0;
+            }
 
-.flex {
-flex-direction: column;
-align-items: center;
-}
+            .flex {
+                flex-direction: column;
+                align-items: center;
+            }
 
-.trusted-slider-container .flex {
-flex-wrap: nowrap;
-}
+            .trusted-slider-container .flex {
+                flex-wrap: nowrap;
+            }
 
-.trusted-slider-container img {
-height: 40px; /* Adjust as needed */
-}
+            .trusted-slider-container img {
+                height: 40px;
+                /* Adjust as needed */
+            }
 
-.card {
-width: 100%;
-margin-bottom: 1rem;
-}
+            .card {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
 
-.bg-safety-orange {
-padding: 1rem;
-}
+            .bg-safety-orange {
+                padding: 1rem;
+            }
 
-.text-2xl {
-font-size: 1.5rem;
-}
+            .text-2xl {
+                font-size: 1.5rem;
+            }
 
-.text-3xl {
-font-size: 2rem;
-}
-}
+            .text-3xl {
+                font-size: 2rem;
+            }
+        }
 
-/* Tablet styles */
-@media (min-width: 769px) and (max-width: 1024px) {
-.header-logo img {
-height: 50px; /* Adjust as needed */
-}
+        /* Tablet styles */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .header-logo img {
+                height: 50px;
+                /* Adjust as needed */
+            }
 
-.nav-link {
-padding: 10px 15px;
-}
+            .nav-link {
+                padding: 10px 15px;
+            }
 
-.trusted-slider-container img {
-height: 50px; /* Adjust as needed */
-}
+            .trusted-slider-container img {
+                height: 50px;
+                /* Adjust as needed */
+            }
 
-.card {
-width: 48%; /* Two cards per row */
-margin-bottom: 1rem;
-}
-}
+            .card {
+                width: 48%;
+                /* Two cards per row */
+                margin-bottom: 1rem;
+            }
+        }
 
-/* Desktop styles */
-@media (min-width: 1025px) {
-.header-logo img {
-height: 60px; /* Adjust as needed */
-}
+        /* Desktop styles */
+        @media (min-width: 1025px) {
+            .header-logo img {
+                height: 60px;
+                /* Adjust as needed */
+            }
 
-.nav-link {
-padding: 10px 20px;
-background-color: transparent; /* Make nav background transparent */
-}
+            .nav-link {
+                padding: 10px 20px;
+                background-color: transparent;
+                /* Make nav background transparent */
+            }
 
-.trusted-slider-container img {
-height: 60px; /* Adjust as needed */
-}
+            .trusted-slider-container img {
+                height: 60px;
+                /* Adjust as needed */
+            }
 
-.card {
-width: 30%; /* Three cards per row */
-margin-bottom: 1rem;
-}
-}
+            .card {
+                width: 30%;
+                /* Three cards per row */
+                margin-bottom: 1rem;
+            }
+        }
 
 
-/* making the website responsive
+        /* making the website responsive
 .header-logo {
 font-family: 'Pacifico', cursive;
 color: var(--black);
 }
 
 ./* Base styles for all screens */
-body, html {
-margin: 0;
-padding: 0;
-font-family: 'Arial', sans-serif;
-box-sizing: border-box;
-}
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            box-sizing: border-box;
+        }
 
-header {
-width: 100%;
-position: fixed;
-top: 0;
-z-index: 10;
-}
+        header {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 10;
+        }
 
-/* Transparent navigation bar */
-nav {
-background-color: transparent; /* Make nav background transparent */
-width: 100%;
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 1rem;
-}
+        /* Transparent navigation bar */
+        nav {
+            background-color: transparent;
+            /* Make nav background transparent */
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+        }
 
-/* Navigation links */
-.nav-link {
-position: relative;
-padding-bottom: 5px;
-transition: color 0.3s;
-}
+        /* Navigation links */
+        .nav-link {
+            position: relative;
+            padding-bottom: 5px;
+            transition: color 0.3s;
+        }
 
-.nav-link::after {
-content: '';
-position: absolute;
-width: 0;
-height: 2px;
-display: block;
-margin-top: 5px;
-right: 0;
-background: #000; /* Line color */
-transition: width 0.3s ease;
--webkit-transition: width 0.3s ease;
-}
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            display: block;
+            margin-top: 5px;
+            right: 0;
+            background: #000;
+            /* Line color */
+            transition: width 0.3s ease;
+            -webkit-transition: width 0.3s ease;
+        }
 
-.nav-link:hover::after {
-width: 100%;
-left: 0;
-background: #000; /* Keep line color on hover */
-}
-/*2nd page
+        .nav-link:hover::after {
+            width: 100%;
+            left: 0;
+            background: #000;
+            /* Keep line color on hover */
+        }
+
+        /*2nd page
 
 
 /* Card styling */
-.card {
-border: 2px solid var(--safety-orange); /* Orange border */
-border-radius: 8px; /* Rounded corners */
-padding: 1rem; /* Padding inside the card */
-transition: border-color 0.3s, transform 0.3s, background-color 0.3s, color 0.3s; /* Smooth transition for border color */
-background-color: var(--white); /* White background */
-color: var(--black); /* Black text color */
-margin: 0.5rem; /* Add margin between cards */
-flex: 1; /* Allow cards to grow and shrink */
-box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
-max-width: 100%;
-}
+        .card {
+            border: 2px solid var(--safety-orange);
+            /* Orange border */
+            border-radius: 8px;
+            /* Rounded corners */
+            padding: 1rem;
+            /* Padding inside the card */
+            transition: border-color 0.3s, transform 0.3s, background-color 0.3s, color 0.3s;
+            /* Smooth transition for border color */
+            background-color: var(--white);
+            /* White background */
+            color: var(--black);
+            /* Black text color */
+            margin: 0.5rem;
+            /* Add margin between cards */
+            flex: 1;
+            /* Allow cards to grow and shrink */
+            box-sizing: border-box;
+            /* Ensure padding and border are included in the element's total width and height */
+            max-width: 100%;
+        }
 
-/* Styling for the headers in service cards */
-.service-header {
-font-size: 2rem; /* Increase the font size */
-font-weight: bold; /* Make the text bold */
-margin-bottom: 1rem; /* Add some space below the header */
-}
+        /* Styling for the headers in service cards */
+        .service-header {
+            font-size: 2rem;
+            /* Increase the font size */
+            font-weight: bold;
+            /* Make the text bold */
+            margin-bottom: 1rem;
+            /* Add some space below the header */
+        }
 
-/* Hover effect for the cards */
-.card:hover {
-border-color: var(--safety-orange-2); /* Darker orange on hover */
-transform: scale(1.05);
-background-color: var(--safety-orange); /* Orange background on hover */
-color: var(--white); /* White text color on hover */
-}
+        /* Hover effect for the cards */
+        .card:hover {
+            border-color: var(--safety-orange-2);
+            /* Darker orange on hover */
+            transform: scale(1.05);
+            background-color: var(--safety-orange);
+            /* Orange background on hover */
+            color: var(--white);
+            /* White text color on hover */
+        }
 
-/* Flex container for the cards */
-.flex-wrap {
-display: flex;
-flex-wrap: wrap;
-gap: 1rem; /* Adjust gap as needed for spacing */
-}
+        /* Flex container for the cards */
+        .flex-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            /* Adjust gap as needed for spacing */
+        }
 
-/* Adjust width for about and goals cards */
-.card.w-full.lg\\:w-1\\/2 {
-max-width: 48%;
-}
+        /* Adjust width for about and goals cards */
+        .card.w-full.lg\\:w-1\\/2 {
+            max-width: 48%;
+        }
 
-/* Add padding for the sections */
-#about-service {
-padding: 3rem 0;
-}
+        /* Add padding for the sections */
+        #about-service {
+            padding: 3rem 0;
+        }
 
-/* Section headers */
-#about-service h2 {
-margin-bottom: 2rem;
-}
-/* Service headers */
-.service-header {
-font-size: 2rem; /* Adjust the font size as needed */
-margin-bottom: 0.5rem; /* Reduce the bottom margin to bring the header closer to the paragraph */
-line-height: 1.2; /* Adjust line height to reduce spacing between lines */
-}
+        /* Section headers */
+        #about-service h2 {
+            margin-bottom: 2rem;
+        }
 
-/* Media query for smaller screens */
-@media (max-width: 1024px) {
-.card.w-full.lg\\:w-1\\/2 {
-max-width: 100%;
-}
-}
+        /* Service headers */
+        .service-header {
+            font-size: 2rem;
+            /* Adjust the font size as needed */
+            margin-bottom: 0.5rem;
+            /* Reduce the bottom margin to bring the header closer to the paragraph */
+            line-height: 1.2;
+            /* Adjust line height to reduce spacing between lines */
+        }
 
-/* 3rd page
+        /* Media query for smaller screens */
+        @media (max-width: 1024px) {
+            .card.w-full.lg\\:w-1\\/2 {
+                max-width: 100%;
+            }
+        }
+
+        /* 3rd page
 
 
 
@@ -253,138 +290,143 @@ max-width: 100%;
 body {
 opacity: 0;
 transition: opacity 0.5s ease; /* Add transition effect */
-}
+        }
 
-body.loaded {
-opacity: 1; /* Make the page visible after loading */
-}
+        body.loaded {
+            opacity: 1;
+            /* Make the page visible after loading */
+        }
 
-/* Address Section Styles */
-.address-card {
-background-color: var(--white);
-border: 2px solid var(--safety-orange);
-border-radius: 8px;
-padding: 20px;
-margin-bottom: 20px;
-}
+        /* Address Section Styles */
+        .address-card {
+            background-color: var(--white);
+            border: 2px solid var(--safety-orange);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
 
-/* Social Media Links Styles */
-.social-media-links {
-margin-bottom: 20px;
-}
+        /* Social Media Links Styles */
+        .social-media-links {
+            margin-bottom: 20px;
+        }
 
-.social-media-links a {
-display: inline-block;
-margin-right: 10px;
-color: var(--black);
-text-decoration: none;
-}
+        .social-media-links a {
+            display: inline-block;
+            margin-right: 10px;
+            color: var(--black);
+            text-decoration: none;
+        }
 
-.social-media-links a:hover {
-color: var(--safety-orange);
-}
+        .social-media-links a:hover {
+            color: var(--safety-orange);
+        }
 
-.contact-form {
-max-width: 500px;
-margin: 0 auto;
-}
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
 
-.contact-form label {
-display: block;
-margin-bottom: 0.5rem;
-}
+        .contact-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
 
-.contact-form input,
-.contact-form textarea {
-width: 100%;
-padding: 0.5rem;
-margin-bottom: 1rem;
-border: 2px solid transparent;
-border-radius: 0.25rem;
-transition: border-color 0.3s ease;
-}
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 2px solid transparent;
+            border-radius: 0.25rem;
+            transition: border-color 0.3s ease;
+        }
 
-.contact-form input:focus,
-.contact-form textarea:focus {
-border-color: var(--safety-orange);
-outline: none;
-}
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--safety-orange);
+            outline: none;
+        }
 
-.contact-form button {
-background-color: var(--safety-orange);
-color: var(--white);
-padding: 0.75rem 1rem;
-border: none;
-border-radius: 0.25rem;
-cursor: pointer;
-transition: background-color 0.3s ease;
-}
+        .contact-form button {
+            background-color: var(--safety-orange);
+            color: var(--white);
+            padding: 0.75rem 1rem;
+            border: none;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
 
-.contact-form button:hover {
-background-color: var(--safety-orange-2);
-}
+        .contact-form button:hover {
+            background-color: var(--safety-orange-2);
+        }
 
-/* Orange Accent Styles */
-.orange-accent {
-background-color: var(--safety-orange);
-color: var(--white);
-padding: 10px;
-border-radius: 5px;
-transition: background-color 0.3s ease;
-}
+        /* Orange Accent Styles */
+        .orange-accent {
+            background-color: var(--safety-orange);
+            color: var(--white);
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
 
-.orange-accent:hover {
-background-color: var(--safety-orange-2);
-}
+        .orange-accent:hover {
+            background-color: var(--safety-orange-2);
+        }
 
-.form-input {
-border: 2px solid var(--orange-accent);
-border-radius: 0.25rem;
-padding: 0.5rem;
-margin-bottom: 1rem;
-width: 100%;
-transition: border-color 0.3s ease;
-}
+        .form-input {
+            border: 2px solid var(--orange-accent);
+            border-radius: 0.25rem;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            width: 100%;
+            transition: border-color 0.3s ease;
+        }
 
-.form-input:focus {
-border-color: var(--orange-accent);
-}
-</style>
+        .form-input:focus {
+            border-color: var(--orange-accent);
+        }
+    </style>
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <body>
 
-<!-- Header -->
-<header class="bg-white p-4 fixed w-full z-10 shadow-lg">
-<nav class="container mx-auto flex justify-between items-center">
-<a href="#home" class="text-3xl header-logo">
-<img src="monk1.png" alt="La Monje" class="h-8">
-</a>
-<ul class="hidden md:flex space-x-4">
-<li><a href="#home" class="nav-link">Home</a></li>
-<li><a href="#about-service" class="nav-link">About-Service</a></li>
-<li><a href="#portfolio" class="nav-link">Portfolio</a></li>
-<li><a href="#contact" class="nav-link">Contact Us</a></li>
-</ul>
-<button class="md:hidden text-black focus:outline-none" id="navToggle">
+    <!-- Header -->
+    <header class="bg-white p-4 fixed w-full z-10 shadow-lg">
+        <nav class="container mx-auto flex justify-between items-center">
+            <a href="#home" class="text-3xl header-logo">
+                <img src="monk2.jpeg" alt="La Monje" class="h-8">
+            </a>
+            <ul class="hidden md:flex space-x-4">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about-service" class="nav-link">About-Service</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="#contact" class="nav-link">Contact Us</a></li>
+            </ul>
+            <button class="md:hidden text-black focus:outline-none" id="navToggle">
 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
 </svg>
 </button>
-</nav>
-<div class="md:hidden hidden" id="mobileMenu">
-<ul class="flex flex-col space-y-4 mt-2 bg-white p-4">
-<li><a href="#home" class="block text-black p-2 hover:bg-gray-700 rounded-full">Home</a></li>
-<li><a href="#about-service" class="block text-black p-2 hover:bg-gray-700 rounded-full">About-Service</a></li>
-<li><a href="#portfolio" class="block text-black p-2 hover:bg-gray-700 rounded-full">Portfolio</a></li>
-<li><a href="#contact" class="block text-black p-2 hover:bg-gray-700 rounded-full">Contact Us</a></li>
-</ul>
-</div>
-</header>
+        </nav>
+        <div class="md:hidden hidden" id="mobileMenu">
+            <ul class="flex flex-col space-y-4 mt-2 bg-white p-4">
+                <li><a href="#home" class="block text-black p-2 hover:bg-gray-700 rounded-full">Home</a></li>
+                <li><a href="#about-service"
+                        class="block text-black p-2 hover:bg-gray-700 rounded-full">About-Service</a></li>
+                <li><a href="#portfolio" class="block text-black p-2 hover:bg-gray-700 rounded-full">Portfolio</a></li>
+                <li><a href="#contact" class="block text-black p-2 hover:bg-gray-700 rounded-full">Contact Us</a></li>
+            </ul>
+        </div>
+    </header>
 
-<script>
-// Toggle mobile menu
+    <script>
+    document.querySelector('.mobile-nav-toggle').addEventListener('touchstart', function() {
+    // Code to toggle mobile navigation
+});
+        // Toggle mobile menu
 document.getElementById('navToggle').addEventListener('click', function() {
 var mobileMenu = document.getElementById('mobileMenu');
 if (mobileMenu.classList.contains('hidden')) {
@@ -393,211 +435,312 @@ mobileMenu.classList.remove('hidden');
 mobileMenu.classList.add('hidden');
 }
 });
-</script>
-<style>
-/* Base styles for all screens */
-body, html {
-margin: 0;
-padding: 0;
-font-family: 'Arial', sans-serif;
-box-sizing: border-box;
+    </script>
+    <style>
+    @media only screen and (max-width: 480px) {
+    /* Adjust styles for mobile navigation */
+    .nav-menu {
+        display: none; /* Hide the desktop navigation */
+    }
+    .mobile-nav {
+        display: block; /* Show mobile navigation */
+    }
+    /* Other responsive styles */
 }
 
-header {
-width: 100%;
-position: fixed;
-top: 0;
-z-index: 10;
-}
+        /* Base styles for all screens */
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            box-sizing: border-box;
+        }
 
-/* Transparent navigation bar */
-nav {
-background-color: transparent; /* Make nav background transparent */
-width: 100%;
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 1rem;
-}
+        header {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 10;
+        }
 
-/* Navigation links */
-.nav-link {
-position: relative;
-padding-bottom: 5px;
-transition: color 0.3s;
-}
+        /* Transparent navigation bar */
+        nav {
+            background-color: transparent;
+            /* Make nav background transparent */
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+        }
 
-.nav-link::after {
-content: '';
-position: absolute;
-width: 0;
-height: 2px;
-display: block;
-margin-top: 5px;
-right: 0;
-background: #000; /* Line color */
-transition: width 0.3s ease;
--webkit-transition: width 0.3s ease;
-}
+        /* Navigation links */
+        .nav-link {
+            position: relative;
+            padding-bottom: 5px;
+            transition: color 0.3s;
+        }
 
-.nav-link:hover::after {
-width: 100%;
-left: 0;
-background: #000; /* Keep line color on hover */
-}
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            display: block;
+            margin-top: 5px;
+            right: 0;
+            background: #000;
+            /* Line color */
+            transition: width 0.3s ease;
+            -webkit-transition: width 0.3s ease;
+        }
 
-/* Rest of the styles remain unchanged */
+        .nav-link:hover::after {
+            width: 100%;
+            left: 0;
+            background: #000;
+            /* Keep line color on hover */
+        }
 
-/* Mobile styles */
-@media (max-width: 768px) {
-.header-logo img {
-height: 40px;
-}
+        /* Rest of the styles remain unchanged */
 
-.nav-link {
-display: block;
-padding: 10px 0;
-}
+        /* Mobile styles */
+        @media (max-width: 768px) {
+            .header-logo img {
+                height: 40px;
+            }
 
-.flex {
-flex-direction: column;
-align-items: center;
-}
-}
+            .nav-link {
+                display: block;
+                padding: 10px 0;
+            }
 
-/* Tablet styles */
-@media (min-width: 769px) and (max-width: 1024px) {
-.header-logo img {
-height: 50px;
-}
+            .flex {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
 
-.nav-link {
-padding: 10px 15px;
-}
-}
+        /* Tablet styles */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .header-logo img {
+                height: 50px;
+            }
 
-/* Desktop styles */
-@media (min-width: 1025px) {
-.header-logo img {
-height: 60px;
-}
+            .nav-link {
+                padding: 10px 15px;
+            }
+        }
 
-.nav-link {
-padding: 10px 20px;
-}
-}
-.slide {
-/* Existing styles */
-perspective: 1000px; /* Add perspective for 3D effects */
-}
-.uniform-size {
-/* Existing styles */
-transition: transform 0.5s ease, filter 0.5s ease; /* Add filter transition */
-}
+        /* Desktop styles */
+        @media (min-width: 1025px) {
+            .header-logo img {
+                height: 60px;
+            }
 
-/* Hover effect for scale and rotate */
-.uniform-size:hover {
-transform: scale(1.1) rotateX(15deg);
-filter: brightness(1.2);
-}
+            .nav-link {
+                padding: 10px 20px;
+            }
+        }
 
-/* Add a 'crazy' shake animation on hover */
-@keyframes shake {
-0%, 100% { transform: translateX(0); }
-10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
-20%, 40%, 60%, 80% { transform: translateX(10px); }
-}
+        .slide {
+            /* Existing styles */
+            perspective: 1000px;
+            /* Add perspective for 3D effects */
+        }
 
-.uniform-size:hover {
-animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
-transform: translate3d(0, 0, 0);
-backface-visibility: hidden;
-perspective: 1000px;
-}
+        .uniform-size {
+            /* Existing styles */
+            transition: transform 0.5s ease, filter 0.5s ease;
+            /* Add filter transition */
+        }
 
-/* Modify the existing animations to include a 3D rotation */
-@keyframes rotateRow1 {
-0% { transform: translateX(100%) rotateY(0); }
-100% { transform: translateX(-100%) rotateY(360deg); }
-}
+        /* Hover effect for scale and rotate */
+        .uniform-size:hover {
+            transform: scale(1.1) rotateX(15deg);
+            filter: brightness(1.2);
+        }
 
-@keyframes rotateRow2 {
-0% { transform: translateX(-100%) rotateY(0); }
-100% { transform: translateX(100%) rotateY(-360deg); }
-}
+        /* Add a 'crazy' shake animation on hover */
+        @keyframes shake {
 
-@keyframes rotateRow3 {
-0% { transform: translateX(100%) rotateY(0); }
-100% { transform: translateX(-100%) rotateY(360deg); }
-}
-</style>
-<section>
-<div class="mb-12 company-section">
-    <h3 class="text-3xl font-bold text-orange-600 text-center mb-6">Mignot-Bazaar</h3>
-    <div class="portfolio-container">
-        <button class="portfolio-nav prev">‹</button>
-        <div class="portfolio-item">
-            <img src="psy15.jpg" alt="Mignot-Bazaar Image 1" class="w-full h-auto rounded-lg transition-transform duration-300">
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            10%,
+            30%,
+            50%,
+            70%,
+            90% {
+                transform: translateX(-10px);
+            }
+
+            20%,
+            40%,
+            60%,
+            80% {
+                transform: translateX(10px);
+            }
+        }
+
+        .uniform-size:hover {
+            animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+            transform: translate3d(0, 0, 0);
+            backface-visibility: hidden;
+            perspective: 1000px;
+        }
+
+        /* Modify the existing animations to include a 3D rotation */
+        @keyframes rotateRow1 {
+            0% {
+                transform: translateX(100%) rotateY(0);
+            }
+
+            100% {
+                transform: translateX(-100%) rotateY(360deg);
+            }
+        }
+
+        @keyframes rotateRow2 {
+            0% {
+                transform: translateX(-100%) rotateY(0);
+            }
+
+            100% {
+                transform: translateX(100%) rotateY(-360deg);
+            }
+        }
+
+        @keyframes rotateRow3 {
+            0% {
+                transform: translateX(100%) rotateY(0);
+            }
+
+            100% {
+                transform: translateX(-100%) rotateY(360deg);
+            }
+        }
+    </style>
+   <section>
+        <div class="mb-12 company-section">
+            <h3 class="text-3xl font-bold text-orange-600 text-center mb-6">Mignot-Bazaar</h3>
+            <div class="gallery-container">
+                <button class="gallery-nav prev">‹</button>
+                <div class="gallery-item">
+                    <img src="psy15.jpg" alt="Mignot-Bazaar Image 1" class="w-full h-auto rounded-lg transition-transform duration-300">
+                </div>
+                <div class="gallery-item">
+                    <img src="psy16.jpg" alt="Mignot-Bazaar Image 2" class="w-full h-auto rounded-lg transition-transform duration-300">
+                </div>
+                <div class="gallery-item">
+                    <img src="psy17.jpg" alt="Mignot-Bazaar Image 3" class="w-full h-auto rounded-lg transition-transform duration-300">
+                </div>
+                <div class="gallery-item">
+                    <img src="psy18.jpg" alt="Mignot-Bazaar Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
+                </div>
+                <div class="gallery-item">
+                    <img src="psy19.jpg" alt="Mignot-Bazaar Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
+                </div>
+                <div class="gallery-item">
+                    <img src="psy20.jpg" alt="Mignot-Bazaar Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
+                </div>
+                <div class="gallery-item">
+                    <img src="fashion5.jpg" alt="Mignot-Bazaar Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
+                </div>
+                <div class="gallery-item">
+                    <img src="fashion6.jpg" alt="Mignot-Bazaar Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
+                </div>
+                <div class="gallery-item">
+                    <img src="fashion7.jpg" alt="Mignot-Bazaar Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
+                </div>
+                <div class="gallery-item">
+                    <img src="fashion1.jpg" alt="Mignot-Bazaar Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
+                </div>
+                <div class="gallery-item">
+                    <img src="bazaar11.jpg" alt="Mignot-Bazaar Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
+                </div>
+                <div class="gallery-item">
+                    <img src="bazaar12.jpg" alt="Mignot-Bazaar Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
+                </div>
+                <div class="gallery-item">
+                    <img src="bazaar13.jpg" alt="Mignot-Bazaar Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
+                </div>
+                <div class="gallery-item">
+                    <img src="bazaar14.jpg" alt="Mignot-Bazaar Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
+                </div>
+                <div class="gallery-item">
+                    <img src="lookup11.jpg" alt="Mignot-Bazaar Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
+                </div>
+                <div class="gallery-item">
+                    <img src="lookup12.jpg" alt="Mignot-Bazaar Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
+                </div>
+                <div class="gallery-item">
+                    <img src="lookup13.jpg" alt="Mignot-Bazaar Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
+                </div>
+                <button class="gallery-nav next">›</button>
+            </div>
         </div>
-        <div class="portfolio-item">
-            <img src="psy16.jpg" alt="Mignot-Bazaar Image 2" class="w-full h-auto rounded-lg transition-transform duration-300">
-        </div>
-        <div class="portfolio-item">
-            <img src="psy17.jpg" alt="Mignot-Bazaar Image 3" class="w-full h-auto rounded-lg transition-transform duration-300">
-        </div>
-        <div class="portfolio-item">
-            <img src="psy18.jpg" alt="Mignot-Bazaar Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
-        </div>
-          <div class="portfolio-item">
-            <img src="psy19.jpg" alt="Mignot-Bazaar Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
-        </div>
-          <div class="portfolio-item">
-            <img src="psy20.jpg" alt="Mignot-Bazaar Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
-        </div>
-          <div class="portfolio-item">
-            <img src="fashion5.jpg" alt="Mignot-Bazaar Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
-        </div>
-          <div class="portfolio-item">
-            <img src="fashion6.jpg" alt="Mignot-Bazaar Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
-        </div>
-          <div class="portfolio-item">
-            <img src="fashion7.jpg" alt="Mignot-Bazaar Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
-        </div>
-          <div class="portfolio-item">
-            <img src="fashion1.jpg" alt="Mignot-Bazaar Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
-        </div>
-          <div class="portfolio-item">
-            <img src="bazaar11.jpg" alt="Mignot-Bazaar Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
-        </div>
-          <div class="portfolio-item">
-            <img src="bazaar12.jpg" alt="Mignot-Bazaar Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
-        </div>
-          <div class="portfolio-item">
-            <img src="bazaar13.jpg" alt="Mignot-Bazaar Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
-        </div>
-          <div class="portfolio-item">
-            <img src="bazaar14.jpg" alt="Mignot-Bazaar Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
-        </div>
-          <div class="portfolio-item">
-            <img src="lookup11.jpg" alt="Mignot-Bazaar Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
-        </div>
-         <div class="portfolio-item">
-            <img src="lookup12.jpg" alt="Mignot-Bazaar Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
-        </div>
-         <div class="portfolio-item">
-            <img src="lookup13.jpg" alt="Mignot-Bazaar Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
-        </div>
-        <button class="portfolio-nav next">›</button>
-    </div>
-</div>
-</section>
+    </section>
+     <style>
+        .gallery-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-    const containers = document.querySelectorAll('.portfolio-container');
+        .gallery-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: transparent;
+            border: none;
+            color: orange;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .gallery-nav.prev {
+            left: 1rem;
+        }
+
+        .gallery-nav.next {
+            right: 1rem;
+        }
+
+        .gallery-images {
+            display: flex;
+            overflow-x: hidden;
+        }
+
+        .gallery-image {
+            width: 400px;
+            height: auto;
+            margin-right: 1rem;
+            border-radius: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-image:hover {
+            transform: scale(1.1);
+        }
+
+        .company-section {
+            text-align: center;
+        }
+
+    </style>
+ <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const containers = document.querySelectorAll('.gallery-container');
 
     containers.forEach(container => {
-        const items = container.querySelectorAll('.portfolio-item');
+        const items = container.querySelectorAll('.gallery-item');
         const prevBtn = container.querySelector('.prev');
         const nextBtn = container.querySelector('.next');
         let currentImageIndex = 0;
@@ -624,375 +767,356 @@ perspective: 1000px;
     });
 });
 
-</script>
+    </script>
 
-<!-- Home Section -->
-<section id="home" class="h-screen flex items-center justify-between bg-white">
-<div class="container mx-auto flex flex-col-reverse md:flex-row-reverse items-center justify-between px-4">
-<div class="md:w-1/2 mt-8 md:mt-```html
-<div class="md:w- mt-8 md:mt-0 md:order-2 transition duration-500 transform hover:scale-105">
+    <!-- Home Section -->
+    <section id="home" class="h-screen flex items-center justify-between bg-white">
+        <div class="container mx-auto flex flex-col-reverse md:flex-row-reverse items-center justify-between px-4">
+            <div class="md:w-1/2 mt-8 md:mt-```html
+<div class=" md:w- mt-8 md:mt-0 md:order-2 transition duration-500 transform hover:scale-105">
 
-<img src="lamonjelogo2.png" alt="Welcome Image" class="w-80 h-auto rounded-lg">
-<p class="mt-4 text-xl"> Dedicated to empowering businesses through data and design, we believe that data-driven insights are the key to more informed decisions and optimizing operations.
-</p>
-</div>
-<div class="md:w-1/2 flex justify-center md:order-1 transition duration-500 transform hover:scale-105">
-<img src="monk1.png" alt="Welcome Image" class="w-80 h-auto rounded-full">
-</div>
-</div>
-</section>
-
-<!-- Trusted By Slider -->
-<section class="py-8 mt-4 bg-safety-orange">
-<div class="container mx-auto text-center trusted-slider-container">
-<h2 class="text-2xl font-semibold text-black">Brand collaborators</h2>
-<div class="mt-4 overflow-hidden relative h-16 bg-transparent rounded-full"> <!-- Changed bg-gray-700 to bg-transparent -->
-<div class="flex animate-marquee space-x-8 text-lg text-black py-2"> <!-- Changed text-gray-100 to text-black -->
-<img src="gulitsacco.png" alt="gulitsacco" class="trusted-logo">
-<img src="gulitmart.png" alt="gulitmart" class="trusted-logo">
-<img src="yewenzelij.png" alt="Yewenzelij" class="trusted-logo">
-<img src="asian.png" alt="Asian" class="trusted-logo">
-<img src="goldenvalley.png" alt="Goldenvalley" class="trusted-logo">
-<img src="rotaract.png" alt="rotaract" class="trusted-logo">
-<img src="icehawassa.png" alt="icehawassa" class="trusted-logo">
-<img src="eyakis.png" alt="eyakis" class="trusted-logo">
-<img src="HAFW.png" alt="HAFW" class="trusted-logo">
-
-</div>
-</div>
-</div>
-</section>
-
-<style>
-<style>
-.trusted-slider-container {
-border-radius: 50px; /* Adjust the border-radius value to control the curvature */
-overflow: hidden; /* Ensure the content stays within the curved container */
-}
-
-.bg-safety-orange {
-background-color: var(--safety-orange); /* Use the appropriate variable for your orange color */
-}
-
-@keyframes marquee {
-0% {
-transform: translateX(0);
-}
-100% {
-transform: translateX(-100%);
-}
-}
-
-.animate-marquee {
-animation: marquee 20s linear infinite; /* Adjust the duration and timing function as needed */
-}
-
-.trusted-logo {
-height: 50px; /* Set a consistent height for all logos */
-width: auto; /* Maintain aspect ratio */
-object-fit: contain; /* Ensure the image fits within the specified dimensions */
-}
-</style>
-
-
-<!-- About-Service Section -->
-<section id="about-service" class="py-12">
-<div class="container mx-auto">
-<h2 class="text-3xl font-semibold text-center mb-8">Services</h2>
-<div class="flex flex-wrap justify-center items-start">
-<!-- Service Cards -->
-<div class="card w-full md:w-1/3 p-6">
-<h3 class="service-header">Event design and facilitation:</h3>
-<p>We meticulously plan and execute every aspect of your event, from conceptualization to execution.</p>
-</div>
-<div class="card w-full md:w-1/3 p-6">
-<h3 class="service-header">Multimedia content curation:</h3>
-<p>We source, curate, and develop multimedia content (video, audio, text) tailored to your specific needs.</p>
-</div>
-<div class="card w-full md:w-1/3 p-6">
-<h3 class="service-header">Creative Marketing:</h3>
-<p>We develop innovative and data-driven marketing campaigns that amplify your brand story and achieve your marketing objectives.</p>
-</div>
-</div>
-
-<h2 class="text-3xl font-semibold text-center mb-8 mt-12">About Us & Goals</h2>
-<div class="flex flex-wrap justify-center items-center">
-<!-- About Us Card -->
-<div class="card w-full lg:w-1/2 p-6">
-<h3 class="text-xl font-semibold mb-4">About Us</h3>
-<p>La Monje is a passionate data-driven creative firm with a heart for storytelling. We believe in the power of "telling your story" to forge connections and achieve results. Our team of passionate creatives combines strategic data analysis with captivating narratives to craft impactful events, curate compelling multimedia content, and develop innovative marketing campaigns. We don't just tell stories, we tell stories that resonate and drive results.</p>
-</div>
-<!-- Our Goals Card -->
-<div class="card w-full lg:w-1/2 p-6">
-<h3 class="text-xl font-semibold mb-4">Our Goals</h3>
-<p>At La Monje, we're a passionate team of data-driven storytellers. We believe in the transformative power of storytelling, and we're dedicated to helping businesses connect with their audiences through impactful narratives. We don't just tell stories, we tell stories that resonate and drive results. Our unique blend of services empowers businesses to thrive in today's competitive landscape. We partner with you to tell your story in a way that resonates with your audience and achieves your goals.</p>
-</div>
-</div>
-</div>
-</section>
-
-<script>
-// Add smooth transition class to body on page load
-document.body.classList.add('smooth-transition');
-</script>
-<!-- Mignot-Bazaar -->
-<div class="mb-12 company-section">
-    <h3 class="text-3xl font-bold text-orange-600 text-center mb-6">Mignot-Bazaar</h3>
-    <div class="portfolio-container">
-        <button class="portfolio-nav prev">‹</button>
-        <div class="portfolio-item">
-            <img src="bazaar1.jpg" alt="Mignot-Bazaar Image 1" class="w-full h-auto rounded-lg transition-transform duration-300">
+                <img src="lamonjenew.jpeg" alt="Welcome Image" class="w-80 h-auto rounded-lg">
+                <p class="mt-4 text-xl"> Dedicated to empowering businesses through data and design, we believe that
+                    data-driven insights are the key to more informed decisions and optimizing operations.
+                </p>
+            </div>
+            <div class="md:w-1/2 flex justify-center md:order-1 transition duration-500 transform hover:scale-105">
+                <img src="monk2.jpeg" alt="Welcome Image" class="w-80 h-auto rounded-full">
+            </div>
         </div>
-        <div class="portfolio-item">
-            <img src="bazaar2.jpg" alt="Mignot-Bazaar Image 2" class="w-full h-auto rounded-lg transition-transform duration-300">
-        </div>
-        <div class="portfolio-item">
-            <img src="bazaar3.jpg" alt="Mignot-Bazaar Image 3" class="w-full h-auto rounded-lg transition-transform duration-300">
-        </div>
-        <div class="portfolio-item">
-            <img src="bazaar4.jpg" alt="Mignot-Bazaar Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
-        </div>
-        <button class="portfolio-nav next">›</button>
-    </div>
-</div>
+    </section>
 
-<!-- Lookup -->
-<div class="mb-12 company-section">
-    <h3 class="text-3xl font-bold text-orange-600 text-center mb-6">Lookup</h3>
-    <div class="portfolio-container">
-        <button class="portfolio-nav prev">‹</button>
-        <div class="portfolio-item">
-            <img src="lookup1.jpg" alt="Lookup Image 1" class="w-full h-auto rounded-lg transition-transform duration-300">
-        </div>
-        <div class="portfolio-item">
-            <img src="lookup2.jpg" alt="Lookup Image 2" class="w-full h-auto rounded-lg transition-transform duration-300">
-        </div>
-        <div class="portfolio-item">
-            <img src="lookup3.jpg" alt="Lookup Image 3" class="w-full h-auto rounded-lg transition-transform duration-300">
-        </div>
-        <div class="portfolio-item">
-            <img src="lookup4.jpg" alt="Lookup Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
-        </div>
-        <button class="portfolio-nav next">›</button>
-    </div>
-</div>
+    <!-- Trusted By Slider -->
+    <section class="py-8 mt-4 bg-safety-orange">
+        <div class="container mx-auto text-center trusted-slider-container">
+            <h2 class="text-2xl font-semibold text-black">Brand collaborators</h2>
+            <div class="mt-4 overflow-hidden relative h-16 bg-transparent rounded-full">
+                <!-- Changed bg-gray-700 to bg-transparent -->
+                <div class="flex animate-marquee space-x-8 text-lg text-black py-2">
+                    <!-- Changed text-gray-100 to text-black -->
+                    <img src="gulitsacco.png" alt="gulitsacco" class="trusted-logo">
+                    <img src="gulitmart.png" alt="gulitmart" class="trusted-logo">
+                    <img src="yewenzelij.png" alt="Yewenzelij" class="trusted-logo">
+                    <img src="asian.png" alt="Asian" class="trusted-logo">
+                    <img src="goldenvalley.png" alt="Goldenvalley" class="trusted-logo">
+                    <img src="rotaract.png" alt="rotaract" class="trusted-logo">
+                    <img src="icehawassa.png" alt="icehawassa" class="trusted-logo">
+                    <img src="eyakis.png" alt="eyakis" class="trusted-logo">
+                    <img src="HAFW.png" alt="HAFW" class="trusted-logo">
 
-<!-- Psy-addis -->
-<div class="mb-12 company-section">
-    <h3 class="text-3xl font-bold text-orange-600 text-center mb-6">Psy-addis</h3>
-    <div class="portfolio-container">
-        <button class="portfolio-nav prev">‹</button>
-        <div class="portfolio-item">
-            <img src="psy1.jpg" alt="Psy-addis Image 1" class="w-full h-auto rounded-lg transition-transform duration-300">
+                </div>
+            </div>
         </div>
-        <div class="portfolio-item">
-            <img src="psy2.jpg" alt="Psy-addis Image 2" class="w-full h-auto rounded-lg transition-transform duration-300">
-        </div>
-        <div class="portfolio-item">
-            <img src="psy3.jpg" alt="Psy-addis Image 3" class="w-full h-auto rounded-lg transition-transform duration-300">
-        </div>
-        <div class="portfolio-item">
-            <img src="psy4.jpg" alt="Psy-addis Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
-        </div>
-        <button class="portfolio-nav next">›</button>
-    </div>
-</div>
+    </section>
 
-<!-- Action-aid-Ethiopia -->
-<div class="mb-12 company-section">
-    <h3 class="text-3xl font-bold text-orange-600 text-center mb-6">Action-aid-Ethiopia</h3>
-    <div class="portfolio-container">
-        <button class="portfolio-nav prev">‹</button>
-        <div class="portfolio-item">
-            <img src="aid1.jpg" alt="Action-aid-Ethiopia Image 1" class="w-full h-auto rounded-lg transition-transform duration-300">
-        </div>
-        <div class="portfolio-item">
-            <img src="aid2.jpg" alt="Action-aid-Ethiopia Image 2" class="w-full h-auto rounded-lg transition-transform duration-300">
-        </div>
-        <div class="portfolio-item">
-            <img src="aid3.jpg" alt="Action-aid-Ethiopia Image 3" class="w-full h-auto rounded-lg transition-transform duration-300">
-        </div>
-        <div class="portfolio-item">
-            <img src="aid4.jpg" alt="Action-aid-Ethiopia Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
-        </div>
-        <button class="portfolio-nav next">›</button>
-    </div>
-</div>
-
-<!-- HAFW -->
-<div class="mb-12 company-section">
-    <h3 class="text-3xl font-bold text-orange-600 text-center mb-6">HAFW</h3>
-    <div class="portfolio-container">
-        <button class="portfolio-nav prev">‹</button>
-        <div class="portfolio-item">
-            <img src="post_1.png" alt="HAFW Image 1" class="w-full h-auto rounded-lg transition-transform duration-300">
-        </div>
-        <div class="portfolio-item">
-            <img src="post_2.png" alt="HAFW Image 2" class="w-full h-auto rounded-lg transition-transform duration-300">
-        </div>
-        <div class="portfolio-item">
-            <img src="post_3.png" alt="HAFW Image 3" class="w-full h-auto rounded-lg transition-transform duration-300">
-        </div>
-        <div class="portfolio-item">
-            <img src="post_4.png" alt="HAFW Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
-        </div>
-        <button class="portfolio-nav next">›</button>
-    </div>
-</div>
-
-<style>
- .portfolio-container {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-    }
-
-    .portfolio-nav {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background-color: transparent;
-        border: none;
-        color: orange;
-        font-size: 2rem;
-        cursor: pointer;
-        z-index: 2;
-    }
-
-    .portfolio-nav.prev {
-        left: 1rem;
-    }
-
-    .portfolio-nav.next {
-        right: 1rem;
-    }
-
-    .portfolio-images {
-        display: flex;
-        overflow-x: hidden;
-    }
-
-    .portfolio-image {
-        width: 400px;
+    <style>
+    @media only screen and (max-width: 480px) {
+    .slider-container {
+        width: 100%;
         height: auto;
-        margin-right: 1rem;
-        border-radius: 0.5rem;
-        transition: transform 0.3s ease;
     }
-
-    .portfolio-image:hover {
-        transform: scale(1.1);
+    .slide-image {
+        width: 100%;
+        height: auto;
     }
-
-    .company-section {
-        text-align: center;
+    /* Adjust text size and position for mobile */
+    .slide-text {
+        font-size: 14px;
+        padding: 10px;
     }
+}
 
-    h3 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-    }
-
-    .text-center p {
-        margin-bottom: 1rem;
-    }
-</style>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-    const containers = document.querySelectorAll('.portfolio-container');
-
-    containers.forEach(container => {
-        const items = container.querySelectorAll('.portfolio-item');
-        const prevBtn = container.querySelector('.prev');
-        const nextBtn = container.querySelector('.next');
-        let currentImageIndex = 0;
-
-        function showImage(index) {
-            items.forEach(item => item.style.display = 'none');
-            items[index].style.display = 'block';
+        <style>.trusted-slider-container {
+            border-radius: 50px;
+            /* Adjust the border-radius value to control the curvature */
+            overflow: hidden;
+            /* Ensure the content stays within the curved container */
         }
 
-        // Show the first image initially
-        showImage(currentImageIndex);
+        .bg-safety-orange {
+            background-color: var(--safety-orange);
+            /* Use the appropriate variable for your orange color */
+        }
 
-        // Event listener for next button
-        nextBtn.addEventListener('click', function() {
-            currentImageIndex = (currentImageIndex + 1) % items.length;
-            showImage(currentImageIndex);
-        });
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
 
-        // Event listener for previous button
-        prevBtn.addEventListener('click', function() {
-            currentImageIndex = (currentImageIndex - 1 + items.length) % items.length;
-            showImage(currentImageIndex);
-        });
-    });
-});
+            100% {
+                transform: translateX(-100%);
+            }
+        }
 
+        .animate-marquee {
+            animation: marquee 20s linear infinite;
+            /* Adjust the duration and timing function as needed */
+        }
+
+        .trusted-logo {
+            height: 50px;
+            /* Set a consistent height for all logos */
+            width: auto;
+            /* Maintain aspect ratio */
+            object-fit: contain;
+            /* Ensure the image fits within the specified dimensions */
+        }
+    </style>
+    <script>
+    var slider = document.querySelector('.slider-container');
+slider.addEventListener('touchstart', handleTouchStart, false);
+slider.addEventListener('touchmove', handleTouchMove, false);
+
+// Implement the touch event handlers
+function handleTouchStart(event) {
+    // Your code to handle touch start
+}
+
+function handleTouchMove(event) {
+    // Your code to handle touch move (swipe)
+}
 </script>
-<!-- Contact Us Section -->
-<section id="contact" class="py-12 bg-gray-100">
-<div class="container mx-auto">
-<h2 class="text-3xl font-semibold text-black text-center mb-8">Contact Us</h2>
-<div class="flex flex-wrap justify-center space-x-8">
-<!-- Address Cards -->
+
+
+    <!-- About-Service Section -->
+    <section id="about-service" class="py-12">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-semibold text-center mb-8">Services</h2>
+            <div class="flex flex-wrap justify-center items-start">
+                <!-- Service Cards -->
+                <div class="card w-full md:w-1/3 p-6">
+                    <h3 class="service-header">Event design and facilitation:</h3>
+                    <p>We meticulously plan and execute every aspect of your event, from conceptualization to execution.
+                    </p>
+                </div>
+                <div class="card w-full md:w-1/3 p-6">
+                    <h3 class="service-header">Multimedia content curation:</h3>
+                    <p>We source, curate, and develop multimedia content (video, audio, text) tailored to your specific
+                        needs.</p>
+                </div>
+                <div class="card w-full md:w-1/3 p-6">
+                    <h3 class="service-header">Creative Marketing:</h3>
+                    <p>We develop innovative and data-driven marketing campaigns that amplify your brand story and
+                        achieve your marketing objectives.</p>
+                </div>
+            </div>
+
+            <h2 class="text-3xl font-semibold text-center mb-8 mt-12">About Us & Goals</h2>
+            <div class="flex flex-wrap justify-center items-center">
+                <!-- About Us Card -->
+                <div class="card w-full lg:w-1/2 p-6">
+                    <h3 class="text-xl font-semibold mb-4">About Us</h3>
+                    <p>La Monje is a passionate data-driven creative firm with a heart for storytelling. We believe in
+                        the power of "telling your story" to forge connections and achieve results. Our team of
+                        passionate creatives combines strategic data analysis with captivating narratives to craft
+                        impactful events, curate compelling multimedia content, and develop innovative marketing
+                        campaigns. We don't just tell stories, we tell stories that resonate and drive results.</p>
+                </div>
+                <!-- Our Goals Card -->
+                <div class="card w-full lg:w-1/2 p-6">
+                    <h3 class="text-xl font-semibold mb-4">Our Goals</h3>
+                    <p>At La Monje, we're a passionate team of data-driven storytellers. We believe in the
+                        transformative power of storytelling, and we're dedicated to helping businesses connect with
+                        their audiences through impactful narratives. We don't just tell stories, we tell stories that
+                        resonate and drive results. Our unique blend of services empowers businesses to thrive in
+                        today's competitive landscape. We partner with you to tell your story in a way that resonates
+                        with your audience and achieves your goals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Add smooth transition class to body on page load
+document.body.classList.add('smooth-transition');
+    </script>
+     <!-- Action-aid-Ethiopia -->
+    <div class="mb-12 company-section">
+        <h3 class="text-3xl font-bold text-orange-600 text-center mb-6">Action-aid-Ethiopia</h3>
+        <div class="portfolio-container">
+            <button class="portfolio-nav prev">‹</button>
+            <div class="portfolio-item">
+                <img src="aid1.jpg" alt="Action-aid-Ethiopia Image 1" class="w-full h-auto rounded-lg transition-transform duration-300">
+            </div>
+            <div class="portfolio-item">
+                <img src="aid2.jpg" alt="Action-aid-Ethiopia Image 2" class="w-full h-auto rounded-lg transition-transform duration-300">
+            </div>
+            <div class="portfolio-item">
+                <img src="aid3.jpg" alt="Action-aid-Ethiopia Image 3" class="w-full h-auto rounded-lg transition-transform duration-300">
+            </div>
+            <div class="portfolio-item">
+                <img src="aid4.jpg" alt="Action-aid-Ethiopia Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
+            </div>
+            <button class="portfolio-nav next">›</button>
+        </div>
+    </div>
+ <!-- HAFW -->
+    <div class="mb-12 company-section">
+        <h3 class="text-3xl font-bold text-orange-600 text-center mb-6">HAFW</h3>
+        <div class="portfolio-container">
+            <button class="portfolio-nav prev">‹</button>
+            <div class="portfolio-item">
+                <img src="fashion1.png" alt="HAFW Image 1" class="w-full h-auto rounded-lg transition-transform duration-300">
+            </div>
+            <div class="portfolio-item">
+                <img src="fashion6.png" alt="HAFW Image 2" class="w-full h-auto rounded-lg transition-transform duration-300">
+            </div>
+            <div class="portfolio-item">
+                <img src="fashion2.png" alt="HAFW Image 3" class="w-full h-auto rounded-lg transition-transform duration-300">
+            </div>
+            <div class="portfolio-item">
+                <img src="fashion3.png" alt="HAFW Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
+            </div>
+            <button class="portfolio-nav next">›</button>
+        </div>
+    </div>
+      <!-- Psy-addis -->
+    <div class="mb-12 company-section">
+        <h3 class="text-3xl font-bold text-orange-600 text-center mb-6">Psy-addis</h3>
+        <div class="portfolio-container">
+            <button class="portfolio-nav prev">‹</button>
+            <div class="portfolio-item">
+                <img src="psy1.jpg" alt="Psy-addis Image 1" class="w-full h-auto rounded-lg transition-transform duration-300">
+            </div>
+            <div class="portfolio-item">
+                <img src="psy2.jpg" alt="Psy-addis Image 2" class="w-full h-auto rounded-lg transition-transform duration-300">
+            </div>
+            <div class="portfolio-item">
+                <img src="psy3.jpg" alt="Psy-addis Image 3" class="w-full h-auto rounded-lg transition-transform duration-300">
+            </div>
+            <div class="portfolio-item">
+                <img src="psy4.jpg" alt="Psy-addis Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
+            </div>
+            <button class="portfolio-nav next">›</button>
+        </div>
+    </div>
+    <!-- Mignot-Bazaar -->
+    <div class="mb-12 company-section">
+        <h3 class="text-3xl font-bold text-orange-600 text-center mb-6">Mignot-Bazaar</h3>
+        <div class="portfolio-container">
+            <button class="portfolio-nav prev">‹</button>
+            <div class="portfolio-item">
+                <img src="bazaar1.jpg" alt="Mignot-Bazaar Image 1" class="w-full h-auto rounded-lg transition-transform duration-300">
+            </div>
+            <div class="portfolio-item">
+                <img src="bazaar2.jpg" alt="Mignot-Bazaar Image 2" class="w-full h-auto rounded-lg transition-transform duration-300">
+            </div>
+            <div class="portfolio-item">
+                <img src="bazaar3.jpg" alt="Mignot-Bazaar Image 3" class="w-full h-auto rounded-lg transition-transform duration-300">
+            </div>
+            <div class="portfolio-item">
+                <img src="bazaar4.jpg" alt="Mignot-Bazaar Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
+            </div>
+            <button class="portfolio-nav next">›</button>
+        </div>
+    </div>
+
+    <!-- Lookup -->
+    <div class="mb-12 company-section">
+        <h3 class="text-3xl font-bold text-orange-600 text-center mb-6">Lookup</h3>
+        <div class="portfolio-container">
+            <button class="portfolio-nav prev">‹</button>
+            <div class="portfolio-item">
+                <img src="lookup1.jpg" alt="Lookup Image 1" class="w-full h-auto rounded-lg transition-transform duration-300">
+            </div>
+            <div class="portfolio-item">
+                <img src="lookup2.jpg" alt="Lookup Image 2" class="w-full h-auto rounded-lg transition-transform duration-300">
+            </div>
+            <div class="portfolio-item">
+                <img src="lookup3.jpg" alt="Lookup Image 3" class="w-full h-auto rounded-lg transition-transform duration-300">
+            </div>
+            <div class="portfolio-item">
+                <img src="lookup4.jpg" alt="Lookup Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
+            </div>
+            <button class="portfolio-nav next">›</button>
+        </div>
+    </div>
+
+    <style>
+        .portfolio-container {
+    position: relative;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Ensure images stay in a single line */
+}
+
+.portfolio-item {
+    display: inline-block; /* Ensure images stay inline */
+    margin-right: 10px; /* Adjust spacing between images */
+}
+
+.portfolio-item img {
+    width: 200; /* Set width to auto to maintain original size */
+    height: 200; /* Set height to auto to maintain aspect ratio */
+    max-height: 300px; /* Limit maximum height */
+    transition: transform 0.3s ease, filter 0.3s ease; /* Add transitions */
+}
+
+.portfolio-item img:hover {
+    transform: scale(1.5); /* Enlarge image on hover */
+}
+
+    </style>
+
+    <!-- Contact Us Section -->
+    <section id="contact" class="py-12 bg-gray-100">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-semibold text-black text-center mb-8">Contact Us</h2>
+            <div class="flex flex-wrap justify-center space-x-8">
+                <!-- Address Cards -->
+                <div class="w-72 bg-white rounded-lg shadow-lg p-6 mb-8">
+                    <h3 class="text-lg font-semibold mb-4">Addis abeba</h3>
+                    <p>Ethiopia</p>
+                    <p>+251942471649</p>
+                    <p>Yeabkal Demissew</p>
+                    <p>yeabkaldemissew14@gmail.com</p>
+                </div>
+                <div class="w-72 bg-white rounded-lg shadow-lg p-6 mb-8">
+                    <h3 class="text-lg font-semibold mb-4">Hawassa</h3>
+                    <p>Ethiopia</p>
+                    <p>+25191 631 3972</p>
+                    <p>Meareg Mngisteab</p>
+                    <p>mearegmngisteab@gmail.com</p>
+                </div>
+                <div class="w-72 bg-white rounded-lg shadow-lg p-6 mb-8">
+                    <h3 class="text-lg font-semibold mb-4">kigali</h3>
+                    <p>Rwanda</p>
+                    <p>+250 794 555 111</p>
+                    <p>Bethlehem Ghidey</p>
+                    <p>bettyghgm@gmail.com</p>
+                </div>
+                <!-- Social Media Links -->
+                <div class="w-72 bg-white rounded-lg shadow-lg p-6 mb-8">
+    <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
 <div class="w-72 bg-white rounded-lg shadow-lg p-6 mb-8">
-<h3 class="text-lg font-semibold mb-4">Addis abeba</h3>
-<p>Ethiopia</p>
-<p>+251942471649</p>
-<p>Yeabkal Demissew</p>
-<p>yeabkaldemissew14@gmail.com</p>
-</div>
-<div class="w-72 bg-white rounded-lg shadow-lg p-6 mb-8">
-<h3 class="text-lg font-semibold mb-4">Hawassa</h3>
-<p>Ethiopia</p>
-<p>+25191 631 3972</p>
-<p>Meareg Mngisteab</p>
-<p>mearegmngisteab@gmail.com</p>
-</div>
-<div class="w-72 bg-white rounded-lg shadow-lg p-6 mb-8">
-<h3 class="text-lg font-semibold mb-4">kigali</h3>
-<p>Rwanda</p>
-<p>+250 794 555 111</p>
-<p>Bethlehem Ghidey</p>
-<p>bettyghgm@gmail.com</p>
-</div>
-<!-- Social Media Links -->
-<div class="w-72 bg-white rounded-lg shadow-lg p-6 mb-8">
-<h3 class="text-lg font-semibold mb-4">Follow Us</h3>
-<a href="#" class="flex items-center text-gray-700 hover:text-orange-accent mb-2">
-<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"></path>
-</svg>
-Facebook
-</a>
-<a href="#" class="flex items-center text-gray-700 hover:text-orange-accent">
-<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-4.349-4.646a4.5 4.5 0 00-6.364 0l-1.414 1.414a4.5 4.5 0 000 6.364l3.535 3.535a4.5 4.5 0 006.364 0l1.414-1.414a4.5 4.5 0 000-6.364l-3.535-3.535z"></path>
-</svg>
-Instagram
-</a>
-</div>
-</div>
-<!-- Contact Form -->
-<div class="bg-white rounded-lg shadow-lg p-8 max-w-md mx-auto">
-<h3 class="text-2xl font-semibold text-center mb-4">Send Us a Message</h3>
-<form class="contact-form">
-<input type="text" id="first-name" name="first-name" placeholder="First Name" required class="form-input mb-4">
-<input type="text" id="last-name" name="last-name" placeholder="Last Name" required class="form-input mb-4">
-<input type="tel" id="phone" name="phone" placeholder="Phone" required class="form-input mb-4">
-<input type="email" id="email" name="email" placeholder="Email" required class="form-input mb-4">
-<textarea id="message" name="message" rows="4" placeholder="Message" required class="form-input mb-4"></textarea>
-<button type="submit" class="bg-orange-accent hover:bg-orange-accent-dark text-white font-bold py-2 px-4 rounded-full w-full transition duration-300">Submit</button>
-</form>
+    <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
+    <a href="https://www.facebook.com/lamonjecomms" class="flex items-center text-gray-700 hover:text-orange-accent mb-2">
+        <img src="facebook.jpg" alt="Facebook Icon" class="h-6 w-6 mr-2">
+        Facebook
+    </a>
+    <a href="https://www.instagram.com/la_monje/" class="flex items-center text-gray-700 hover:text-orange-accent mb-2">
+        <img src="instagram.jpg" alt="Instagram Icon" class="h-6 w-6 mr-2">
+        Instagram
+    </a>
 </div>
 
-</div>
-</section>
-<script>
-document.addEventListener('DOMContentLoaded', function () {
+            </div>
+            <!-- Contact Form -->
+            <div class="bg-white rounded-lg shadow-lg p-8 max-w-md mx-auto">
+                <h3 class="text-2xl font-semibold text-center mb-4">Send Us a Message</h3>
+                <form class="contact-form">
+                    <input type="text" id="first-name" name="first-name" placeholder="First Name" required class="form-input mb-4">
+                    <input type="text" id="last-name" name="last-name" placeholder="Last Name" required class="form-input mb-4">
+                    <input type="tel" id="phone" name="phone" placeholder="Phone" required class="form-input mb-4">
+                    <input type="email" id="email" name="email" placeholder="Email" required class="form-input mb-4">
+                    <textarea id="message" name="message" rows="4" placeholder="Message" required class="form-input mb-4"></textarea>
+                    <button type="submit" class="bg-orange-accent hover:bg-orange-accent-dark text-white font-bold py-2 px-4 rounded-full w-full transition duration-300">Submit</button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
 const form = document.getElementById('contactForm');
 document.addEventListener('DOMContentLoaded', function () {
 document.body.classList.add('loaded');
@@ -1025,22 +1149,22 @@ message
 console.log(formData);
 });
 });
-</script>
+    </script>
 
-<!-- Footer -->
-<footer class="bg-black text-white py-4">
-<div class="container mx-auto text-center">
-<p>&copy; 2024 La-monje. All rights reserved.</p>
-</div>
-</footer>
+    <!-- Footer -->
+    <footer class="bg-black text-white py-4">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 La-monje. All rights reserved.</p>
+        </div>
+    </footer>
 
-<script>
-const navToggle = document.getElementById('navToggle');
+    <script>
+        const navToggle = document.getElementById('navToggle');
 const mobileMenu = document.getElementById('mobileMenu');
 
 navToggle.addEventListener('click', () => {
 mobileMenu.classList.toggle('hidden');
 });
-</script>
+    </script>
 </body>
 </html>
