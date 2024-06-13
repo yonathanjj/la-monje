@@ -307,14 +307,14 @@
 
 
 
-
-        <style>
+<style>
         :root {
             --black: #000000ff;
             --safety-orange: #FF7A00ff;
             --safety-orange-2: #FF7900ff;
             --gray-200: #E5E7EBff;
             --gray-300: #D1D5DBff;
+            --gray-400: #f3f4f6; /* Light gray background */
         }
 
         body,
@@ -328,26 +328,67 @@
 
         .about-us-container {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
             min-height: 100vh;
             padding: 2rem;
+            background-color: var(--gray-400); /* Light gray background */
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            margin: 0;
+            margin-right: 1rem;
+            color: var(--black);
+        }
+
+        .arrow {
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            bottom: -10px;
+            background-color: var(--black);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            transition: transform 0.3s ease;
+        }
+
+        .arrow.right {
+            right: calc(50% - 10px);
+            transform: translateX(50%) rotate(-45deg);
+        }
+
+        .arrow.left {
+            left: calc(50% - 10px);
+            transform: translateX(-50%) rotate(135deg);
+        }
+
+        .section-header:hover .arrow {
+            transform: translateY(-5px);
         }
 
         .about-us-card {
             width: 100%;
             max-width: 600px;
             background-color: var(--safety-orange);
-            padding: 1.5rem;
+            padding: 2rem;
             border-radius: 0.5rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6); /* Updated box-shadow */
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             margin: 0 1rem;
+            transform: translateY(0);
         }
 
         .about-us-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8); /* Larger box-shadow on hover */
         }
 
         .about-us-card h2 {
@@ -362,36 +403,42 @@
             line-height: 1.6;
         }
 
-        .our-goals {
-            background-color: var(--safety-orange-2);
-        }
-
         @media (max-width: 768px) {
             .about-us-container {
-                flex-direction: column;
-                height: auto;
                 padding: 1rem;
             }
 
-            .about-us-card {
-                width: 100%;
-                margin-bottom: 1rem;
+            .section-header h2 {
+                font-size: 1.5rem;
             }
         }
     </style>
+</head>
 
-<!-- About Us Section -->
+<body>
+
+    <!-- About Us Section -->
     <section id="about-us" class="about-us-container">
+        <div class="section-header">
+            <h2>About Us</h2>
+            <div class="arrow right"></div>
+        </div>
         <div class="about-us-card">
             <h2>About Us</h2>
             <p>
                 La Monje is a passionate data-driven creative firm with a heart for storytelling. We believe in the power of "telling your story" to forge connections and achieve results. Our passionate creatives combine strategic data analysis with captivating narratives to craft impactful events, curate compelling multimedia content, and develop innovative marketing campaigns. We don't just tell stories, we tell stories that resonate and drive results.
             </p>
         </div>
-        <div class="about-us-card our-goals">
+        <div class="section-header">
+            <div class="arrow left"></div>
+            <h2>Our Goals</h2>
+        </div>
+        <div class="about-us-card">
             <h2>Our Goals</h2>
             <p>
                 At La Monje, we're a passionate team of data-driven storytellers. We believe in the transformative power of storytelling, and we're dedicated to helping businesses connect with their audiences through impactful narratives. We don't just tell stories, we tell stories that resonate and drive results. Our unique blend of services empowers businesses to thrive in today's competitive landscape. We partner with you to tell your story in a way that resonates with your audience and achieves your goals.
             </p>
         </div>
     </section>
+
+
