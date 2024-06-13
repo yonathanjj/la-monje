@@ -194,12 +194,12 @@
     <!-- Home Section -->
     <section id="home" class="h-screen flex items-center justify-center bg-white">
         <div class="container mx-auto flex flex-col md:flex-row items-center justify-center px-4">
-            <div class="md:w-1/2 flex flex-col items-center md:items-start">
-                <img src="psy15.jpg" alt="Gallery Image 1" class="gallery-image w-full h-auto rounded-lg mb-4">
-            </div>
             <div class="md:w-1/2 flex flex-col items-center md:items-start mt-8 md:mt-0 space-y-4">
                 <img src="psy16.jpg" alt="Gallery Image 2" class="gallery-image w-48 h-auto rounded-lg">
                 <img src="psy17.jpg" alt="Gallery Image 3" class="gallery-image w-48 h-auto rounded-lg">
+                <img src="psy12.jpg" alt="Gallery Image 3" class="gallery-image w-48 h-auto rounded-lg">
+                <img src="psy11.jpg" alt="Gallery Image 3" class="gallery-image w-48 h-auto rounded-lg">
+                <img src="psy15.jpg" alt="Gallery Image 3" class="gallery-image w-48 h-auto rounded-lg">
             </div>
         </div>
         <!-- Logos Slider -->
@@ -242,7 +242,7 @@
         // Logos Slider
         const logosSlider = document.querySelector('.logos-slider');
         let logosInterval;
-        
+
         const startSlider = () => {
             logosInterval = setInterval(() => {
                 logosSlider.scrollLeft += 1;
@@ -257,6 +257,3 @@
 
         startSlider();
     </script>
-</body>
-
-</html>
