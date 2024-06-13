@@ -162,69 +162,76 @@
             }
         }
 
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .header-logo img {
-                height: 50px;
-            }
+       @media (min-width: 769px) and (max-width: 1024px) {
+    .additional-images {
+        margin-top: 0;
+        margin-left: 2rem;
+        max-width: 600px;
+        flex-direction: column;
+        align-items: flex-start; /* Align items to the start on medium screens */
+    }
 
-            .nav-link {
-                padding: 10px 15px;
-            }
-        }
+    .additional-images img {
+        width: 347px; /* Fixed width for medium screens */
+        height: auto;
+        object-fit: cover;
+        border-radius: 0.5rem;
+        margin-bottom: 1rem;
+    }
+}
 
-        @media (min-width: 1025px) {
-            .header-logo img {
-                height: 60px;
-            }
+@media (min-width: 1025px) {
+    .additional-images {
+        margin-top: 0;
+        margin-left: 2rem;
+        max-width: 600px;
+        flex-direction: row; /* Align items in a row on larger screens */
+    }
 
-            .nav-link {
-                padding: 10px 20px;
-            }
-
-            .additional-images {
-                margin-top: 0;
-                margin-left: 2rem;
-                max-width: 600px;
-                flex-direction: row;
-            }
-
-            .additional-images img {
-                margin-bottom: 0;
-                margin-right: 1rem;
-            }
-        }
+    .additional-images img {
+        width: 200px; /* Fixed width for larger screens */
+        height: 200px; /* Fixed height for larger screens */
+        object-fit: cover;
+        border-radius: 0.5rem;
+        margin-bottom: 1rem;
+        margin-right: 2rem; /* Adjusted margin for spacing between images */
+    }
+}
     </style>
 </head>
 
 <body>
 
-    <!-- Header -->
-    <header class="bg-white p-4 fixed w-full z-10 shadow-lg">
-        <nav class="container mx-auto flex justify-between items-center">
-            <a href="#home" class="text-3xl header-logo">
-                <img src="monk2.jpeg" alt="La Monje" class="h-8">
-            </a>
-            <ul class="hidden md:flex space-x-4">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about-service" class="nav-link">About-Service</a></li>
-                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
-                <li><a href="#contact" class="nav-link">Contact Us</a></li>
-            </ul>
-            <button class="md:hidden text-black focus:outline-none" id="navToggle">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
-        </nav>
-        <div class="md:hidden hidden" id="mobileMenu">
-            <ul class="flex flex-col space-y-4 mt-2 bg-white p-4">
-                <li><a href="#home" class="block text-black p-2 hover:bg-gray-700 rounded-full">Home</a></li>
-                <li><a href="#about-service" class="block text-black p-2 hover:bg-gray-700 rounded-full">About-Service</a></li>
-                <li><a href="#portfolio" class="block text-black p-2 hover:bg-gray-700 rounded-full">Portfolio</a></li>
-                <li><a href="#contact" class="block text-black p-2 hover:bg-gray-700 rounded-full">Contact Us</a></li>
-            </ul>
-        </div>
-    </header>
+<!-- header section -->
+ <header class="bg-white p-4 fixed w-full z-10 shadow-lg">
+    <nav class="container mx-auto flex justify-between items-center">
+        <a href="#home" class="text-3xl header-logo">
+            <img src="monk2.jpeg" alt="La Monje" class="h-8">
+        </a>
+        <ul class="hidden md:flex space-x-4">
+            <li><a href="#home" class="nav-link">Home</a></li>
+            <li><a href="#about-us" class="nav-link">About-Us</a></li>
+            <li><a href="#service" class="nav-link">Service</a></li>
+            <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+            <li><a href="#contact" class="nav-link">Contact Us</a></li>
+        </ul>
+        <button class="md:hidden text-black focus:outline-none" id="navToggle">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+    </nav>
+    <div class="md:hidden hidden" id="mobileMenu">
+        <ul class="flex flex-col space-y-4 mt-2 bg-white p-4">
+            <li><a href="#home" class="block text-black p-2 hover:bg-gray-700 rounded-full">Home</a></li>
+            <li><a href="#about-us" class="block text-black p-2 hover:bg-gray-700 rounded-full">About-Us</a></li>
+            <li><a href="#service" class="block text-black p-2 hover:bg-gray-700 rounded-full">Service</a></li>
+            <li><a href="#portfolio" class="block text-black p-2 hover:bg-gray-700 rounded-full">Portfolio</a></li>
+            <li><a href="#contact" class="block text-black p-2 hover:bg-gray-700 rounded-full">Contact Us</a></li>
+        </ul>
+    </div>
+</header>
+
 
     <!-- Home Section -->
     <section id="home" class="min-h-screen flex items-center justify-center bg-white">
@@ -237,8 +244,8 @@
                 <img src="psy15.jpg" alt="Gallery Image 3" class="gallery-image w-48 h-auto rounded-lg">
             </div>
             <div class="additional-images">
-                <img src="monk2.jpeg" alt="Additional Image 1" class="w-50 h-60">
-                <img src="lamonjenew.jpeg" alt="Additional Image 2" class="w-100 h-150">
+                  <img src="monk2.jpeg" alt="Additional Image 1" class="w-50 h-60">
+                  <img src="lamonjenew.jpeg" alt="Additional Image 2" class="w-100 h-150">
             </div>
         </div>
     </section>
@@ -298,3 +305,93 @@
         startSlider();
     </script>
 
+
+
+
+        <style>
+        :root {
+            --black: #000000ff;
+            --safety-orange: #FF7A00ff;
+            --safety-orange-2: #FF7900ff;
+            --gray-200: #E5E7EBff;
+            --gray-300: #D1D5DBff;
+        }
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            box-sizing: border-box;
+            background-color: var(--gray-200);
+        }
+
+        .about-us-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .about-us-card {
+            width: 100%;
+            max-width: 600px;
+            background-color: var(--safety-orange);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin: 0 1rem;
+        }
+
+        .about-us-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-us-card h2 {
+            color: var(--black);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-us-card p {
+            color: var(--black);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .our-goals {
+            background-color: var(--safety-orange-2);
+        }
+
+        @media (max-width: 768px) {
+            .about-us-container {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem;
+            }
+
+            .about-us-card {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+
+<!-- About Us Section -->
+    <section id="about-us" class="about-us-container">
+        <div class="about-us-card">
+            <h2>About Us</h2>
+            <p>
+                La Monje is a passionate data-driven creative firm with a heart for storytelling. We believe in the power of "telling your story" to forge connections and achieve results. Our passionate creatives combine strategic data analysis with captivating narratives to craft impactful events, curate compelling multimedia content, and develop innovative marketing campaigns. We don't just tell stories, we tell stories that resonate and drive results.
+            </p>
+        </div>
+        <div class="about-us-card our-goals">
+            <h2>Our Goals</h2>
+            <p>
+                At La Monje, we're a passionate team of data-driven storytellers. We believe in the transformative power of storytelling, and we're dedicated to helping businesses connect with their audiences through impactful narratives. We don't just tell stories, we tell stories that resonate and drive results. Our unique blend of services empowers businesses to thrive in today's competitive landscape. We partner with you to tell your story in a way that resonates with your audience and achieves your goals.
+            </p>
+        </div>
+    </section>
