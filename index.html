@@ -2,610 +2,261 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>La-monje</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap');
-
-     :root {
-      --black: #000000ff;
-      --safety-orange: #FF7A00ff;
-      --white: #FFFFFFff;
-      --white-2: #FFFFFFff;
-      --safety-orange-2: #FF7900ff;
-    }
-
-    .header-logo {
-      font-family: 'Pacifico', cursive;
-      color: var(--black);
-    }
-
-    .nav-link {
-      position: relative;
-      display: inline-block;
-      color: var(--safety-orange);
-      background-color: var(--black);
-      padding: 8px 16px;
-      border-radius: 50px;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-
-    .nav-link:hover {
-      background-color: var(--safety-orange);
-      color: var(--black);
-    }
-
-    .nav-link::before {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 2px;
-      bottom: -5px;
-      left: 0;
-      background-color: var(--safety-orange);
-      visibility: hidden;
-      transform: scaleX(0);
-      transition: all 0.3s ease-in-out;
-    }
-
-    .nav-link:hover::before {
-      visibility: visible;
-      transform: scaleX(1);
-    }
-
-    .nav-wrapper {
-      background-color: var(--white);
-    }
-    .nav-link:hover::before {
-  visibility: visible;
-  transform:}
-
-
-
-    .nav-link:hover {
-      color: var(--safety-orange-2);
-    }
-
-    /*2nd page
-
-
-    /* Card styling */
-       .card {
-    border: 2px solid var(--safety-orange); /* Orange border */
-    border-radius: 8px; /* Rounded corners */
-    padding: 1rem; /* Padding inside the card */
-    transition: border-color 0.3s, transform 0.3s, background-color 0.3s, color 0.3s; /* Smooth transition for border color */
-    background-color: var(--white); /* White background */
-    color: var(--black); /* Black text color */
-    margin: 0.5rem; /* Add margin between cards */
-    flex: 1; /* Allow cards to grow and shrink */
-    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
-}
-
-
-    /* Hover effect for the cards */
-    .card:hover {
-        border-color: var(--safety-orange-2); /* Darker orange on hover */
-    }
-     .card:hover {
-            transform: scale(1.05);
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La-monje</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #000000ff;
+            --safety-orange: #FF7A00ff;
+            --white: #FFFFFFff;
+            --safety-orange-2: #FF7900ff;
         }
 
-       .card:hover {
-    transform: scale(1.05);
-    border-color: var(--safety-orange-2); /* Darker orange on hover */
-    background-color: var(--safety-orange); /* Orange background on hover */
-    color: var(--white); /* White text color on hover */
-}
-
-   .flex-wrap {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem; /* Adjust gap as needed for spacing */
-}
-    /* 3rd page
-
-
-
-
-    /* 4th page
-
-   body {
-        opacity: 0;
-        transition: opacity 0.5s ease; /* Add transition effect */
-    }
-
-    body.loaded {
-        opacity: 1; /* Make the page visible after loading */
-    }
-
-    /* Address Section Styles */
-    .address-card {
-        background-color: var(--white);
-        border: 2px solid var(--safety-orange);
-        border-radius: 8px;
-        padding: 20px;
-        margin-bottom: 20px;
-    }
-
-    /* Social Media Links Styles */
-    .social-media-links {
-        margin-bottom: 20px;
-    }
-
-    .social-media-links a {
-        display: inline-block;
-        margin-right: 10px;
-        color: var(--black);
-        text-decoration: none;
-    }
-
-    .social-media-links a:hover {
-        color: var(--safety-orange);
-    }
-
-    .contact-form {
-            max-width: 500px;
-            margin: 0 auto;
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            box-sizing: border-box;
         }
 
-        .contact-form label {
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
+        header {
             width: 100%;
-            padding: 0.5rem;
-            margin-bottom: 1rem;
-            border: 2px solid transparent;
-            border-radius: 0.25rem;
-            transition: border-color 0.3s ease;
+            background-color: transparent;
+            position: fixed;
+            top: 0;
+            z-index: 10;
         }
 
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            border-color: var(--safety-orange);
-            outline: none;
+        .header-logo {
+            font-family: 'Pacifico', cursive;
+            color: var(--black);
         }
 
-        .contact-form button {
-            background-color: var(--safety-orange);
-            color: var(--white);
-            padding: 0.75rem 1rem;
+        .nav-link {
+            position: relative;
+            padding-bottom: 5px;
+            transition: color 0.3s;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            display: block;
+            margin-top: 5px;
+            right: 0;
+            background: #000;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+            left: 0;
+            background: #000;
+        }
+
+        .gallery-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .gallery-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: transparent;
             border: none;
-            border-radius: 0.25rem;
+            color: var(--safety-orange);
+            font-size: 2rem;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            z-index: 2;
         }
 
-        .contact-form button:hover {
-            background-color: var(--safety-orange-2);
+        .gallery-nav.prev {
+            left: 1rem;
         }
 
-        /* Orange Accent Styles */
-        .orange-accent {
-            background-color: var(--safety-orange);
-            color: var(--white);
-            padding: 10px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
+        .gallery-nav.next {
+            right: 1rem;
         }
 
-        .orange-accent:hover {
-            background-color: var(--safety-orange-2);
+        .gallery-images {
+            display: flex;
+            transition: transform 0.3s ease;
         }
 
-        .form-input {
-    border: 2px solid var(--orange-accent);
-    border-radius: 0.25rem;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    width: 100%;
-    transition: border-color 0.3s ease;
-}
+        .gallery-image {
+            width: 100%;
+            height: auto;
+            border-radius: 0.5rem;
+            transition: transform 0.3s ease;
+        }
 
-.form-input:focus {
-    border-color: var(--orange-accent);
-}
-</style>
+        .gallery-image:hover {
+            transform: scale(1.1);
+        }
+
+        .company-section {
+            text-align: center;
+        }
+
+        .logos-slider {
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+            margin-top: 2rem;
+        }
+
+        .logos-slider img {
+            height: 60px;
+            margin: 0 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .header-logo img {
+                height: 40px;
+            }
+
+            .nav-link {
+                display: block;
+                padding: 10px 0;
+            }
+
+            .flex {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .gallery-nav {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .header-logo img {
+                height: 50px;
+            }
+
+            .nav-link {
+                padding: 10px 15px;
+            }
+        }
+
+        @media (min-width: 1025px) {
+            .header-logo img {
+                height: 60px;
+            }
+
+            .nav-link {
+                padding: 10px 20px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-  <!-- Header -->
-  <header class="bg-white p-4 fixed w-full z-10 shadow-lg">
-    <nav class="container mx-auto flex justify-between items-center">
-      <a href="#home" class="text-3xl header-logo">La-monje</a>
-      <ul class="hidden md:flex space-x-4">
-        <li><a href="#home" class="nav-link">Home</a></li>
-        <li><a href="#about-service" class="nav-link">About-Service</a></li>
-        <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
-        <li><a href="#contact" class="nav-link">Contact Us</a></li>
-      </ul>
-      <button class="md:hidden text-black focus:outline-none" id="navToggle">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </button>
-    </nav>
-    <div class="md:hidden hidden" id="mobileMenu">
-      <ul class="flex flex-col space-y-4 mt-2 bg-white p-4">
-        <li><a href="#home" class="block text-black p-2 hover:bg-gray-700 rounded-full">Home</a></li>
-        <li><a href="#about-service" class="block text-black p-2 hover:bg-gray-700 rounded-full">About-Service</a></li>
-        <li><a href="#portfolio" class="block text-black p-2 hover:bg-gray-700 rounded-full">Portfolio</a></li>
-        <li><a href="#contact" class="block text-black p-2 hover:bg-gray-700 rounded-full">Contact Us</a></li>
-      </ul>
-    </div>
-  </header>
+    <!-- Header -->
+    <header class="bg-white p-4 fixed w-full z-10 shadow-lg">
+        <nav class="container mx-auto flex justify-between items-center">
+            <a href="#home" class="text-3xl header-logo">
+                <img src="monk2.jpeg" alt="La Monje" class="h-8">
+            </a>
+            <ul class="hidden md:flex space-x-4">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about-service" class="nav-link">About-Service</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="#contact" class="nav-link">Contact Us</a></li>
+            </ul>
+            <button class="md:hidden text-black focus:outline-none" id="navToggle">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </nav>
+        <div class="md:hidden hidden" id="mobileMenu">
+            <ul class="flex flex-col space-y-4 mt-2 bg-white p-4">
+                <li><a href="#home" class="block text-black p-2 hover:bg-gray-700 rounded-full">Home</a></li>
+                <li><a href="#about-service" class="block text-black p-2 hover:bg-gray-700 rounded-full">About-Service</a></li>
+                <li><a href="#portfolio" class="block text-black p-2 hover:bg-gray-700 rounded-full">Portfolio</a></li>
+                <li><a href="#contact" class="block text-black p-2 hover:bg-gray-700 rounded-full">Contact Us</a></li>
+            </ul>
+        </div>
+    </header>
 
-
-  <!-- Home Section -->
-  <section id="home" class="h-screen flex items-center justify-between bg-white">
-    <div class="container mx-auto flex flex-col-reverse md:flex-row-reverse items-center justify-between px-4">
-      <div class="md:w-1/2 mt-8 md:mt-```html
-      <div class="md:w- mt-8 md:mt-0 md:order-2 transition duration-500 transform hover:scale-105">
-
-        <img src="lamonjelogo2.png" alt="Welcome Image" class="w-80 h-auto rounded-lg">
-     <p class="mt-4 text-xl">                    Dedicated to empowering businesses through data and design, we believe that data-driven insights are the key to more informed decisions and optimizing operations.
-</p>
-      </div>
-      <div class="md:w-1/2 flex justify-center md:order-1 transition duration-500 transform hover:scale-105">
-     <img src="12grid.png" alt="Welcome Image" class="w-80 h-auto rounded-full">
-      </div>
-    </div>
-  </section>
-
-  <!-- Trusted By Slider -->
-  <section class="py-8 mt-4 bg-safety-orange">
-      <div class="container mx-auto text-center trusted-slider-container">
-        <h2 class="text-2xl font-semibold text-black">Trusted By</h2>
-        <div class="mt-4 overflow-hidden relative h-16 bg-transparent rounded-full"> <!-- Changed bg-gray-700 to bg-transparent -->
-            <div class="flex animate-marquee space-x-8 text-lg text-black py-2"> <!-- Changed text-gray-100 to text-black -->
-                <span class="text-lg">lookup</span>
-                <span class="text-lg">psyaddis</span>
-                <span class="text-lg">HAWF</span>
-                <span class="text-lg">Mignotbazaar</span>
-                <span class="text-lg">ActionaidEthiopia</span>
-                <span class="text-lg">lookup</span>
-                <span class="text-lg">psyaddis</span>
-                <span class="text-lg">HAWF</span>
-                <span class="text-lg">Mignotbazaar</span>
-                <span class="text-lg">ActionaidEthiopia</span>
+    <!-- Home Section -->
+    <section id="home" class="h-screen flex items-center justify-center bg-white">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-center px-4">
+            <div class="md:w-1/2 flex flex-col items-center md:items-start">
+                <img src="psy15.jpg" alt="Gallery Image 1" class="gallery-image w-full h-auto rounded-lg mb-4">
+            </div>
+            <div class="md:w-1/2 flex flex-col items-center md:items-start mt-8 md:mt-0 space-y-4">
+                <img src="psy16.jpg" alt="Gallery Image 2" class="gallery-image w-48 h-auto rounded-lg">
+                <img src="psy17.jpg" alt="Gallery Image 3" class="gallery-image w-48 h-auto rounded-lg">
             </div>
         </div>
-    </div>
-</section>
-<style>
-
-   .trusted-slider-container {
-  border-radius: 50px; /* Adjust the border-radius value to control the curvature */
-  overflow: hidden; /* Ensure the content stays within the curved container */
-}
-    .bg-safety-orange {
-    background-color: var(--safety-orange); /* Use the appropriate variable for your orange color */
-}
-@keyframes marquee {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
-}
-
-.animate-marquee {
-    animation: marquee 20s linear infinite; /* Adjust the duration and timing function as needed */
-}
-
-</style>
-
-
-  <!-- About-Service Section -->
-    <section id="about-service" class="py-12">
-        <div class="container mx-auto">
-            <h2 class="text-3xl font-semibold text-center mb-8">About Us & Service</h2>
-            <div class="flex flex-wrap justify-center items-center">
-                <!-- About Us Card -->
-                <div class="card w-full md:w-1/3">
-                    <p class="text-lg">
-                        About-us <br>
-                        <br>
-                        La Monje is a passionate data-driven creative firm with a heart for storytelling. We believe in the power of "telling your story" to forge connections and achieve results. Our team of passionate creatives combines strategic data analysis with captivating narratives to craft impactful events, curate compelling multimedia content, and develop innovative marketing campaigns. We don't just tell stories, we tell stories that resonate and drive results.</p>
-
-                </div>
-                <!-- Service Card -->
-                <div class="card w-full md:w-1/3">
-                    <p class="text-lg">
-                        services<br>
-                        <br>
-                        We provide a unique blend of services to help businesses thrive: - Event design and facilitation: We meticulously plan and execute every aspect of your event, from conceptualization to execution. - Multimedia content curation: We source, curate, and develop multimedia content (video, audio, text) tailored to your specific needs. - Creative Marketing: We develop innovative and data-driven marketing campaigns that amplify your brand story and achieve your marketing objectives.</p>
-                </div>
-                <!-- Our Goals Card -->
-                <div class="card w-full md:w-1/3">
-                    <p class="text-lg">
-                        our goals<br>
-                        <br>
-                        At La Monje, we're a passionate team of data-driven storytellers. We believe in the transformative power of storytelling, and we're dedicated to helping businesses connect with their audiences through impactful narratives.
-
-                    We don't just tell stories, we tell stories that resonate and drive results. Our unique blend of services empowers businesses to thrive in today's competitive landscape. We partner with you to tell your story in a way that resonates with your audience and achieves your goals.</p>
-                </div>
-            </div>
+        <!-- Logos Slider -->
+        <div class="logos-slider mt-8">
+            <img src="logo1.png" alt="Logo 1" class="logo">
+            <img src="logo2.png" alt="Logo 2" class="logo">
+            <img src="logo3.png" alt="Logo 3" class="logo">
+            <img src="logo4.png" alt="Logo 4" class="logo">
+            <img src="logo5.png" alt="Logo 5" class="logo">
         </div>
     </section>
 
     <script>
-        // Add smooth transition class to body on page load
-        document.body.classList.add('smooth-transition');
-    </script>
+        const navToggle = document.getElementById('navToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const galleryImages = document.querySelector('.gallery-images');
+        const prevButton = document.querySelector('.gallery-nav.prev');
+        const nextButton = document.querySelector('.gallery-nav.next');
+        let currentIndex = 0;
 
-
-  <!-- Portfolio Section -->
-<section id="portfolio" class="py-12">
-    <div class="container mx-auto">
-        <h2 class="text-4xl font-bold text-orange-600 text-center mb-12">Portfolio</h2>
-       <div class="text-center mb-12">
-            <p class="text-2xl font-semibold text-orange-600">Scroll your way through life</p>
-        </div>
-        <!-- Mignot-Bazaar -->
-        <div class="mb-12 company-section">
-            <h3 class="text-3xl font-bold text-orange-600 text-center mb-6">Mignot-Bazaar</h3>
-            <div class="portfolio-container">
-                <div class="portfolio-item">
-                    <img src="bazaar1.jpg" alt="Mignot-Bazaar Image 1" class="w-full h-auto rounded-lg transition-transform duration-300">
-                </div>
-                <div class="portfolio-item">
-                    <img src="bazaar2.jpg" alt="Mignot-Bazaar Image 2" class="w-full h-auto rounded-lg transition-transform duration-300">
-                </div>
-                <div class="portfolio-item">
-                    <img src="bazaar3.jpg" alt="Mignot-Bazaar Image 3" class="w-full h-auto rounded-lg transition-transform duration-300">
-                </div>
-                <div class="portfolio-item">
-                    <img src="bazaar4.jpg" alt="Mignot-Bazaar Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
-                </div>
-            </div>
-        </div>
-
-        <!-- Lookup -->
-        <div class="mb-12 company-section">
-            <h3 class="text-3xl font-bold text-orange-600 text-center mb-6">Lookup</h3>
-            <div class="portfolio-container">
-                <div class="portfolio-item">
-                    <img src="lookup1.jpg" alt="Lookup Image 1" class="w-full h-auto rounded-lg transition-transform duration-300">
-                </div>
-                <div class="portfolio-item">
-                    <img src="lookup2.jpg" alt="Lookup Image 2" class="w-full h-auto rounded-lg transition-transform duration-300">
-                </div>
-                <div class="portfolio-item">
-                    <img src="lookup3.jpg" alt="Lookup Image 3" class="w-full h-auto rounded-lg transition-transform duration-300">
-                </div>
-                <div class="portfolio-item">
-                    <img src="lookup4.jpg" alt="Lookup Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
-                </div>
-            </div>
-        </div>
-
-        <!-- Psy-addis -->
-        <div class="mb-12 company-section">
-            <h3 class="text-3xl font-bold text-orange-600 text-center mb-6">Psy-addis</h3>
-            <div class="portfolio-container">
-                <div class="portfolio-item">
-                    <img src="psy1.jpg" alt="Psy-addis Image 1" class="w-full h-auto rounded-lg transition-transform duration-300">
-                </div>
-                <div class="portfolio-item">
-                    <img src="psy2.jpg" alt="Psy-addis Image 2" class="w-full h-auto rounded-lg transition-transform duration-300">
-                </div>
-                <div class="portfolio-item">
-                    <img src="psy3.jpg" alt="Psy-addis Image 3" class="w-full h-auto rounded-lg transition-transform duration-300">
-                </div>
-                <div class="portfolio-item">
-                    <img src="psy4.jpg" alt="Psy-addis Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
-                </div>
-            </div>
-        </div>
-
-        <!-- Action-aid-Ethiopia -->
-        <div class="mb-12 company-section">
-            <h3 class="text-3xl font-bold text-orange-600 text-center mb-6">Action-aid-Ethiopia</h3>
-            <div class="portfolio-container">
-                <div class="portfolio-item">
-                    <img src="aid1.jpg" alt="Action-aid-Ethiopia Image 1" class="w-full h-auto rounded-lg transition-transform duration-300">
-                </div>
-                <div class="portfolio-item">
-                    <img src="aid2.jpg" alt="Action-aid-Ethiopia Image 2" class="w-full h-auto rounded-lg transition-transform duration-300">
-                </div>
-                <div class="portfolio-item">
-                    <img src="aid3.jpg" alt="Action-aid-Ethiopia Image 3" class="w-full h-auto rounded-lg transition-transform duration-300">
-                </div>
-                <div class="portfolio-item">
-                    <img src="aid4.jpg" alt="Action-aid-Ethiopia Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
-                </div>
-            </div>
-        </div>
-
-        <!-- HAFW -->
-        <div class="mb-12 company-section">
-            <h3 class="text-3xl font-bold text-orange-600 text-center mb-6">HAFW</h3>
-            <div class="portfolio-container">
-                <div class="portfolio-item">
-                    <img src="post_1.png" alt="HAFW Image 1" class="w-full h-auto rounded-lg transition-transform duration-300">
-                </div>
-                <div class="portfolio-item">
-                    <img src="post_2.png" alt="HAFW Image 2" class="w-full h-auto rounded-lg transition-transform duration-300">
-                </div>
-                <div class="portfolio-item">
-                    <img src="post_3.png" alt="HAFW Image 3" class="w-full h-auto rounded-lg transition-transform duration-300">
-                </div>
-                <div class="portfolio-item">
-                    <img src="post_4.png" alt="HAFW Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<style>
-  .portfolio-container {
-    display: flex;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-behavior: smooth;
-    gap: 1rem;
-    white-space: nowrap; /* Ensure the content stays in a single line */
-    padding-bottom: 1rem;
-}
-
-.portfolio-item {
-    flex: 0 0 auto;
-    position: relative;
-    width: 300px; /* Adjust the width to make the images appropriately sized */
-}
-
-.portfolio-item img {
-    width: 100%;
-    height: auto;
-    border-radius: 0.5rem;
-    transition: transform 0.3s ease;
-}
-
-.portfolio-item:hover img {
-    transform: scale(1.1);
-}
-
-h3 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.text-center p {
-    margin-bottom: 1rem;
-}
-
-</style>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const containers = document.querySelectorAll('.portfolio-container');
-
-        containers.forEach(container => {
-            container.addEventListener('wheel', function(event) {
-                event.preventDefault();
-                container.scrollLeft += event.deltaY * 2; // Adjust the scroll speed by changing the multiplier
-            });
+        navToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
         });
-    });
-</script>
 
-  <!-- Contact Us Section -->
-  <section id="contact" class="py-12 bg-gray-100">
-    <div class="container mx-auto">
-        <h2 class="text-3xl font-semibold text-black text-center mb-8">Contact Us</h2>
-        <div class="flex flex-wrap justify-center space-x-8">
-            <!-- Address Cards -->
-            <div class="w-72 bg-white rounded-lg shadow-lg p-6 mb-8">
-                <h3 class="text-lg font-semibold mb-4">Address</h3>
-                <p>Addis Ababa, Ethiopia</p>
-                <p>+251942471649</p>
-                <p>Yeabkal Demissew</p>
-                <p>yeabkaldemissew14@gmail.com</p>
-            </div>
-            <div class="w-72 bg-white rounded-lg shadow-lg p-6 mb-8">
-                <h3 class="text-lg font-semibold mb-4">Address</h3>
-                <p>Hawassa, Ethiopia</p>
-                <p>+25191 631 3972</p>
-                <p>Meareg Mngisteab</p>
-                <p>mearegmngisteab@gmail.com</p>
-            </div>
-            <div class="w-72 bg-white rounded-lg shadow-lg p-6 mb-8">
-                <h3 class="text-lg font-semibold mb-4">Address</h3>
-                <p>Kigali, Rwanda</p>
-                <p>+250 794 555 111</p>
-                <p>Bethlehem Ghidey</p>
-                <p>bettyghgm@gmail.com</p>
-            </div>
-            <!-- Social Media Links -->
-            <div class="w-72 bg-white rounded-lg shadow-lg p-6 mb-8">
-                <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
-                <a href="#" class="flex items-center text-gray-700 hover:text-orange-accent mb-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"></path>
-                    </svg>
-                    Facebook
-                </a>
-                <a href="#" class="flex items-center text-gray-700 hover:text-orange-accent">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-4.349-4.646a4.5 4.5 0 00-6.364 0l-1.414 1.414a4.5 4.5 0 000 6.364l3.535 3.535a4.5 4.5 0 006.364 0l1.414-1.414a4.5 4.5 0 000-6.364l-3.535-3.535z"></path>
-                    </svg>
-                    Instagram
-                </a>
-            </div>
-        </div>
-        <!-- Contact Form -->
-<div class="bg-white rounded-lg shadow-lg p-8 max-w-md mx-auto">
-    <h3 class="text-2xl font-semibold text-center mb-4">Send Us a Message</h3>
-    <form class="contact-form">
-        <input type="text" id="first-name" name="first-name" placeholder="First Name" required class="form-input mb-4">
-        <input type="text" id="last-name" name="last-name" placeholder="Last Name" required class="form-input mb-4">
-        <input type="tel" id="phone" name="phone" placeholder="Phone" required class="form-input mb-4">
-        <input type="email" id="email" name="email" placeholder="Email" required class="form-input mb-4">
-        <textarea id="message" name="message" rows="4" placeholder="Message" required class="form-input mb-4"></textarea>
-        <button type="submit" class="bg-orange-accent hover:bg-orange-accent-dark text-white font-bold py-2 px-4 rounded-full w-full transition duration-300">Submit</button>
-    </form>
-</div>
-
-    </div>
-</section>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const form = document.getElementById('contactForm');
-         document.addEventListener('DOMContentLoaded', function () {
-        document.body.classList.add('loaded');
-
-        form.addEventListener('submit', function (event) {
-            event.preventDefault();
-
-            // Validate form fields
-            const firstName = form.elements['firstName'].value;
-            const lastName = form.elements['lastName'].value;
-            const phoneNumber = form.elements['phoneNumber'].value;
-            const email = form.elements['email'].value;
-            const message = form.elements['message'].value;
-
-            // Basic validation example (you can add more complex validation as needed)
-            if (!firstName || !lastName || !phoneNumber || !email || !message) {
-                alert('Please fill in all fields.');
-                return;
+        const updateGallery = (index) => {
+            const totalImages = galleryImages.children.length;
+            if (index >= totalImages) {
+                currentIndex = 0;
+            } else if (index < 0) {
+                currentIndex = totalImages - 1;
+            } else {
+                currentIndex = index;
             }
+            galleryImages.style.transform = `translateX(-${currentIndex * 100}%)`;
+        };
 
-            // Form data
-            const formData = {
-                firstName,
-                lastName,
-                phoneNumber,
-                email,
-                message
-            };
+        prevButton && prevButton.addEventListener('click', () => updateGallery(currentIndex - 1));
+        nextButton && nextButton.addEventListener('click', () => updateGallery(currentIndex + 1));
 
-            // Display form data (you can send this data to a server or use it in other ways)
-            console.log(formData);
-        });
-    });
-</script>
+        // Logos Slider
+        const logosSlider = document.querySelector('.logos-slider');
+        let logosInterval;
+        
+        const startSlider = () => {
+            logosInterval = setInterval(() => {
+                logosSlider.scrollLeft += 1;
+                if (logosSlider.scrollLeft >= logosSlider.scrollWidth - logosSlider.clientWidth) {
+                    logosSlider.scrollLeft = 0;
+                }
+            }, 20);
+        };
 
-  <!-- Footer -->
-  <footer class="bg-black text-white py-4">
-    <div class="container mx-auto text-center">
-      <p>&copy; 2024 La-monje. All rights reserved.</p>
-    </div>
-  </footer>
+        logosSlider.addEventListener('mouseover', () => clearInterval(logosInterval));
+        logosSlider.addEventListener('mouseout', startSlider);
 
-  <script>
-    const navToggle = document.getElementById('navToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
-
-    navToggle.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-  </script>
+        startSlider();
+    </script>
 </body>
+
 </html>
