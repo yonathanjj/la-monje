@@ -111,23 +111,6 @@
             text-align: center;
         }
 
-        .logos-slider {
-            display: flex;
-            overflow-x: auto; /* Change to horizontal scrolling */
-            width: 100%;
-            margin-top: 2rem;
-            background-color: var(--gray-500); /* Grey background */
-            padding: 1rem 0;
-            justify-content: flex-start; /* Start from left */
-            white-space: nowrap; /* Prevents logos from wrapping */
-            -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-        }
-
-        .logos-slider img {
-            height: 60px;
-            margin: 0 1rem;
-        }
-
         .additional-images {
             display: flex;
             flex-direction: column;
@@ -258,125 +241,66 @@
     </section>
 
    <!-- Logos Slider -->
- <style>
-  .trusted-slider-container {
-    width: 100%;
-    border-radius: 50px;
-    overflow: hidden;
-    position: relative; /* Ensure the container has relative positioning */
-  }
-
-  .bg-safety-orange {
-    background-color: var(--safety-orange);
-  }
-
-  .trusted-logo {
-    height: auto;
-    max-height: 50px;
-    width: auto;
-    object-fit: contain;
-  }
-
-  .animate-marquee {
-    display: flex;
-    animation: marquee 20s linear infinite;
-  }
-
-  @keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
-  }
-
-  /* Media queries for responsiveness */
-  @media only screen and (max-width: 768px) {
-    .trusted-logo {
-        max-height: 30px; /* Smaller logos for tablet devices */
+<style>
+    .brand-container {
+      background-color: #f8961e; /* Light grey background */
+      padding: 20px; /* Add padding for spacing */
+      border-radius: 10px; /* Rounded corners for the container */
+      display: flex;
+      justify-content: center;
     }
-  }
 
-  @media only screen and (max-width: 480px) {
-    .trusted-logo {
-        max-height: 20px; /* Even smaller logos for mobile devices */
+    .brand-list {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+      gap: 20px; /* Adjust spacing between logos */
+      max-width: 100%; /* Ensure the container doesn't overflow */
     }
-    .animate-marquee {
-        animation: marquee 40s linear infinite; /* Slower animation for better visibility */
+
+    .brand-list-item {
+      max-height: 50px; /* Adjust max-height as needed */
+      width: auto;
+      object-fit: contain;
     }
-  }
+
+    /* Media queries for responsiveness */
+    @media only screen and (max-width: 768px) {
+      .brand-list {
+        gap: 10px; /* Adjust spacing for tablets */
+      }
+      .brand-list-item {
+        max-height: 30px; /* Smaller logos for tablets */
+      }
+    }
+
+    @media only screen and (max-width: 480px) {
+      .brand-list {
+        gap: 5px; /* Adjust spacing for mobile */
+      }
+      .brand-list-item {
+        max-height: 20px; /* Even smaller logos for mobile */
+      }
+    }
 </style>
 
 <div class="container mx-auto text-center">
-  <div class="trusted-slider-container">
-    <h2 class="text-2xl font-semibold text-black">Brand collaborators</h2>
-    <div class="mt-4 overflow-hidden relative h-16 bg-transparent rounded-full">
-      <div class="flex animate-marquee space-x-8 text-lg text-black py-2">
-        <img src="gulitsacco.png" alt="gulitsacco" class="trusted-logo">
-        <img src="gulitmart.png" alt="gulitmart" class="trusted-logo">
-        <img src="yewenzelij.png" alt="Yewenzelij" class="trusted-logo">
-        <img src="asian.png" alt="Asian" class="trusted-logo">
-        <img src="goldenvalley.png" alt="Goldenvalley" class="trusted-logo">
-        <img src="rotaract.png" alt="rotaract" class="trusted-logo">
-        <img src="icehawassa.png" alt="icehawassa" class="trusted-logo">
-        <img src="eyakis.png" alt="eyakis" class="trusted-logo">
-        <img src="HAFW.png" alt="HAFW" class="trusted-logo">
-      </div>
+  <h2 class="text-2xl font-semibold text-black">Brand collaborators</h2>
+  <div class="brand-container">
+    <div class="brand-list">
+      <img src="gulitsacco.png" alt="gulitsacco" class="brand-list-item">
+      <img src="gulitmart.png" alt="gulitmart" class="brand-list-item">
+      <img src="yewenzelij.png" alt="Yewenzelij" class="brand-list-item">
+      <img src="asian.png" alt="Asian" class="brand-list-item">
+      <img src="goldenvalley.png" alt="Goldenvalley" class="brand-list-item">
+      <img src="rotaract.png" alt="rotaract" class="brand-list-item">
+      <img src="icehawassa.png" alt="icehawassa" class="brand-list-item">
+      <img src="eyakis.png" alt="eyakis" class="brand-list-item">
+      <img src="HAFW.png" alt="HAFW" class="brand-list-item">
     </div>
   </div>
 </div>
- <script>
-  // Selecting the container for touch events
-  var sliderContainer = document.querySelector('.trusted-slider-container');
-
-  // Variables to track touch positions
-  var startX = 0;
-  var currentX = 0;
-
-  sliderContainer.addEventListener('touchstart', function(event) {
-    // Get initial touch position
-    startX = event.touches[0].clientX;
-    currentX = startX;
-  });
-
-  sliderContainer.addEventListener('touchmove', function(event) {
-    // Prevent default touch behavior (scrolling)
-    event.preventDefault();
-    // Update current touch position
-    currentX = event.touches[0].clientX;
-  });
-
-  sliderContainer.addEventListener('touchend', function(event) {
-    // Determine swipe direction based on start and end touch positions
-    var diffX = startX - currentX;
-
-    // Adjust the transform based on the swipe direction
-    if (diffX > 0) {
-      // Swipe left (next slide)
-      animateSlider('left');
-    } else {
-      // Swipe right (previous slide)
-      animateSlider('right');
-    }
-  });
-
-  // Function to handle animation based on swipe direction
-  function animateSlider(direction) {
-    var slider = sliderContainer.querySelector('.flex');
-    var distance = direction === 'left' ? '-100%' : '0%';
-    slider.style.transition = 'transform 0.3s ease-in-out';
-    slider.style.transform = 'translateX(' + distance + ')';
-    // Reset transition after animation completes
-    setTimeout(function() {
-      slider.style.transition = '';
-      if (direction === 'left') {
-        // Move the first element to the end for continuous sliding
-        slider.appendChild(slider.firstElementChild);
-      } else {
-        // Move the last element to the beginning for continuous sliding
-        slider.insertBefore(slider.lastElementChild, slider.firstElementChild);
-      }
-      slider.style.transform = 'translateX(0%)'; // Reset position after reordering
-    }, 300);
-  }
-</script>
 
 
 
