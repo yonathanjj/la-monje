@@ -15,15 +15,17 @@
             background-color: #6c757d;
             padding: 10px 20px;
             display: flex;
+            justify-content: space-between;
             align-items: center;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
         }
         nav img.logo {
             height: 40px;
-            margin-right: 20px;
         }
         nav ul {
             list-style: none;
@@ -32,28 +34,49 @@
             padding: 0;
         }
         nav ul li {
-            margin-right: 20px;
+            margin-left: 20px;
         }
         nav ul li a {
             text-decoration: none;
             color: #ffffff;
             font-size: 18px;
-            transition: color 0.3s;
+            padding: 10px 15px;
+            transition: transform 0.3s, opacity 0.3s;
+            position: relative;
+        }
+        nav ul li a::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #adb5bd;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s;
+        }
+        nav ul li a:hover::before {
+            transform: scaleX(1);
+            transform-origin: bottom left;
         }
         nav ul li a:hover {
-            color: #adb5bd;
+            transform: translateY(-2px);
+            opacity: 0.8;
         }
         section {
             padding: 80px 20px;
         }
         .pictures {
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-around;
             margin-top: 60px;
         }
         .pictures img {
             height: 150px;
             width: auto;
+            margin-bottom: 20px;
         }
         .company-info {
             text-align: center;
@@ -64,7 +87,12 @@
             width: auto;
         }
         .company-info h2 {
-            margin: 20px 0;
+            margin-top: 20px;
+        }
+        .company-info .company-name-placeholder {
+            height: 80px;
+            width: auto;
+            margin-top: 20px;
         }
         .slider {
             background-color: #6c757d;
@@ -95,6 +123,53 @@
                 transform: translateX(-100%);
             }
         }
+
+        /* Media Queries for Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                padding: 10px;
+            }
+            nav ul {
+                flex-direction: column;
+                align-items: flex-end;
+                position: absolute;
+                top: 50px;
+                right: 10px;
+                background-color: rgba(108, 117, 125, 0.8);
+                backdrop-filter: blur(10px);
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                display: none;
+            }
+            nav ul.active {
+                display: flex;
+            }
+            nav ul li {
+                margin-left: 0;
+                margin-bottom: 10px;
+            }
+            nav ul li a {
+                padding: 10px;
+                width: 100%;
+                text-align: center;
+            }
+            .pictures img {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            .company-info img {
+                height: 60px;
+            }
+            .company-info h2 {
+                font-size: 16px;
+            }
+            .company-info .company-name-placeholder {
+                height: 60px;
+            }
+            .slider .logos img {
+                height: 30px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -122,11 +197,10 @@
     <section id="about-us">
         <div class="company-info">
             <img src="company-logo-placeholder.png" alt="Company Logo">
-            <h1>Company Name</h1>
+            <img src="company-name-placeholder.png" alt="Company Name" class="company-name-placeholder">
             <h2>Our Motto</h2>
         </div>
     </section>
-
     <div class="slider">
         <h3>Brand Collaborator</h3>
         <div class="logos">
@@ -142,6 +216,15 @@
             <img src="logo10.png" alt="Logo 10">
         </div>
     </div>
+
+    <script>
+        // JavaScript for mobile navigation toggle
+        const navToggle = document.querySelector('.logo');
+        const navMenu = document.querySelector('nav ul');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
-
