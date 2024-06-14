@@ -257,72 +257,128 @@
         </div>
     </section>
 
-    <!-- Logos Slider -->
-    <div class="logos-slider mt-8">
-        <h2 class="text-center text-2xl font-bold mb-4">Brand Collaborators</h2>
-        <div class="flex items-center justify-center space-x-4 overflow-x-auto py-4">
-            <img src="logo1.png" alt="Logo 1" class="logo">
-            <img src="logo2.png" alt="Logo 2" class="logo">
-            <img src="logo3.png" alt="Logo 3" class="logo">
-            <img src="logo4.png" alt="Logo 4" class="logo">
-            <img src="logo5.png" alt="Logo 5" class="logo">
-            <img src="logo1.png" alt="Logo 6" class="logo"> <!-- Repeat logos for loop effect -->
-            <img src="logo2.png" alt="Logo 7" class="logo">
-            <img src="logo3.png" alt="Logo 8" class="logo">
-            <img src="logo4.png" alt="Logo 9" class="logo">
-            <img src="logo5.png" alt="Logo 10" class="logo">
-        </div>
+   <!-- Logos Slider -->
+ <style>
+  .trusted-slider-container {
+    width: 100%;
+    border-radius: 50px;
+    overflow: hidden;
+    position: relative; /* Ensure the container has relative positioning */
+  }
+
+  .bg-safety-orange {
+    background-color: var(--safety-orange);
+  }
+
+  .trusted-logo {
+    height: auto;
+    max-height: 50px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .animate-marquee {
+    display: flex;
+    animation: marquee 20s linear infinite;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+  }
+
+  /* Media queries for responsiveness */
+  @media only screen and (max-width: 768px) {
+    .trusted-logo {
+        max-height: 30px; /* Smaller logos for tablet devices */
+    }
+  }
+
+  @media only screen and (max-width: 480px) {
+    .trusted-logo {
+        max-height: 20px; /* Even smaller logos for mobile devices */
+    }
+    .animate-marquee {
+        animation: marquee 40s linear infinite; /* Slower animation for better visibility */
+    }
+  }
+</style>
+
+<div class="container mx-auto text-center">
+  <div class="trusted-slider-container">
+    <h2 class="text-2xl font-semibold text-black">Brand collaborators</h2>
+    <div class="mt-4 overflow-hidden relative h-16 bg-transparent rounded-full">
+      <div class="flex animate-marquee space-x-8 text-lg text-black py-2">
+        <img src="gulitsacco.png" alt="gulitsacco" class="trusted-logo">
+        <img src="gulitmart.png" alt="gulitmart" class="trusted-logo">
+        <img src="yewenzelij.png" alt="Yewenzelij" class="trusted-logo">
+        <img src="asian.png" alt="Asian" class="trusted-logo">
+        <img src="goldenvalley.png" alt="Goldenvalley" class="trusted-logo">
+        <img src="rotaract.png" alt="rotaract" class="trusted-logo">
+        <img src="icehawassa.png" alt="icehawassa" class="trusted-logo">
+        <img src="eyakis.png" alt="eyakis" class="trusted-logo">
+        <img src="HAFW.png" alt="HAFW" class="trusted-logo">
+      </div>
     </div>
+  </div>
+</div>
+ <script>
+  // Selecting the container for touch events
+  var sliderContainer = document.querySelector('.trusted-slider-container');
 
-    <script>
-        const navToggle = document.getElementById('navToggle');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const galleryImages = document.querySelector('.gallery-images');
-        const prevButton = document.querySelector('.gallery-nav.prev');
-        const nextButton = document.querySelector('.gallery-nav.next');
-        let currentIndex = 0;
+  // Variables to track touch positions
+  var startX = 0;
+  var currentX = 0;
 
-        navToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+  sliderContainer.addEventListener('touchstart', function(event) {
+    // Get initial touch position
+    startX = event.touches[0].clientX;
+    currentX = startX;
+  });
 
-        const updateGallery = (index) => {
-            const totalImages = galleryImages.children.length;
-            if (index >= totalImages) {
-                currentIndex = 0;
-            } else if (index < 0) {
-                currentIndex = totalImages - 1;
-            } else {
-                currentIndex = index;
-            }
-            galleryImages.style.transform = `translateX(-${currentIndex * 100}%)`;
-        };
+  sliderContainer.addEventListener('touchmove', function(event) {
+    // Prevent default touch behavior (scrolling)
+    event.preventDefault();
+    // Update current touch position
+    currentX = event.touches[0].clientX;
+  });
 
-        prevButton && prevButton.addEventListener('click', () => updateGallery(currentIndex - 1));
-        nextButton && nextButton.addEventListener('click', () => updateGallery(currentIndex + 1));
+  sliderContainer.addEventListener('touchend', function(event) {
+    // Determine swipe direction based on start and end touch positions
+    var diffX = startX - currentX;
 
-        // Logos Slider
-        const logosSlider = document.querySelector('.logos-slider');
-        let logosInterval;
+    // Adjust the transform based on the swipe direction
+    if (diffX > 0) {
+      // Swipe left (next slide)
+      animateSlider('left');
+    } else {
+      // Swipe right (previous slide)
+      animateSlider('right');
+    }
+  });
 
-        const startSlider = () => {
-            logosInterval = setInterval(() => {
-                logosSlider.scrollLeft += 1;
-                if (logosSlider.scrollLeft >= logosSlider.scrollWidth - logosSlider.clientWidth) {
-                    logosSlider.scrollLeft = 0;
-                }
-            }, 20);
-        };
+  // Function to handle animation based on swipe direction
+  function animateSlider(direction) {
+    var slider = sliderContainer.querySelector('.flex');
+    var distance = direction === 'left' ? '-100%' : '0%';
+    slider.style.transition = 'transform 0.3s ease-in-out';
+    slider.style.transform = 'translateX(' + distance + ')';
+    // Reset transition after animation completes
+    setTimeout(function() {
+      slider.style.transition = '';
+      if (direction === 'left') {
+        // Move the first element to the end for continuous sliding
+        slider.appendChild(slider.firstElementChild);
+      } else {
+        // Move the last element to the beginning for continuous sliding
+        slider.insertBefore(slider.lastElementChild, slider.firstElementChild);
+      }
+      slider.style.transform = 'translateX(0%)'; // Reset position after reordering
+    }, 300);
+  }
+</script>
 
-        logosSlider.addEventListener('mouseover', () => clearInterval(logosInterval));
-        logosSlider.addEventListener('mouseout', startSlider);
 
-        startSlider();
-    </script>
-
-</body>
-
-</html>
 
 
 
@@ -663,205 +719,132 @@ html {
 
 
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
-
-:root {
-    --black: #000000ff;
-    --white: #ffffff;
-    --safety-orange: #FF7A00ff;
-    --safety-orange-2: #FF7900ff;
-    --gray-200: #E5E7EBff;
-    --gray-300: #D1D5DBff;
-    --gray-400: #f3f4f6;
-}
-
-body,
-html {
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-    box-sizing: border-box;
-    background-color: var(--gray-200);
-    overflow: hidden;
-}
-
-.portfolio-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    width: 100vw;
-    padding: 2rem;
-    background-color: var(--gray-400);
+ <style>
+     .portfolio-container {
     position: relative;
-    z-index: 1;
-    overflow-x: auto;
-    overflow-y: hidden;
-    white-space: nowrap;
-    scroll-behavior: smooth;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    overflow-y: hidden; /* Hide vertical scrolling */
+    white-space: nowrap; /* Ensure images stay in a single line */
+    padding-bottom: 20px; /* Add some bottom padding to accommodate scrollbar */
+}
+.portfolio-item {
+    display: inline-block; /* Ensure images stay inline */
+    margin-right: 10px; /* Adjust spacing between images */
 }
 
-.portfolio-header {
-    font-size: 3rem;
-    margin-bottom: 2rem;
-    color: var(--black);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
+.portfolio-item img {
+    width: 200; /* Set width to auto to maintain original size */
+    height: 200; /* Set height to auto to maintain aspect ratio */
+    max-height: 300px; /* Limit maximum height */
+    transition: transform 0.3s ease, filter 0.3s ease; /* Add transitions */
 }
 
-.portfolio-images {
-    position: relative;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-around;
-    width: 3000px; /* Enough width to allow horizontal scrolling */
-    height: 100vh; /* Full viewport height */
+.portfolio-item img:hover {
+    transform: scale(1.5); /* Enlarge image on hover */
 }
 
-.portfolio-image {
-    position: absolute;
-    cursor: pointer;
-    transition: transform 0.3s ease-in-out, z-index 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    overflow: hidden;
-    animation: scatter 1.5s ease-in-out forwards;
-    z-index: 1;
-    border-radius: 10px; /* Add rounded corners */
-}
-
-.portfolio-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease-in-out;
-}
-
-.portfolio-image:hover {
-    z-index: 4; /* Bring to front on hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Add shadow on hover */
-}
-
-.portfolio-image:hover img {
-    transform: scale(1.15); /* Adjust the scale factor as needed */
-}
-
-@keyframes scatter {
-    0% {
-        transform: translateY(0) scale(1);
-    }
-    50% {
-        transform: translateY(-20px) scale(1.1);
-    }
-    100% {
-        transform: translateY(0) scale(1);
-    }
-}
-
-@media (max-width: 768px) {
-    .portfolio-container {
-        padding: 1rem;
-    }
-
-    .portfolio-header {
-        font-size: 2.5rem;
-    }
-
-    .portfolio-images {
-        width: 2000px;
-    }
-
-    .portfolio-image {
-        width: 100%;
-        height: 100%;
-    }
-}
-.portfolio-image:nth-child(1) { top: 10%; left: 5%; width: 300px; height: 300px; }
-.portfolio-image:nth-child(2) { top: 25%; left: 20%; width: 300px; height: 300px; }
-.portfolio-image:nth-child(3) { top: 40%; left: 35%; width: 300px; height: 300px; }
-.portfolio-image:nth-child(4) { top: 55%; left: 50%; width: 300px; height: 300px; }
-.portfolio-image:nth-child(5) { top: 70%; left: 65%; width: 300px; height: 300px; }
-.portfolio-image:nth-child(6) { top: 10%; left: 80%; width: 300px; height: 300px; }
-.portfolio-image:nth-child(7) { top: 25%; left: 95%; width: 300px; height: 300px; }
-.portfolio-image:nth-child(8) { top: 40%; left: 110%; width: 300px; height: 300px; }
-.portfolio-image:nth-child(9) { top: 55%; left: 125%; width: 300px; height: 300px; }
-.portfolio-image:nth-child(10) { top: 70%; left: 140%; width: 300px; height: 300px; }
-.portfolio-image:nth-child(11) { top: 10%; left: -10%; width: 300px; height: 300px; }
-.portfolio-image:nth-child(12) { top: 25%; left: -25%; width: 300px; height: 300px; }
-.portfolio-image:nth-child(13) { top: 40%; left: -40%; width: 300px; height: 300px; }
-.portfolio-image:nth-child(14) { top: 55%; left: -55%; width: 300px; height: 300px; }
-.portfolio-image:nth-child(15) { top: 70%; left: -70%; width: 300px; height: 300px; }
-.portfolio-image:nth-child(16) { top: 10%; left: 60%; width: 300px; height: 300px; }
-
-</style>
- <section id="portfolio" class="portfolio-container">
-        <h1 class="portfolio-header"></h1>
-        <div class="portfolio-images">
-            <div class="portfolio-image">
-                <img src="fashion2.png" alt="Image 1">
+    </style>
+   <!-- Action-aid-Ethiopia -->
+    <div class="mb-12 company-section">
+        <h3 class="text-3xl font-bold text-orange-600 text-center mb-6">Action-aid-Ethiopia</h3>
+        <div class="portfolio-container">
+            <button class="portfolio-nav prev">‹</button>
+            <div class="portfolio-item">
+                <img src="aid1.jpg" alt="Action-aid-Ethiopia Image 1" class="w-full h-auto rounded-lg transition-transform duration-300">
             </div>
-            <div class="portfolio-image">
-                <img src="bazaar1.jpg" alt="Image 2">
+            <div class="portfolio-item">
+                <img src="aid2.jpg" alt="Action-aid-Ethiopia Image 2" class="w-full h-auto rounded-lg transition-transform duration-300">
             </div>
-            <div class="portfolio-image">
-                <img src="lookup3.jpg" alt="Image 3">
+            <div class="portfolio-item">
+                <img src="aid3.jpg" alt="Action-aid-Ethiopia Image 3" class="w-full h-auto rounded-lg transition-transform duration-300">
             </div>
-            <div class="portfolio-image">
-                <img src="lookup2.jpg" alt="Image 4">
+            <div class="portfolio-item">
+                <img src="aid4.jpg" alt="Action-aid-Ethiopia Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
             </div>
-            <div class="portfolio-image">
-                <img src="image5.jpg" alt="Image 5">
-            </div>
-            <div class="portfolio-image">
-                <img src="psy4.jpg" alt="Image 6">
-            </div>
-            <div class="portfolio-image">
-                <img src="image7.jpg" alt="Image 7">
-            </div>
-            <div class="portfolio-image">
-                <img src="image8.jpg" alt="Image 8">
-            </div>
-            <div class="portfolio-image">
-                <img src="image9.jpg" alt="Image 9">
-            </div>
-            <div class="portfolio-image">
-                <img src="image10.jpg" alt="Image 10">
-            </div>
-            <div class="portfolio-image">
-                <img src="image11.jpg" alt="Image 11">
-            </div>
-            <div class="portfolio-image">
-                <img src="image12.jpg" alt="Image 12">
-            </div>
-            <div class="portfolio-image">
-                <img src="image13.jpg" alt="Image 13">
-            </div>
-            <div class="portfolio-image">
-                <img src="image14.jpg" alt="Image 14">
-            </div>
-            <div class="portfolio-image">
-                <img src="psy1.jpg" alt="Image 15">
-            </div>
-            <div class="portfolio-image">
-                <img src="image16.jpg" alt="Image 16">
-            </div>
+            <button class="portfolio-nav next">›</button>
         </div>
-    </section>
-<script>
-    window.addEventListener('load', () => {
-    const portfolioContainer = document.querySelector('.portfolio-container');
+    </div>
+ <!-- HAFW -->
+    <div class="mb-12 company-section">
+        <h3 class="text-3xl font-bold text-orange-600 text-center mb-6">HAFW</h3>
+        <div class="portfolio-container">
+            <button class="portfolio-nav prev">‹</button>
+            <div class="portfolio-item">
+                <img src="fashion1.png" alt="HAFW Image 1" class="w-full h-auto rounded-lg transition-transform duration-300">
+            </div>
+            <div class="portfolio-item">
+                <img src="fashion6.png" alt="HAFW Image 2" class="w-full h-auto rounded-lg transition-transform duration-300">
+            </div>
+            <div class="portfolio-item">
+                <img src="fashion2.png" alt="HAFW Image 3" class="w-full h-auto rounded-lg transition-transform duration-300">
+            </div>
+            <div class="portfolio-item">
+                <img src="fashion3.png" alt="HAFW Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
+            </div>
+            <button class="portfolio-nav next">›</button>
+        </div>
+    </div>
+      <!-- Psy-addis -->
+    <div class="mb-12 company-section">
+        <h3 class="text-3xl font-bold text-orange-600 text-center mb-6">Psy-addis</h3>
+        <div class="portfolio-container">
+            <button class="portfolio-nav prev">‹</button>
+            <div class="portfolio-item">
+                <img src="psy1.jpg" alt="Psy-addis Image 1" class="w-full h-auto rounded-lg transition-transform duration-300">
+            </div>
+            <div class="portfolio-item">
+                <img src="psy11.jpg" alt="Psy-addis Image 2" class="w-full h-auto rounded-lg transition-transform duration-300">
+            </div>
+            <div class="portfolio-item">
+                <img src="psy12.jpg" alt="Psy-addis Image 3" class="w-full h-auto rounded-lg transition-transform duration-300">
+            </div>
+            <div class="portfolio-item">
+                <img src="psy4.jpg" alt="Psy-addis Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
+            </div>
+            <button class="portfolio-nav next">›</button>
+        </div>
+    </div>
+    <!-- Mignot-Bazaar -->
+    <div class="mb-12 company-section">
+        <h3 class="text-3xl font-bold text-orange-600 text-center mb-6">Mignot-Bazaar</h3>
+        <div class="portfolio-container">
+            <button class="portfolio-nav prev">‹</button>
+            <div class="portfolio-item">
+                <img src="bazaar1.jpg" alt="Mignot-Bazaar Image 1" class="w-full h-auto rounded-lg transition-transform duration-300">
+            </div>
+            <div class="portfolio-item">
+                <img src="bazaar2.jpg" alt="Mignot-Bazaar Image 2" class="w-full h-auto rounded-lg transition-transform duration-300">
+            </div>
+            <div class="portfolio-item">
+                <img src="bazaar3.jpg" alt="Mignot-Bazaar Image 3" class="w-full h-auto rounded-lg transition-transform duration-300">
+            </div>
+            <div class="portfolio-item">
+                <img src="bazaar4.jpg" alt="Mignot-Bazaar Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
+            </div>
+            <button class="portfolio-nav next">›</button>
+        </div>
+    </div>
 
-    portfolioContainer.addEventListener('wheel', (e) => {
-        e.preventDefault();
-        portfolioContainer.scrollLeft += e.deltaY;
-    });
-});
-</script>
+    <!-- Lookup -->
+    <div class="mb-12 company-section">
+        <h3 class="text-3xl font-bold text-orange-600 text-center mb-6">Lookup</h3>
+        <div class="portfolio-container">
+            <button class="portfolio-nav prev">‹</button>
+            <div class="portfolio-item">
+                <img src="lookup1.jpg" alt="Lookup Image 1" class="w-full h-auto rounded-lg transition-transform duration-300">
+            </div>
+            <div class="portfolio-item">
+                <img src="lookup2.jpg" alt="Lookup Image 2" class="w-full h-auto rounded-lg transition-transform duration-300">
+            </div>
+            <div class="portfolio-item">
+                <img src="lookup3.jpg" alt="Lookup Image 3" class="w-full h-auto rounded-lg transition-transform duration-300">
+            </div>
+            <div class="portfolio-item">
+                <img src="lookup4.jpg" alt="Lookup Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
+            </div>
+            <button class="portfolio-nav next">›</button>
+        </div>
+    </div>
 
 
 <style>
