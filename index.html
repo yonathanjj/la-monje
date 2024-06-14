@@ -109,7 +109,7 @@
 
         .logos-slider {
             display: flex;
-            overflow: hidden;
+            overflow-y: auto;
             width: 100%;
             margin-top: 2rem;
             background-color: var(--safety-orange);
@@ -753,7 +753,7 @@ html {
 
 </style>
  <section id="portfolio" class="portfolio-container">
-        <h1 class="portfolio-header">Our Works</h1>
+        <h1 class="portfolio-header"></h1>
         <div class="portfolio-images">
             <div class="portfolio-image">
                 <img src="fashion2.png" alt="Image 1">
@@ -815,3 +815,213 @@ html {
     });
 });
 </script>
+
+
+<style>
+  body.loaded {
+            opacity: 1;
+            /* Make the page visible after loading */
+        }
+
+        /* Address Section Styles */
+        .address-card {
+            background-color: var(--white);
+            border: 2px solid var(--safety-orange);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* Social Media Links Styles */
+        .social-media-links {
+            margin-bottom: 20px;
+        }
+
+        .social-media-links a {
+            display: inline-block;
+            margin-right: 10px;
+            color: var(--black);
+            text-decoration: none;
+        }
+
+        .social-media-links a:hover {
+            color: var(--safety-orange);
+        }
+
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 2px solid transparent;
+            border-radius: 0.25rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--safety-orange);
+            outline: none;
+        }
+
+        .contact-form button {
+            background-color: var(--safety-orange);
+            color: var(--white);
+            padding: 0.75rem 1rem;
+            border: none;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: var(--safety-orange-2);
+        }
+
+        /* Orange Accent Styles */
+        .orange-accent {
+            background-color: var(--safety-orange);
+            color: var(--white);
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .orange-accent:hover {
+            background-color: var(--safety-orange-2);
+        }
+
+        .form-input {
+            border: 2px solid var(--orange-accent);
+            border-radius: 0.25rem;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            width: 100%;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus {
+            border-color: var(--orange-accent);
+        }
+    </style>
+ <!-- Contact Us Section -->
+    <section id="contact" class="py-12 bg-gray-100">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-semibold text-black text-center mb-8">Contact Us</h2>
+            <div class="flex flex-wrap justify-center space-x-8">
+                <!-- Address Cards -->
+                <div class="w-72 bg-white rounded-lg shadow-lg p-6 mb-8">
+                    <h3 class="text-lg font-semibold mb-4">Addis abeba</h3>
+                    <p>Ethiopia</p>
+                    <p>+251942471649</p>
+                    <p>Yeabkal Demissew</p>
+                    <p>yeabkaldemissew14@gmail.com</p>
+                </div>
+                <div class="w-72 bg-white rounded-lg shadow-lg p-6 mb-8">
+                    <h3 class="text-lg font-semibold mb-4">Hawassa</h3>
+                    <p>Ethiopia</p>
+                    <p>+25191 631 3972</p>
+                    <p>Meareg Mngisteab</p>
+                    <p>mearegmngisteab@gmail.com</p>
+                </div>
+                <div class="w-72 bg-white rounded-lg shadow-lg p-6 mb-8">
+                    <h3 class="text-lg font-semibold mb-4">kigali</h3>
+                    <p>Rwanda</p>
+                    <p>+250 794 555 111</p>
+                    <p>Bethlehem Ghidey</p>
+                    <p>bettyghgm@gmail.com</p>
+                </div>
+                <!-- Social Media Links -->
+                <div class="w-72 bg-white rounded-lg shadow-lg p-6 mb-8">
+    <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
+<div class="w-72 bg-white rounded-lg shadow-lg p-6 mb-8">
+    <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
+    <a href="https://www.facebook.com/lamonjecomms" class="flex items-center text-gray-700 hover:text-orange-accent mb-2">
+        <img src="facebook.jpg" alt="Facebook Icon" class="h-6 w-6 mr-2">
+        Facebook
+    </a>
+    <a href="https://www.instagram.com/la_monje/" class="flex items-center text-gray-700 hover:text-orange-accent mb-2">
+        <img src="instagram.jpg" alt="Instagram Icon" class="h-6 w-6 mr-2">
+        Instagram
+    </a>
+</div>
+
+            </div>
+            <!-- Contact Form -->
+            <div class="bg-white rounded-lg shadow-lg p-8 max-w-md mx-auto">
+                <h3 class="text-2xl font-semibold text-center mb-4">Send Us a Message</h3>
+                <form class="contact-form">
+                    <input type="text" id="first-name" name="first-name" placeholder="First Name" required class="form-input mb-4">
+                    <input type="text" id="last-name" name="last-name" placeholder="Last Name" required class="form-input mb-4">
+                    <input type="tel" id="phone" name="phone" placeholder="Phone" required class="form-input mb-4">
+                    <input type="email" id="email" name="email" placeholder="Email" required class="form-input mb-4">
+                    <textarea id="message" name="message" rows="4" placeholder="Message" required class="form-input mb-4"></textarea>
+                    <button type="submit" class="bg-orange-accent hover:bg-orange-accent-dark text-white font-bold py-2 px-4 rounded-full w-full transition duration-300">Submit</button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+const form = document.getElementById('contactForm');
+document.addEventListener('DOMContentLoaded', function () {
+document.body.classList.add('loaded');
+
+form.addEventListener('submit', function (event) {
+event.preventDefault();
+
+// Validate form fields
+const firstName = form.elements['firstName'].value;
+const lastName = form.elements['lastName'].value;
+const phoneNumber = form.elements['phoneNumber'].value;
+const email = form.elements['email'].value;
+const message = form.elements['message'].value;
+
+// Basic validation example (you can add more complex validation as needed)
+if (!firstName || !lastName || !phoneNumber || !email || !message) {
+alert('Please fill in all fields.');
+return;
+}
+
+// Form data
+const formData = {
+firstName,
+lastName,
+phoneNumber,
+email,
+message
+};
+
+console.log(formData);
+});
+});
+    </script>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-4">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 La-monje. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const navToggle = document.getElementById('navToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+
+navToggle.addEventListener('click', () => {
+mobileMenu.classList.toggle('hidden');
+});
+    </script>
+</body>
+</html>
