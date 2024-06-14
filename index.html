@@ -679,7 +679,7 @@ html {
 .portfolio-image {
     position: absolute;
     cursor: pointer;
-    transition: transform 0.3s ease-in-out, z-index 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, z-index 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     overflow: hidden;
     animation: scatter 1.5s ease-in-out forwards;
     z-index: 1;
@@ -695,10 +695,11 @@ html {
 
 .portfolio-image:hover {
     z-index: 4; /* Bring to front on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Add shadow on hover */
 }
 
 .portfolio-image:hover img {
-    transform: scale(1.1); /* Adjust the scale factor as needed */
+    transform: scale(1.15); /* Adjust the scale factor as needed */
 }
 
 @keyframes scatter {
