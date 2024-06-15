@@ -8,213 +8,230 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
     <style>
-     :root {
-      --black: #000000ff;
-      --safety-orange: #FF7A00ff;
-      --white: #FFFFFFff;
-      --safety-orange-2: #FF7900ff;
-      --gray-300: #D1D5DBff;
-      --gray-400: #f3f4f6;
-      --gray-500: #ccc; /* Added grey color */
-    }
+               :root {
+            --black: #000000ff;
+            --safety-orange: #FF7A00ff;
+            --white: #FFFFFFff;
+            --safety-orange-2: #FF7900ff;
+            --gray-300: #D1D5DBff;
+            --gray-400: #f3f4f6;
+            --gray-500: #ccc; /* Added grey color */
+        }
 
-    body,
-    html {
-      margin: 0;
-      padding: 0;
-      font-family: 'Arial', sans-serif;
-      box-sizing: border-box;
-      background-color: var(--gray-400);
-    }
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            box-sizing: border-box;
+            background-color: var(--gray-400);
+        }
 
-    header {
-      width: 100%;
-      background-color: transparent;
-      position: fixed;
-      top: 0;
-      z-index: 10;
-    }
+        header {
+            width: 100%;
+            background-color: transparent;
+            position: fixed;
+            top: 0;
+            z-index: 10;
+        }
 
-    .header-logo {
-      font-family: 'Pacifico', cursive;
-      color: var(--black);
-    }
+        .header-logo {
+            font-family: 'Pacifico', cursive;
+            color: var(--black);
+        }
 
-    .nav-link {
-      position: relative;
-      padding-bottom: 5px;
-      transition: color 0.3s;
-    }
+        .nav-link {
+            position: relative;
+            padding-bottom: 5px;
+            transition: color 0.3s;
+        }
 
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      display: block;
-      margin-top: 5px;
-      right: 0;
-      background: #000;
-      transition: width 0.3s ease;
-    }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            display: block;
+            margin-top: 5px;
+            right: 0;
+            background: #000;
+            transition: width 0.3s ease;
+        }
 
-    .nav-link:hover::after {
-      width: 100%;
-      left: 0;
-      background: #000;
-    }
+        .nav-link:hover::after {
+            width: 100%;
+            left: 0;
+            background: #000;
+        }
 
-    .gallery-container {
-      position: relative;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-    }
+        .gallery-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
 
-    .gallery-nav {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: transparent;
-      border: none;
-      color: var(--safety-orange);
-      font-size: 2rem;
-      cursor: pointer;
-      z-index: 2;
-    }
+        .gallery-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: transparent;
+            border: none;
+            color: var(--safety-orange);
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 2;
+        }
 
-    .gallery-nav.prev {
-      left: 1rem;
-    }
+        .gallery-nav.prev {
+            left: 1rem;
+        }
 
-    .gallery-nav.next {
-      right: 1rem;
-    }
+        .gallery-nav.next {
+            right: 1rem;
+        }
 
-    .gallery-images {
-      display: flex;
-      transition: transform 0.3s ease;
-    }
+        .gallery-images {
+            display: flex;
+            transition: transform 0.3s ease;
+        }
 
-    .gallery-image {
-      width: 100%;
-      height: auto;
-      border-radius: 0.5rem;
-      transition: transform 0.3s ease;
-    }
+        .gallery-image {
+            width: 100%;
+            height: auto;
+            border-radius: 0.5rem;
+            transition: transform 0.3s ease;
+        }
 
-    .gallery-image:hover {
-      transform: scale(1.1);
-    }
+        .gallery-image:hover {
+            transform: scale(1.1);
+        }
 
-    .company-section {
-      text-align: center;
-    }
+        .company-section {
+            text-align: center;
+        }
 
-    .additional-images {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      margin-top: 2rem;
-      gap: 1rem;
-    }
+        .additional-images {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 2rem;
+            gap: 1rem;
+        }
 
-    .additional-images img {
-      width: 100%;
-      max-width: 300px;
-      height: auto;
-      object-fit: cover;
-      border-radius: 0.5rem;
-    }
+        .additional-images img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 0.5rem;
+        }
 
-    .additional-images .large-img {
-      max-width: 350px; /* Increase size for the lamonjenew.jpeg image */
-    }
+        .additional-images .large-img {
+            max-width: 350px; /* Increase size for the lamonjenew.jpeg image */
+        }
 
-    @media (max-width: 768px) {
-      .header-logo img {
-        height: 40px;
-      }
+        @media (max-width: 768px) {
+            .header-logo img {
+                height: 40px;
+            }
 
-      .nav-link {
-        display: block;
-        padding: 10px 0;
-      }
+            .nav-link {
+                display: block;
+                padding: 10px 0;
+            }
 
-      .flex {
-        flex-direction: column;
-        align-items: center;
-      }
+            .flex {
+                flex-direction: column;
+                align-items: center;
+            }
 
-      .gallery-nav {
-        font-size: 1.5rem;
-      }
+            .gallery-nav {
+                font-size: 1.5rem;
+            }
 
-      .additional-images img {
-        width: 100%;
-        max-width: 250px;
-      }
+            .additional-images img {
+                width: 100%;
+                max-width: 250px;
+            }
 
-      .additional-images .large-img {
-        max-width: 300px; /* Increase size for the lamonjenew.jpeg image */
-      }
-    }
+            .additional-images .large-img {
+                max-width: 300px; /* Increase size for the lamonjenew.jpeg image */
+            }
+        }
 
-    @media (min-width: 769px) and (max-width: 1024px) {
-      .additional-images {
-        margin-top: 0;
-        margin-left: 2rem;
-        max-width: 600px;
-        flex-direction: column;
-        align-items: center;
-      }
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .additional-images {
+                margin-top: 0;
+                margin-left: 2rem;
+                max-width: 600px;
+                flex-direction: column;
+                align-items: center;
+            }
 
-      .additional-images img {
-        width: 100%;
-        max-width: 250px;
-        height: auto;
-        object-fit: cover;
-        border-radius: 0.5rem;
-        margin-bottom: 1rem;
-      }
+            .additional-images img {
+                width: 100%;
+                max-width: 250px;
+                height: auto;
+                object-fit: cover;
+                border-radius: 0.5rem;
+                margin-bottom: 1rem;
+            }
 
-      .additional-images .large-img {
-        max-width: 300px; /* Increase size for the lamonjenew.jpeg image */
-      }
-    }
+            .additional-images .large-img {
+                max-width: 300px; /* Increase size for the lamonjenew.jpeg image */
+            }
+        }
 
-    @media (min-width: 1025px) {
-      .additional-images {
-        margin-top: 0;
-        margin-left: 2rem;
-        max-width: 600px;
-        flex-direction: column;
-        align-items: center;
-      }
+        @media (min-width: 1025px) {
+            .additional-images {
+                margin-top: 0;
+                margin-left: 2rem;
+                max-width: 600px;
+                flex-direction: column;
+                align-items: center;
+            }
 
-      .additional-images img {
-        width: 100%;
-        max-width: 300px;
-        height: auto;
-        object-fit: cover;
-        border-radius: 0.5rem;
-        margin-bottom: 1rem;
-      }
+            .additional-images img {
+                width: 100%;
+                max-width: 300px;
+                height: auto;
+                object-fit: cover;
+                border-radius: 0.5rem;
+                margin-bottom: 1rem;
+            }
 
-      .additional-images .large-img {
-        max-width: 400px; /* Increase size for the lamonjenew.jpeg image */
-      }
-    }
+            .additional-images .large-img {
+                max-width: 400px; /* Increase size for the lamonjenew.jpeg image */
+            }
+        }
 
-    .company-motto {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: var(--black);
-      margin-top: 1rem;
-      text-align: center;
-    }
-  </style>
+        .company-motto {
+            font-size: 1.2rem; /* Thinner font size */
+            font-weight: bold;
+            color: var(--black);
+            margin-top: 0.5rem;
+            text-align: center;
+        }
+
+        .company-header {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--black);
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        /* Added styles for mobile menu */
+        #mobileMenu {
+            display: none;
+        }
+
+        .nav-open #mobileMenu {
+            display: block;
+        }
+    </style>
 </head>
 <body>
 
@@ -228,7 +245,7 @@
         <li><a href="#home" class="nav-link">Home</a></li>
         <li><a href="#about-us" class="nav-link">About-Us</a></li>
         <li><a href="#services">Services</a></li>
-        <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
         <li><a href="#contact" class="nav-link">Contact Us</a></li>
       </ul>
       <button class="md:hidden text-black focus:outline-none" id="navToggle">
@@ -241,7 +258,7 @@
       <ul class="flex flex-col space-y-4 mt-2 bg-white p-4">
         <li><a href="#home" class="block text-black p-2 hover:bg-gray-700 rounded-full">Home</a></li>
         <li><a href="#about-us" class="block text-black p-2 hover:bg-gray-700 rounded-full">About-Us</a></li>
-        <li><a href="#service" class="block text-black p-2 hover:bg-gray-700 rounded-full">Service</a></li>
+        <li><a href="#services" class="block text-black p-2 hover:bg-gray-700 rounded-full">Services</a></li>
         <li><a href="#portfolio" class="block text-black p-2 hover:bg-gray-700 rounded-full">Portfolio</a></li>
         <li><a href="#contact" class="block text-black p-2 hover:bg-gray-700 rounded-full">Contact Us</a></li>
       </ul>
@@ -252,15 +269,18 @@
   <section id="home" class="min-h-screen flex items-center justify-center bg-white">
     <div class="container mx-auto flex flex-col md:flex-row items-center justify-center px-4">
       <div class="md:w-1/2 flex flex-col items-center md:items-start mt-8 md:mt-0 space-y-4">
-        <img src="psy16.jpg" alt="Gallery Image 2" class="gallery-image w-48 h-auto rounded-lg">
-        <img src="psy17.jpg" alt="Gallery Image 3" class="gallery-image w-48 h-auto rounded-lg">
-        <img src="psy12.jpg" alt="Gallery Image 3" class="gallery-image w-48 h-auto rounded-lg">
-        <img src="psy11.jpg" alt="Gallery Image 3" class="gallery-image w-48 h-auto rounded-lg">
-        <img src="psy15.jpg" alt="Gallery Image 3" class="gallery-image w-48 h-auto rounded-lg">
+        <img src="psy2.jpg" alt="Gallery Image 2" class="gallery-image w-48 h-auto rounded-lg">
+        <img src="lookup3.jpg" alt="Gallery Image 3" class="gallery-image w-48 h-auto rounded-lg">
+        <img src="aid11.png" alt="Gallery Image 3" class="gallery-image w-48 h-auto rounded-lg">
+        <img src="bazaar3.jpg" alt="Gallery Image 3" class="gallery-image w-48 h-auto rounded-lg">
+        <img src="Post_1.jpeg" alt="Gallery Image 3" class="gallery-image w-48 h-auto rounded-lg">
       </div>
       <div class="md:w-1/2 additional-images">
         <img src="monk2.jpeg" alt="Additional Image 1" class="w-100 h-auto mb-4">
         <img src="lamonjenew.jpeg" alt="Additional Image 2" class="large-img w-100 h-auto">
+        <div class="company-header">
+          Tell your story
+        </div>
         <div class="company-motto">
           " Dedicated to empowering businesses through data and design, we believe that
             data-driven insights are the key to more informed decisions and optimizing operations."
@@ -271,19 +291,27 @@
 
   <script>
     document.getElementById('navToggle').addEventListener('click', function () {
+      document.body.classList.toggle('nav-open');
       document.getElementById('mobileMenu').classList.toggle('hidden');
     });
   </script>
+  <br>
+  <br>
+  <br>
+  <br>
    <!-- Logos Slider -->
 <style>
-    .brand-container {
+       .brand-container {
       background-color: #f8961e; /* Light grey background */
       padding: 20px; /* Add padding for spacing */
       border-radius: 10px; /* Rounded corners for the container */
       display: flex;
       justify-content: center;
     }
-
+ .brand-heading {
+    color: #f8961e; /* Orange accent color */
+    margin-bottom: 20px; /* Add margin-bottom for spacing */
+  }
     .brand-list {
       display: flex;
       justify-content: center;
@@ -292,11 +320,15 @@
       gap: 20px; /* Adjust spacing between logos */
       max-width: 100%; /* Ensure the container doesn't overflow */
     }
-
+ .brand-heading {
+    color: #f8961e; /* Orange accent color */
+    margin-bottom: 20px; /* Add margin-bottom for spacing */
+  }
     .brand-list-item {
       max-height: 50px; /* Adjust max-height as needed */
       width: auto;
       object-fit: contain;
+
     }
 
     /* Media queries for responsiveness */
@@ -320,7 +352,8 @@
 </style>
 
 <div class="container mx-auto text-center">
-  <h2 class="text-2xl font-semibold text-black">Brand collaborators</h2>
+  <h2 class="text-2xl font-semibold text-black">Brand collaborators
+</h2>
   <div class="brand-container">
     <div class="brand-list">
       <img src="gulitsacco.png" alt="gulitsacco" class="brand-list-item">
@@ -702,6 +735,9 @@ html {
 }
 
     </style>
+  <div id="portfolio">
+  <h2 class="text-4xl font-bold text-center text-black mt-8 mb-8">Portfolio</h2>
+
    <!-- Action-aid-Ethiopia -->
     <div class="mb-12 company-section">
         <h3 class="text-3xl font-bold text-orange-600 text-center mb-6">Action-aid-Ethiopia</h3>
@@ -751,10 +787,10 @@ html {
                 <img src="psy1.jpg" alt="Psy-addis Image 1" class="w-full h-auto rounded-lg transition-transform duration-300">
             </div>
             <div class="portfolio-item">
-                <img src="psy11.jpg" alt="Psy-addis Image 2" class="w-full h-auto rounded-lg transition-transform duration-300">
+                <img src="psy17.jpg" alt="Psy-addis Image 2" class="w-full h-auto rounded-lg transition-transform duration-300">
             </div>
             <div class="portfolio-item">
-                <img src="psy12.jpg" alt="Psy-addis Image 3" class="w-full h-auto rounded-lg transition-transform duration-300">
+                <img src="psy18.jpg" alt="Psy-addis Image 3" class="w-full h-auto rounded-lg transition-transform duration-300">
             </div>
             <div class="portfolio-item">
                 <img src="psy4.jpg" alt="Psy-addis Image 4" class="w-full h-auto rounded-lg transition-transform duration-300">
@@ -803,7 +839,6 @@ html {
             <button class="portfolio-nav next">›</button>
         </div>
     </div>
-
 
 <style>
   body.loaded {
@@ -960,56 +995,58 @@ html {
 
         </div>
     </section>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-const form = document.getElementById('contactForm');
-document.addEventListener('DOMContentLoaded', function () {
-document.body.classList.add('loaded');
-
-form.addEventListener('submit', function (event) {
-event.preventDefault();
-
-// Validate form fields
-const firstName = form.elements['firstName'].value;
-const lastName = form.elements['lastName'].value;
-const phoneNumber = form.elements['phoneNumber'].value;
-const email = form.elements['email'].value;
-const message = form.elements['message'].value;
-
-// Basic validation example (you can add more complex validation as needed)
-if (!firstName || !lastName || !phoneNumber || !email || !message) {
-alert('Please fill in all fields.');
-return;
-}
-
-// Form data
-const formData = {
-firstName,
-lastName,
-phoneNumber,
-email,
-message
-};
-
-console.log(formData);
-});
-});
-    </script>
+    <h2 class="text-4xl font-bold text-center text-black mt-8 mb-8">Tell your story</h2>
 
     <!-- Footer -->
-    <footer class="bg-black text-white py-4">
+   <footer class="bg-black text-white py-4">
         <div class="container mx-auto text-center">
+           <br>
+            <div class="footer-header">Tell your story</div> <!-- Added footer header -->
             <p>&copy; 2024 La-monje. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        const navToggle = document.getElementById('navToggle');
-const mobileMenu = document.getElementById('mobileMenu');
+        document.addEventListener('DOMContentLoaded', function () {
+            document.body.classList.add('loaded');
 
-navToggle.addEventListener('click', () => {
-mobileMenu.classList.toggle('hidden');
-});
+            const form = document.getElementById('contactForm');
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                // Validate form fields
+                const firstName = form.elements['first-name'].value;
+                const lastName = form.elements['last-name'].value;
+                const phone = form.elements['phone'].value;
+                const email = form.elements['email'].value;
+                const message = form.elements['message'].value;
+
+                // Basic validation example (you can add more complex validation as needed)
+                if (!firstName || !lastName || !phone || !email || !message) {
+                    alert('Please fill in all fields.');
+                    return;
+                }
+
+                // Form data
+                const formData = {
+                    firstName,
+                    lastName,
+                    phone,
+                    email,
+                    message
+                };
+
+                console.log(formData);
+            });
+        });
+
+        const navToggle = document.getElementById('navToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        navToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
     </script>
+
 </body>
 </html>
