@@ -289,12 +289,27 @@
     </div>
   </section>
 
-  <script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Add event listener to toggle button
     document.getElementById('navToggle').addEventListener('click', function () {
+      // Toggle 'nav-open' class on body
       document.body.classList.toggle('nav-open');
+      // Toggle 'hidden' class on mobile menu
       document.getElementById('mobileMenu').classList.toggle('hidden');
     });
-  </script>
+
+    // Add event listeners to all links in the mobile menu
+    document.querySelectorAll('#mobileMenu a').forEach(link => {
+      link.addEventListener('click', function () {
+        // Close the mobile menu
+        document.body.classList.remove('nav-open');
+        document.getElementById('mobileMenu').classList.add('hidden');
+      });
+    });
+  });
+</script>
+
   <br>
   <br>
   <br>
