@@ -8,150 +8,137 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
     <style>
-               :root {
-            --black: #000000ff;
-            --safety-orange: #FF7A00ff;
-            --white: #FFFFFFff;
-            --safety-orange-2: #FF7900ff;
-            --gray-300: #D1D5DBff;
-            --gray-400: #f3f4f6;
-            --gray-500: #ccc; /* Added grey color */
-        }
+        :root {
+  --black: #000000ff;
+  --safety-orange: #FF7A00ff;
+  --white: #FFFFFFff;
+  --safety-orange-2: #FF7900ff;
+  --gray-300: #D1D5DBff;
+  --gray-400: #f3f4f6;
+  --gray-500: #ccc;
+}
 
-        body,
-        html {
-            margin: 0;
-            padding: 0;
-            font-family: 'Arial', sans-serif;
-            box-sizing: border-box;
-            background-color: var(--gray-400);
-        }
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  box-sizing: border-box;
+  background-color: var(--gray-400);
+}
 
-        header {
-            width: 100%;
-            background-color: transparent;
-            position: fixed;
-            top: 0;
-            z-index: 10;
-        }
+header {
+  width: 100%;
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+}
 
-        .header-logo {
-            font-family: 'Pacifico', cursive;
-            color: var(--black);
-        }
+.header-logo {
+  font-family: 'Pacifico', cursive;
+  color: var(--black);
+}
 
-        .nav-link {
-            position: relative;
-            padding-bottom: 5px;
-            transition: color 0.3s;
-        }
+.nav-link {
+  position: relative;
+  padding-bottom: 5px;
+  transition: color 0.3s;
+}
 
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            display: block;
-            margin-top: 5px;
-            right: 0;
-            background: #000;
-            transition: width 0.3s ease;
-        }
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  display: block;
+  margin-top: 5px;
+  right: 0;
+  background: #000;
+  transition: width 0.3s ease;
+}
 
-        .nav-link:hover::after {
-            width: 100%;
-            left: 0;
-            background: #000;
-        }
+.nav-link:hover::after {
+  width: 100%;
+  left: 0;
+  background: #000;
+}
 
-        .gallery-container {
-            position: relative;
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-        }
+.gallery-container {
+  position: relative;
+  width: 100%;
+  max-width: 1920px;
+  margin-bottom: 2rem;
+}
 
-        .gallery-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: transparent;
-            border: none;
-            color: var(--safety-orange);
-            font-size: 2rem;
-            cursor: pointer;
-            z-index: 2;
-        }
+.gallery-images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
 
-        .gallery-nav.prev {
-            left: 1rem;
-        }
+.gallery-image {
+  height: 700px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease;
+}
 
-        .gallery-nav.next {
-            right: 1rem;
-        }
+.gallery-image.hidden {
+  display: none;
+}
 
-        .gallery-images {
-            display: flex;
-            transition: transform 0.3s ease;
-        }
+.gallery-nav {
+  z-index: 20;
+}
 
-        .gallery-image {
-            width: 100%;
-            height: auto;
-            border-radius: 0.5rem;
-            transition: transform 0.3s ease;
-        }
+.gallery-nav.prev {
+  left: 1rem;
+}
 
-        .gallery-image:hover {
-            transform: scale(1.1);
-        }
+.gallery-nav.next {
+  right: 1rem;
+}
 
-        .company-section {
-            text-align: center;
-        }
+.additional-images {
+  text-align: center;
+  margin-top: 2rem;
+}
 
-        .additional-images {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            margin-top: 2rem;
-            gap: 1rem;
-        }
+.company-motto {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--black);
+  margin-top: 0.5rem;
+}
 
-        .additional-images img {
-            width: 100%;
-            max-width: 300px;
-            height: auto;
-            object-fit: cover;
-            border-radius: 0.5rem;
-        }
+.company-header {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--black);
+  margin-top: 1rem;
+}
 
-        .additional-images .large-img {
-            max-width: 350px; /* Increase size for the lamonjenew.jpeg image */
-        }
+@media (max-width: 768px) {
+  .header-logo img {
+    height: 40px;
+  }
 
-        @media (max-width: 768px) {
-            .header-logo img {
-                height: 40px;
-            }
+  .nav-link {
+    display: block;
+    padding: 10px 0;
+  }
 
-            .nav-link {
-                display: block;
-                padding: 10px 0;
-            }
+  .gallery-container {
+    margin-bottom: 1rem;
+  }
 
-            .flex {
-                flex-direction: column;
-                align-items: center;
-            }
+  .gallery-image {
+    width: 100%;
+    height: auto;
+  }
 
-            .gallery-nav {
-                font-size: 1.5rem;
-            }
-
-            .additional-images img {
+   .additional-images img {
                 width: 100%;
                 max-width: 250px;
             }
@@ -160,54 +147,7 @@
                 max-width: 300px; /* Increase size for the lamonjenew.jpeg image */
             }
         }
-
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .additional-images {
-                margin-top: 0;
-                margin-left: 2rem;
-                max-width: 600px;
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .additional-images img {
-                width: 100%;
-                max-width: 250px;
-                height: auto;
-                object-fit: cover;
-                border-radius: 0.5rem;
-                margin-bottom: 1rem;
-            }
-
-            .additional-images .large-img {
-                max-width: 300px; /* Increase size for the lamonjenew.jpeg image */
-            }
-        }
-
-        @media (min-width: 1025px) {
-            .additional-images {
-                margin-top: 0;
-                margin-left: 2rem;
-                max-width: 600px;
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .additional-images img {
-                width: 100%;
-                max-width: 300px;
-                height: auto;
-                object-fit: cover;
-                border-radius: 0.5rem;
-                margin-bottom: 1rem;
-            }
-
-            .additional-images .large-img {
-                max-width: 400px; /* Increase size for the lamonjenew.jpeg image */
-            }
-        }
-
-        .company-motto {
+    .company-motto {
             font-size: 1.2rem; /* Thinner font size */
             font-weight: bold;
             color: var(--black);
@@ -266,30 +206,68 @@
   </header>
 
   <!-- Home Section -->
-  <section id="home" class="min-h-screen flex items-center justify-center bg-white">
-    <div class="container mx-auto flex flex-col md:flex-row items-center justify-center px-4">
-      <div class="md:w-1/2 flex flex-col items-center md:items-start mt-8 md:mt-0 space-y-4">
-        <img src="psy2.jpg" alt="Gallery Image 2" class="gallery-image w-48 h-auto rounded-lg">
-        <img src="lookup3.jpg" alt="Gallery Image 3" class="gallery-image w-48 h-auto rounded-lg">
-        <img src="aid11.png" alt="Gallery Image 3" class="gallery-image w-48 h-auto rounded-lg">
-        <img src="bazaar3.jpg" alt="Gallery Image 3" class="gallery-image w-48 h-auto rounded-lg">
-        <img src="Post_1.jpeg" alt="Gallery Image 3" class="gallery-image w-48 h-auto rounded-lg">
+  <section id="home" class="min-h-screen bg-white flex flex-col items-center justify-center">
+    <div class="container mx-auto px-4 py-8">
+      <!-- Gallery Section -->
+      <div class="gallery-container relative">
+        <div class="gallery-images flex items-center justify-center overflow-hidden">
+          <img src="psy2.jpg" alt="Gallery Image 1" class="gallery-image w-1920 h-700 rounded-lg">
+          <img src="lookup3.jpg" alt="Gallery Image 2" class="gallery-image w-1920 h-700 rounded-lg hidden">
+          <img src="aid11.png" alt="Gallery Image 3" class="gallery-image w-1920 h-700 rounded-lg hidden">
+          <img src="bazaar3.jpg" alt="Gallery Image 4" class="gallery-image w-1920 h-700 rounded-lg hidden">
+          <img src="Post_1.jpeg" alt="Gallery Image 5" class="gallery-image w-1920 h-700 rounded-lg hidden">
+        </div>
+        <!-- Navigation arrows for gallery -->
+        <button class="gallery-nav prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-lg" onclick="prevImage()">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+          </svg>
+        </button>
+        <button class="gallery-nav next absolute right-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-lg" onclick="nextImage()">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </button>
       </div>
-      <div class="md:w-1/2 additional-images">
-        <img src="monk2.jpeg" alt="Additional Image 1" class="w-100 h-auto mb-4">
+      <!-- Additional Images and Text -->
+      <div class="additional-images mt-8 flex flex-col items-center justify-center">
+       <img src="monk2.jpeg" alt="Additional Image 1" class="w-100 h-auto mb-4">
         <img src="lamonjenew.jpeg" alt="Additional Image 2" class="large-img w-100 h-auto">
-        <div class="company-header">
+        <div class="company-header mt-4">
           Tell your story
         </div>
-        <div class="company-motto">
-          " Dedicated to empowering businesses through data and design, we believe that
-            data-driven insights are the key to more informed decisions and optimizing operations."
+        <div class="company-motto mt-2">
+          "Dedicated to empowering businesses through data and design, we believe that
+          data-driven insights are the key to more informed decisions and optimizing operations."
         </div>
       </div>
     </div>
   </section>
 
+
 <script>
+      let currentImageIndex = 0;
+    const galleryImages = document.querySelectorAll('.gallery-image');
+
+    function showImage(index) {
+      galleryImages.forEach((image, idx) => {
+        if (idx === index) {
+          image.classList.remove('hidden');
+        } else {
+          image.classList.add('hidden');
+        }
+      });
+    }
+
+    function nextImage() {
+      currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+      showImage(currentImageIndex);
+    }
+
+    function prevImage() {
+      currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+      showImage(currentImageIndex);
+    }
   document.addEventListener('DOMContentLoaded', function () {
     // Add event listener to toggle button
     document.getElementById('navToggle').addEventListener('click', function () {
@@ -309,7 +287,6 @@
     });
   });
 </script>
-
   <br>
   <br>
   <br>
