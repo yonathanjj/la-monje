@@ -214,8 +214,11 @@ header {
           <img src="psy2.jpg" alt="Gallery Image 1" class="gallery-image w-1920 h-700 rounded-lg">
           <img src="lookup3.jpg" alt="Gallery Image 2" class="gallery-image w-1920 h-700 rounded-lg hidden">
           <img src="aid11.png" alt="Gallery Image 3" class="gallery-image w-1920 h-700 rounded-lg hidden">
-          <img src="bazaar3.jpg" alt="Gallery Image 4" class="gallery-image w-1920 h-700 rounded-lg hidden">
-          <img src="Post_1.jpeg" alt="Gallery Image 5" class="gallery-image w-1920 h-700 rounded-lg hidden">
+          <img src="bazaar3.jpg" alt="Gallery Image 4" class="gallery-image w-1920 h-700 rounded-lg hidden"><img src="Post_1.jpeg" alt="Gallery Image 5" class="gallery-image w-1920 h-700 rounded-lg hidden">
+            <img src="lookup4.jpg" alt="Gallery Image 5" class="gallery-image w-1920 h-700 rounded-lg hidden">
+          <img src="psy3.jpg" alt="Gallery Image 5" class="gallery-image w-1920 h-700 rounded-lg hidden">
+          <img src="aid12.png" alt="Gallery Image 5" class="gallery-image w-1920 h-700 rounded-lg hidden">
+          <img src="fashion3.png" alt="Gallery Image 5" class="gallery-image w-1920 h-700 rounded-lg hidden">
         </div>
         <!-- Navigation arrows for gallery -->
         <button class="gallery-nav prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-lg" onclick="prevImage()">
@@ -231,7 +234,6 @@ header {
       </div>
       <!-- Additional Images and Text -->
       <div class="additional-images mt-8 flex flex-col items-center justify-center">
-       <img src="monk2.jpeg" alt="Additional Image 1" class="w-100 h-auto mb-4">
         <img src="lamonjenew.jpeg" alt="Additional Image 2" class="large-img w-100 h-auto">
         <div class="company-header mt-4">
           Tell your story
@@ -246,6 +248,31 @@ header {
 
 
 <script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const images = document.querySelectorAll('.gallery-image');
+    let currentIndex = 0;
+
+    function showImage(index) {
+        images.forEach((img, i) => {
+            if (i === index) {
+                img.classList.remove('hidden');
+            } else {
+                img.classList.add('hidden');
+            }
+        });
+    }
+
+    function nextImage() {
+        currentIndex = (currentIndex + 1) % images.length;
+        showImage(currentIndex);
+    }
+
+    setInterval(nextImage, 7000); // Change image every 7 seconds
+
+    // Initialize the gallery by showing the first image
+    showImage(currentIndex);
+});
+
       let currentImageIndex = 0;
     const galleryImages = document.querySelectorAll('.gallery-image');
 
