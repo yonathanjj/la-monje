@@ -106,21 +106,23 @@
       margin-top: 0.5rem;
     }
 
-    .cta-button {
-      display: inline-block;
-      padding: 8px 16px; /* Reduced padding */
-      background-color: var(--gray-300);
-      border-radius: 20px; /* Rounded border radius */
-      text-decoration: none;
-      color: var(--black);
-      font-weight: bold;
-      transition: background-color 0.3s;
-    }
+    
+    .gallery-overlay .cta-button {
+  display: inline-block;
+  padding: 8px 16px; /* Reduced padding */
+  background-color: var(--gray-300);
+  border-radius: 12px; /* Rounded border radius */
+  text-decoration: none;
+  color: var(--black);
+  font-weight: bold;
+  transition: background-color 0.3s;
+  font-size: 0.875rem; /* Adjusted font size */
+}
 
-    .cta-button:hover {
-      background-color: var(--orange-text-color); /* Orange text color on hover */
-      color: var(--white); /* White text color on hover */
-    }
+.gallery-overlay .cta-button:hover {
+  background-color: var(--orange-text-color); /* Orange text color on hover */
+  color: var(--white); /* White text color on hover */
+}
 
     @media (max-width: 768px) {
       .header-logo img {
