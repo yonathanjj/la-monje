@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
- <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <style>
     :root {
       --black: #000000ff;
@@ -83,25 +83,42 @@
     .gallery-overlay {
       position: absolute;
       top: 50%;
-      transform: translateY(-50%);
-      width: 100%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%; /* Adjusted width */
       text-align: center;
-      color: var(--orange-text-color); /* Orange text color */
+      color: var(--white); /* White text color */
       z-index: 1;
     }
 
     .gallery-overlay .company-header {
-      font-size: 5rem; /* Larger font size */
+      font-size: 2rem; /* Adjusted font size */
       font-family: 'Playfair Display', serif; /* Playfair Display font */
       font-weight: 700; /* Bold font weight */
       margin-bottom: 1rem; /* Adjusted margin */
     }
 
     .company-motto {
-      font-size: 1.5rem;
+      font-size: 1.2rem; /* Adjusted font size */
       font-weight: bold;
-      color: var(--black);
+      color: var(--white);
       margin-top: 0.5rem;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 8px 16px; /* Reduced padding */
+      background-color: var(--gray-300);
+      border-radius: 20px; /* Rounded border radius */
+      text-decoration: none;
+      color: var(--black);
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .cta-button:hover {
+      background-color: var(--orange-text-color); /* Orange text color on hover */
+      color: var(--white); /* White text color on hover */
     }
 
     @media (max-width: 768px) {
@@ -186,23 +203,15 @@
 
   <!-- Home Section -->
   <section id="home" class="min-h-screen bg-white flex flex-col items-center justify-center">
-    <div class="gallery-images" style="background-image: url('psy2.jpg');">
-      <div class="gallery-overlay">
+    <div class="gallery-images relative" style="background-image: url('psy2.jpg');">
+      <div class="gallery-overlay absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
         <div class="container mx-auto">
-          <div class="company-header">Tell your story</div>
-          <div class="company-motto">
-            "Dedicated to empowering businesses through data and design, we believe that data-driven insights are the key to more informed decisions and optimizing operations."
+          <div class="cta-button">
+            <a href="#contact" class="block">
+              <div class="company-header text-gray-800">Tell your story</div>
+            </a>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="additional-images mt-8 flex flex-col items-center justify-center">
-      <img src="lamonjenew.jpeg" alt="Additional Image 2" class="large-img w-full h-auto max-w-lg">
-      <div class="company-header mt-4 text-center">
-        Tell your story
-      </div>
-      <div class="company-motto mt-2 text-center">
-        "Dedicated to empowering businesses through data and design, we believe that data-driven insights are the key to more informed decisions and optimizing operations."
       </div>
     </div>
   </section>
@@ -219,34 +228,13 @@
     });
 
     // ScrollReveal animations on scroll
-    ScrollReveal().reveal('.company-motto, .company-header', {
+    ScrollReveal().reveal('.company-header', {
       delay: 300,
       distance: '50px',
       origin: 'bottom',
       easing: 'ease-in-out',
       duration: 800,
       reset: true
-    });
-
-    // JavaScript for automatic image rotation
-    document.addEventListener('DOMContentLoaded', function () {
-      const galleryImages = document.querySelectorAll('.gallery-images');
-      let currentImageIndex = 0;
-
-      function showNextImage() {
-        currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
-        galleryImages[currentImageIndex].style.opacity = 1;
-        galleryImages.forEach((image, index) => {
-          if (index !== currentImageIndex) {
-            image.style.opacity = 0;
-          }
-        });
-      }
-
-      setInterval(showNextImage, 2000); // Change image every 2 seconds
-
-      // Initialize by showing the first image
-      galleryImages[currentImageIndex].style.opacity = 1;
     });
 
     // Mobile menu toggle functionality
@@ -256,13 +244,29 @@
         document.getElementById('mobileMenu').classList.toggle('hidden');
       });
 
-      document.querySelectorAll('#mobileMenu a').forEach(link => {
-        link.addEventListener('click', function () {
+      // Close mobile menu on link click
+      document.querySelectorAll('#mobileMenu a').forEach(item => {
+        item.addEventListener('click', function () {
           document.body.classList.remove('nav-open');
           document.getElementById('mobileMenu').classList.add('hidden');
         });
       });
     });
+
+    // Auto-scrolling images
+    let currentImageIndex = 0;
+    const images = [
+      'psy2.jpg',
+      'psy3.jpg',
+      'psy1.jpg'
+    ];
+
+    function nextImage() {
+      currentImageIndex = (currentImageIndex + 1) % images.length;
+      document.querySelector('.gallery-images').style.backgroundImage = `url(${images[currentImageIndex]})`;
+    }
+
+    setInterval(nextImage, 2000); // Change image every 2 seconds
   </script>
   <br>
   <br>
