@@ -202,72 +202,84 @@
   </header>
 
   <!-- Home Section -->
-  <section id="home" class="min-h-screen bg-white flex flex-col items-center justify-center">
-    <div class="gallery-images relative" style="background-image: url('psy2.jpg');">
-      <div class="gallery-overlay absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
-        <div class="container mx-auto">
-          <div class="cta-button">
-            <a href="#contact" class="block">
-              <div class="company-header text-gray-800">Tell your story</div>
-            </a>
-          </div>
+  <!-- Home Section -->
+<section id="home" class="min-h-screen bg-white flex flex-col items-center justify-center">
+  <div class="gallery-images relative" style="background-image: url('psy2.jpg');">
+    <div class="gallery-overlay absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
+      <div class="container mx-auto">
+        <div class="cta-button">
+          <a href="#contact" class="block">
+            <div class="company-header text-gray-800">Tell your story</div>
+          </a>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-  <script src="https://unpkg.com/scrollreveal"></script>
-  <script>
-    // Anime.js animations on page load
-    anime({
-      targets: '.gallery-images',
-      opacity: [0, 1],
-      duration: 1500,
-      easing: 'easeInOutSine'
+<div class="additional-images mt-8 flex flex-col items-center justify-center">
+  <img src="lamonjenew.jpeg" alt="Additional Image 2" class="large-img w-100 h-auto">
+  <div class="company-motto mt-2">
+    <!-- Add your motto or additional content here if needed -->
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<script src="https://unpkg.com/scrollreveal"></script>
+<script>
+  // Anime.js animations on page load
+  anime({
+    targets: '.gallery-images',
+    opacity: [0, 1],
+    duration: 1500,
+    easing: 'easeInOutSine'
+  });
+
+  // ScrollReveal animations on scroll
+  ScrollReveal().reveal('.company-header', {
+    delay: 300,
+    distance: '50px',
+    origin: 'bottom',
+    easing: 'ease-in-out',
+    duration: 800,
+    reset: true
+  });
+
+  // Mobile menu toggle functionality
+  document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('navToggle').addEventListener('click', function () {
+      document.body.classList.toggle('nav-open');
+      document.getElementById('mobileMenu').classList.toggle('hidden');
     });
 
-    // ScrollReveal animations on scroll
-    ScrollReveal().reveal('.company-header', {
-      delay: 300,
-      distance: '50px',
-      origin: 'bottom',
-      easing: 'ease-in-out',
-      duration: 800,
-      reset: true
-    });
-
-    // Mobile menu toggle functionality
-    document.addEventListener('DOMContentLoaded', function () {
-      document.getElementById('navToggle').addEventListener('click', function () {
-        document.body.classList.toggle('nav-open');
-        document.getElementById('mobileMenu').classList.toggle('hidden');
+    // Close mobile menu on link click
+    document.querySelectorAll('#mobileMenu a').forEach(item => {
+      item.addEventListener('click', function () {
+        document.body.classList.remove('nav-open');
+        document.getElementById('mobileMenu').classList.add('hidden');
       });
-
-      // Close mobile menu on link click
-      document.querySelectorAll('#mobileMenu a').forEach(item => {
-        item.addEventListener('click', function () {
-          document.body.classList.remove('nav-open');
-          document.getElementById('mobileMenu').classList.add('hidden');
-        });
-      });
     });
+  });
 
-    // Auto-scrolling images
-    let currentImageIndex = 0;
-    const images = [
-      'psy2.jpg',
-      'psy3.jpg',
-      'psy1.jpg'
-    ];
+  // Auto-scrolling images
+  let currentImageIndex = 0;
+  const images = [
+    'psy2.jpg',
+    'aid2.jpg',
+    'psy1.jpg',
+    'lookup2.jpg', // Add more image URLs here as needed
+    'bazaar2.jpg.jpg',
+    'post_3.jpeg'
+  ];
 
-    function nextImage() {
-      currentImageIndex = (currentImageIndex + 1) % images.length;
-      document.querySelector('.gallery-images').style.backgroundImage = `url(${images[currentImageIndex]})`;
-    }
+  function nextImage() {
+    currentImageIndex = (currentImageIndex + 1) % images.length;
+    document.querySelector('.gallery-images').style.backgroundImage = `url(${images[currentImageIndex]})`;
+  }
 
-    setInterval(nextImage, 2000); // Change image every 2 seconds
-  </script>
+  setInterval(nextImage, 2000); // Change image every 2 seconds
+</script>
+
   <br>
   <br>
   <br>
