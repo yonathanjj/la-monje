@@ -19,6 +19,7 @@
             --gray-400: #f3f4f6;
             --gray-500: #ccc;
             --overlay-color: rgba(0, 0, 0, 0.3);
+            --dark-overlay-color: rgba(0, 0, 0, 0.4);
             --orange-text-color: #cc5803;
         }
 
@@ -33,7 +34,10 @@
 
         header {
             width: 100%;
-            background-color: var(--black);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
             position: fixed;
             top: 0;
             z-index: 10;
@@ -49,11 +53,11 @@
             position: relative;
             padding-bottom: 5px;
             transition: color 0.3s;
-            color: var(--white);
+            color: var(--safety-orange);
         }
 
         .nav-link:hover {
-            color: var(--safety-orange);
+            color: var(--white);
         }
 
         .gallery-images {
@@ -64,9 +68,19 @@
             justify-content: center;
             align-items: center;
             overflow: hidden;
-            background-size: cover;
+            background-size: contain;
             background-position: center;
             background-blend-mode: overlay;
+        }
+
+        .dark-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dark-overlay-color);
+            z-index: 1;
         }
 
         .gallery-overlay {
@@ -78,7 +92,7 @@
             background: var(--overlay-color);
             color: var(--white);
             text-align: left;
-            z-index: 1;
+            z-index: 2;
             transition: transform 1s ease-in-out;
         }
 
@@ -90,6 +104,7 @@
 
         .gallery-overlay .learn-more {
             font-size: 0.875rem;
+            font-family: 'Roboto', sans-serif;
             color: var(--orange-text-color);
             cursor: pointer;
             text-decoration: underline;
@@ -110,14 +125,21 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background-color: var(--light-orange);
+            background-color: var(--safety-orange);
             padding: 20px;
             border-radius: 10px;
             font-size: 2rem;
             font-family: 'Playfair Display', serif;
             font-weight: bold;
-            color: var(--black);
+            color: var(--white);
             text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            z-index: 2;
+        }
+
+        .tell-your-story:hover {
+            background-color: rgba(255, 122, 0, 0.7);
         }
 
         @media (max-width: 768px) {
@@ -145,6 +167,8 @@
 
             .gallery-images {
                 height: 100vh;
+                background-size: contain;
+                background-repeat: no-repeat;
             }
 
             .additional-images img {
@@ -162,17 +186,25 @@
 
             #mobileMenu {
                 display: none;
+                background: rgba(255, 255, 255, 0.1);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border: 1px solid rgba(255, 255, 255, 0.18);
             }
 
             .nav-open #mobileMenu {
                 display: block;
+            }
+
+            .nav-link {
+                color: var(--safety-orange);
             }
         }
     </style>
 </head>
 
 <body>
-    <header class="bg-black p-4 fixed w-full z-10 shadow-lg">
+    <header class="p-4 fixed w-full z-10 shadow-lg">
         <nav class="container mx-auto flex justify-between items-center">
             <a href="#home" class="text-3xl header-logo">
                 <img src="monk2.jpeg" alt="La Monje" class="h-8">
@@ -191,12 +223,12 @@
             </button>
         </nav>
         <div class="md:hidden hidden" id="mobileMenu">
-            <ul class="flex flex-col space-y-4 mt-2 bg-black p-4">
-                <li><a href="#home" class="block text-white p-2 hover:bg-gray-700 rounded-full">Home</a></li>
-                <li><a href="#about-us" class="block text-white p-2 hover:bg-gray-700 rounded-full">About-Us</a></li>
-                <li><a href="#services" class="block text-white p-2 hover:bg-gray-700 rounded-full">Services</a></li>
-                <li><a href="#portfolio" class="block text-white p-2 hover:bg-gray-700 rounded-full">Portfolio</a></li>
-                <li><a href="#contact" class="block text-white p-2 hover:bg-gray-700 rounded-full">Contact Us</a></li>
+            <ul class="flex flex-col space-y-4 mt-2 p-4">
+                <li><a href="#home" class="block text-white p-2 hover:bg-gray-700 rounded-full nav-link">Home</a></li>
+                <li><a href="#about-us" class="block text-white p-2 hover:bg-gray-700 rounded-full nav-link">About-Us</a></li>
+                <li><a href="#services" class="block text-white p-2 hover:bg-gray-700 rounded-full nav-link">Services</a></li>
+                <li><a href="#portfolio" class="block text-white p-2 hover:bg-gray-700 rounded-full nav-link">Portfolio</a></li>
+                <li><a href="#contact" class="block text-white p-2 hover:bg-gray-700 rounded-full nav-link">Contact Us</a></li>
             </ul>
         </div>
     </header>
@@ -204,7 +236,8 @@
     <!-- Home Section -->
     <section id="home" class="min-h-screen bg-white flex flex-col items-center justify-center">
         <div class="gallery-images relative" style="background-image: url('gallery1.png');">
-            <div class="tell-your-story">
+            <div class="dark-overlay"></div>
+            <div class="tell-your-story" onclick="location.href='#contact';">
                 Tell your story
             </div>
             <div class="gallery-overlay">
@@ -267,14 +300,14 @@
         });
 
         // Mobile menu toggle functionality
-        document.addEventListener('DOMContentLoaded', function () {
-            document.getElementById('navToggle').addEventListener('click', function () {
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('navToggle').addEventListener('click', function() {
                 document.body.classList.toggle('nav-open');
                 document.getElementById('mobileMenu').classList.toggle('hidden');
             });
 
             document.querySelectorAll('#mobileMenu a').forEach(item => {
-                item.addEventListener('click', function () {
+                item.addEventListener('click', function() {
                     document.body.classList.remove('nav-open');
                     document.getElementById('mobileMenu').classList.add('hidden');
                 });
