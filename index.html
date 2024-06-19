@@ -9,325 +9,312 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --black: #000000ff;
-      --safety-orange: #FF7A00ff;
-      --white: #FFFFFFff;
-      --safety-orange-2: #FF7900ff;
-      --gray-300: #D1D5DBff;
-      --gray-400: #f3f4f6;
-      --gray-500: #ccc;
-      --overlay-color: rgba(0, 0, 0, 0.3); /* Overlay color for darkening */
-      --orange-text-color: #cc5803; /* Orange text color */
-    }
+<style>
+        :root {
+            --black: #000000ff;
+            --safety-orange: #FF7A00ff;
+            --light-orange: rgba(255, 122, 0, 0.5);
+            --white: #FFFFFFff;
+            --gray-300: #D1D5DBff;
+            --gray-400: #f3f4f6;
+            --gray-500: #ccc;
+            --overlay-color: rgba(0, 0, 0, 0.3);
+            --orange-text-color: #cc5803;
+        }
 
-    body, html {
-      margin: 0;
-      padding: 0;
-      font-family: 'Arial', sans-serif;
-      box-sizing: border-box;
-      background-color: var(--gray-400);
-    }
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            box-sizing: border-box;
+            background-color: var(--gray-400);
+        }
 
-    header {
-      width: 100%;
-      background-color: transparent;
-      position: fixed;
-      top: 0;
-      z-index: 10;
-    }
+        header {
+            width: 100%;
+            background-color: var(--black);
+            position: fixed;
+            top: 0;
+            z-index: 10;
+            padding: 10px 0;
+        }
 
-    .header-logo {
-      font-family: 'Pacifico', cursive;
-      color: var(--black);
-    }
+        .header-logo {
+            font-family: 'Pacifico', cursive;
+            color: var(--safety-orange);
+        }
 
-    .nav-link {
-      position: relative;
-      padding-bottom: 5px;
-      transition: color 0.3s;
-    }
+        .nav-link {
+            position: relative;
+            padding-bottom: 5px;
+            transition: color 0.3s;
+            color: var(--white);
+        }
 
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      display: block;
-      margin-top: 5px;
-      right: 0;
-      background: #000;
-      transition: width 0.3s ease;
-    }
+        .nav-link:hover {
+            color: var(--safety-orange);
+        }
 
-    .nav-link:hover::after {
-      width: 100%;
-      left: 0;
-      background: #000;
-    }
+        .gallery-images {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
+        }
 
-    .gallery-images {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      background-size: cover;
-      background-position: center;
-      background-blend-mode: overlay; /* Overlay for darkening */
-    }
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px;
+            background: var(--overlay-color);
+            color: var(--white);
+            text-align: left;
+            z-index: 1;
+            transition: transform 1s ease-in-out;
+        }
 
+        .gallery-overlay .gallery-text {
+            font-size: 1.2rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
 
-    .gallery-overlay {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 80%; /* Adjusted width */
-      text-align: center;
-      color: var(--white); /* White text color */
-      z-index: 1;
-    }
+        .gallery-overlay .learn-more {
+            font-size: 0.875rem;
+            color: var(--orange-text-color);
+            cursor: pointer;
+            text-decoration: underline;
+            display: block;
+            margin-top: 0.5rem;
+        }
 
-    .gallery-overlay .company-header {
-      font-size: 2rem; /* Adjusted font size */
-      font-family: 'Playfair Display', serif; /* Playfair Display font */
-      font-weight: 700; /* Bold font weight */
-      margin-bottom: 1rem; /* Adjusted margin */
-    }
+        .company-motto {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--black);
+            margin-top: 0.5rem;
+            text-align: center;
+        }
 
-    .company-motto {
-      font-size: 1.2rem; /* Adjusted font size */
-      font-weight: bold;
-      color: var(--white);
-      margin-top: 0.5rem;
-    }
+        .tell-your-story {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: var(--light-orange);
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 2rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: bold;
+            color: var(--black);
+            text-align: center;
+        }
 
-    
-    .gallery-overlay .cta-button {
-  display: inline-block;
-  padding: 8px 16px; /* Reduced padding */
-  background-color: var(--gray-300);
-  border-radius: 12px; /* Rounded border radius */
-  text-decoration: none;
-  color: var(--black);
-  font-weight: bold;
-  transition: background-color 0.3s;
-  font-size: 0.875rem; /* Adjusted font size */
-}
+        @media (max-width: 768px) {
+            .header-logo img {
+                height: 40px;
+            }
 
-.gallery-overlay .cta-button:hover {
-  background-color: var(--orange-text-color); /* Orange text color on hover */
-  color: var(--white); /* White text color on hover */
-}
+            .nav-link {
+                display: block;
+                padding: 10px 0;
+            }
 
-    @media (max-width: 768px) {
-      .header-logo img {
-        height: 40px;
-      }
+            section {
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
 
-      .nav-link {
-        display: block;
-        padding: 10px 0;
-      }
+            .gallery-container {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
 
-      /* Adjusted section styles for full viewport height */
-      section {
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
+            .gallery-images {
+                height: 100vh;
+            }
 
-      .gallery-container {
-        width: 100%;
-        margin-bottom: 1rem; /* Adjusted margin for responsiveness */
-      }
+            .additional-images img {
+                width: 100%;
+                max-width: 300px;
+            }
 
-      .gallery-images {
-        height: 100vh; /* Ensure images cover the full screen */
-      }
+            .company-motto {
+                text-align: center;
+            }
 
-      .additional-images img {
-        width: 100%;
-        max-width: 300px; /* Adjusted size for the additional image */
-      }
+            .company-motto {
+                color: #000000;
+            }
 
-      .company-motto {
-        text-align: center;
-      }
+            #mobileMenu {
+                display: none;
+            }
 
-      /* Added styles for mobile menu */
-      #mobileMenu {
-        display: none;
-      }
-
-      .nav-open #mobileMenu {
-        display: block;
-      }
-    }
-  </style>
+            .nav-open #mobileMenu {
+                display: block;
+            }
+        }
+    </style>
 </head>
+
 <body>
-
-  <!-- header section -->
-  <header class="bg-white p-4 fixed w-full z-10 shadow-lg">
-    <nav class="container mx-auto flex justify-between items-center">
-      <a href="#home" class="text-3xl header-logo">
-        <img src="monk2.jpeg" alt="La Monje" class="h-8">
-      </a>
-      <ul class="hidden md:flex space-x-4">
-        <li><a href="#home" class="nav-link">Home</a></li>
-        <li><a href="#about-us" class="nav-link">About-Us</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#contact" class="nav-link">Contact Us</a></li>
-      </ul>
-      <button class="md:hidden text-black focus:outline-none" id="navToggle">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </button>
-    </nav>
-    <div class="md:hidden hidden" id="mobileMenu">
-      <ul class="flex flex-col space-y-4 mt-2 bg-white p-4">
-        <li><a href="#home" class="block text-black p-2 hover:bg-gray-700 rounded-full">Home</a></li>
-        <li><a href="#about-us" class="block text-black p-2 hover:bg-gray-700 rounded-full">About-Us</a></li>
-        <li><a href="#services" class="block text-black p-2 hover:bg-gray-700 rounded-full">Services</a></li>
-        <li><a href="#portfolio" class="block text-black p-2 hover:bg-gray-700 rounded-full">Portfolio</a></li>
-        <li><a href="#contact" class="block text-black p-2 hover:bg-gray-700 rounded-full">Contact Us</a></li>
-      </ul>
-    </div>
-  </header>
-
-  <!-- Home Section -->
-  <!-- Home Section -->
-<section id="home" class="min-h-screen bg-white flex flex-col items-center justify-center">
-  <div class="gallery-images relative" style="background-image: url('psy2.jpg');">
-    <div class="gallery-overlay absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
-      <div class="container mx-auto">
-        <div class="cta-button">
-          <a href="#contact" class="block">
-            <div class="company-header text-gray-800">Tell your story</div>
-          </a>
+    <header class="bg-black p-4 fixed w-full z-10 shadow-lg">
+        <nav class="container mx-auto flex justify-between items-center">
+            <a href="#home" class="text-3xl header-logo">
+                <img src="monk2.jpeg" alt="La Monje" class="h-8">
+            </a>
+            <ul class="hidden md:flex space-x-4">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about-us" class="nav-link">About-Us</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="#contact" class="nav-link">Contact Us</a></li>
+            </ul>
+            <button class="md:hidden text-white focus:outline-none" id="navToggle">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </nav>
+        <div class="md:hidden hidden" id="mobileMenu">
+            <ul class="flex flex-col space-y-4 mt-2 bg-black p-4">
+                <li><a href="#home" class="block text-white p-2 hover:bg-gray-700 rounded-full">Home</a></li>
+                <li><a href="#about-us" class="block text-white p-2 hover:bg-gray-700 rounded-full">About-Us</a></li>
+                <li><a href="#services" class="block text-white p-2 hover:bg-gray-700 rounded-full">Services</a></li>
+                <li><a href="#portfolio" class="block text-white p-2 hover:bg-gray-700 rounded-full">Portfolio</a></li>
+                <li><a href="#contact" class="block text-white p-2 hover:bg-gray-700 rounded-full">Contact Us</a></li>
+            </ul>
         </div>
-      </div>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home" class="min-h-screen bg-white flex flex-col items-center justify-center">
+        <div class="gallery-images relative" style="background-image: url('gallery1.png');">
+            <div class="tell-your-story">
+                Tell your story
+            </div>
+            <div class="gallery-overlay">
+                <div class="gallery-text">
+                    Placeholder for image description
+                </div>
+                <div class="learn-more">
+                    Learn more
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="additional-images mt-8 flex flex-col items-center justify-center">
+        <img src="lamonjenew.jpeg" alt="Additional Image 2" class="large-img w-100 h-auto">
+        <div class="company-motto mt-2">
+            "Dedicated to empowering businesses through data and design, we believe that
+            data-driven insights are the key to more informed decisions and optimizing operations."
+        </div>
     </div>
-  </div>
-</section>
 
-<div class="additional-images mt-8 flex flex-col items-center justify-center">
-  <img src="lamonjenew.jpeg" alt="Additional Image 2" class="large-img w-100 h-auto">
-  <div class="company-motto mt-2">
-    <!-- Add your motto or additional content here if needed -->
-  </div>
-</div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+        // Preload images to avoid flickering
+        const preloadImages = (urls) => {
+            urls.forEach((url) => {
+                const img = new Image();
+                img.src = url;
+            });
+        };
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-<script src="https://unpkg.com/scrollreveal"></script>
-<script>
-  // Preload images to avoid flickering
-  const preloadImages = (urls) => {
-    urls.forEach((url) => {
-      const img = new Image();
-      img.src = url;
-    });
-  };
+        const images = [
+            'gallery1.png',
+            'gallery2.png',
+            'gallery3.png',
+            'gallery4.png',
+            'gallery5.png',
+            'gallery6.png'
+        ];
 
-  // Define your image URLs
-  const images = [
-    'psy2.jpg',
-    'post_3.jpeg',
-    'psy3.jpg',
-    'bazaar2.jpg',
-    'lookup4.jpg',
-    'aid1.jpg'
-  ];
+        preloadImages(images);
 
-  // Preload the images
-  preloadImages(images);
-
-  // Anime.js animations on page load
-  anime({
-    targets: '.gallery-images',
-    opacity: [0, 1],
-    duration: 1500,
-    easing: 'easeInOutSine'
-  });
-
-  // ScrollReveal animations on scroll
-  ScrollReveal().reveal('.company-header', {
-    delay: 300,
-    distance: '50px',
-    origin: 'bottom',
-    easing: 'ease-in-out',
-    duration: 800,
-    reset: true
-  });
-
-  // Mobile menu toggle functionality
-  document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('navToggle').addEventListener('click', function () {
-      document.body.classList.toggle('nav-open');
-      document.getElementById('mobileMenu').classList.toggle('hidden');
-    });
-
-    // Close mobile menu on link click
-    document.querySelectorAll('#mobileMenu a').forEach(item => {
-      item.addEventListener('click', function () {
-        document.body.classList.remove('nav-open');
-        document.getElementById('mobileMenu').classList.add('hidden');
-      });
-    });
-  });
-
-  // Auto-scrolling images with overlapped fade-in and fade-out effect
-  let currentImageIndex = 0;
-  const galleryElement = document.querySelector('.gallery-images');
-
-  function nextImage() {
-    currentImageIndex = (currentImageIndex + 1) % images.length;
-
-    // Create a new image element for smooth transition
-    const nextImageElement = new Image();
-    nextImageElement.src = images[currentImageIndex];
-    nextImageElement.classList.add('gallery-images', 'absolute', 'top-0', 'left-0', 'w-full', 'h-full', 'opacity-0', 'object-cover');
-    galleryElement.appendChild(nextImageElement);
-
-    // Fade out current image simultaneously with fading in the next image
-    anime.timeline({
-      easing: 'linear',
-      duration: 1000
-    })
-    .add({
-      targets: galleryElement,
-      opacity: 0
-    })
-    .add({
-      targets: nextImageElement,
-      opacity: 1,
-      complete: function() {
-        // Set new background image and remove temporary image element
-        galleryElement.style.backgroundImage = `url(${images[currentImageIndex]})`;
-        nextImageElement.remove();
-
-        // Fade in the gallery element
+        // Anime.js animations on page load
         anime({
-          targets: galleryElement,
-          opacity: 1,
-          duration: 1000,
-          easing: 'linear'
+            targets: '.gallery-images',
+            opacity: [0, 1],
+            duration: 1500,
+            easing: 'easeInOutSine'
         });
-      }
-    });
-  }
 
-  setInterval(nextImage, 2000); // Change image every 2 seconds
-</script>
+        // ScrollReveal animations on scroll
+        ScrollReveal().reveal('.gallery-overlay', {
+            delay: 300,
+            distance: '50px',
+            origin: 'bottom',
+            easing: 'ease-in-out',
+            duration: 800,
+            reset: true
+        });
+
+        // Mobile menu toggle functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('navToggle').addEventListener('click', function () {
+                document.body.classList.toggle('nav-open');
+                document.getElementById('mobileMenu').classList.toggle('hidden');
+            });
+
+            document.querySelectorAll('#mobileMenu a').forEach(item => {
+                item.addEventListener('click', function () {
+                    document.body.classList.remove('nav-open');
+                    document.getElementById('mobileMenu').classList.add('hidden');
+                });
+            });
+        });
+
+        // Auto-scrolling images with consistent transitions
+        let currentImageIndex = 0;
+        const galleryElement = document.querySelector('.gallery-images');
+        const overlayElement = document.querySelector('.gallery-overlay .gallery-text');
+
+        function updateImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            galleryElement.style.backgroundImage = `url(${images[currentImageIndex]})`;
+
+            // Example text for each image
+            const texts = [
+                'Description for image 1',
+                'Description for image 2',
+                'Description for image 3',
+                'Description for image 4',
+                'Description for image 5',
+                'Description for image 6'
+            ];
+
+            overlayElement.innerHTML = texts[currentImageIndex];
+        }
+
+        setInterval(updateImage, 3000); // Change image every 3 seconds
+
+        // Make overlay text clickable
+        overlayElement.addEventListener('click', () => {
+            window.location.href = '#portfolio';
+        });
+
+        // Make "Learn more" clickable
+        document.querySelector('.learn-more').addEventListener('click', () => {
+            window.location.href = '#portfolio';
+        });
+    </script>
   <br>
   <br>
   <br>
@@ -335,115 +322,132 @@
 
 
 <style>
-    :root {
-        --black: #000000ff;
-        --safety-orange: #FF7A00ff;
-        --safety-orange-2: #FF7900ff;
-        --gray-200: #E5E7EBff;
-        --gray-300: #D1D5DBff;
-        --gray-400: #f3f4f6;
-        --white: #ffffff; /* Added white color variable */
-    }
+:root {
+    --black: #000000ff;
+    --safety-orange: #FF7A00ff;
+    --safety-orange-2: #FF7900ff;
+    --gray-200: #E5E7EBff;
+    --gray-300: #D1D5DBff;
+    --gray-400: #f3f4f6;
+    --white: #ffffff;
+}
 
-    body,
-    html {
-        margin: 0;
-        padding: 0;
-        font-family: 'Arial', sans-serif;
-        box-sizing: border-box;
-        background-color: var(--gray-200);
-    }
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    box-sizing: border-box;
+    background-color: var(--gray-200);
+}
 
-    .about-us-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        min-height: 100vh;
-        padding: 2rem;
-        background-color: var(--gray-400);
-        position: relative;
-        overflow: hidden;
-    }
+.about-us-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+    background-color: var(--gray-400);
+    position: relative;
+    overflow: hidden;
+}
 
-    .section-header {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 2rem;
-        position: relative;
-    }
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    position: relative;
+}
 
-    .section-header h2 {
-        font-size: 2rem;
-        margin: 0;
-        color: var(--black);
-    }
+.section-header h2 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 0;
+    color: var(--black);
+}
 
-    .arrow {
-        width: 20px;
-        height: 20px;
-        background-color: var(--black);
-        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-        transition: transform 0.3s ease;
-    }
+.arrow {
+    width: 20px;
+    height: 20px;
+    background-color: var(--black);
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    transition: transform 0.3s ease;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out 1s forwards, bounce 2s infinite 2s;
+}
 
-    .arrow.down {
-        margin-top: 1rem;
-        transform: rotate(45deg);
-    }
+.arrow.down {
+    margin-top: 1rem;
+    transform: rotate(45deg);
+}
 
-    .about-us-card {
-        width: 100%;
-        max-width: 600px;
-        background-color: #212529;
-        padding: 2rem;
-        border-radius: 0.5rem;
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        margin: 2rem 1rem;
+.about-us-card {
+    width: 100%;
+    max-width: 600px;
+    background-color: #212529;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+    margin: 2rem 1rem;
+    position: relative;
+    color: var(--white);
+    opacity: 0;
+    transform: translateY(100%);
+    transition: transform 1.5s ease-in-out, opacity 1.5s ease-in-out;
+}
+
+.about-us-card.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.about-us-card h2, .about-us-card p {
+    opacity: 0;
+    animation: textFadeIn 0.5s ease-in-out forwards 1.5s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
         transform: translateY(0);
-        position: relative;
-        z-index: 1;
     }
-
-    .about-us-card:hover {
+    40% {
         transform: translateY(-10px);
-        box-shadow: 0 50px 100px rgba(0, 0, 0, 0.8);
     }
-
-    .about-us-card:hover::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        box-shadow: 0 0 200px 50px rgba(0, 0, 0, 0.8);
-        border-radius: 0.5rem;
-        z-index: -1;
+    60% {
+        transform: translateY(-5px);
     }
+}
 
-    .about-us-card h2 {
-        color: var(--white); /* Changed text color to white */
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
+@keyframes textFadeIn {
+    from {
+        opacity: 0;
     }
-
-    .about-us-card p {
-        color: var(--white); /* Changed text color to white */
-        font-size: 1rem;
-        line-height: 1.6;
+    to {
+        opacity: 1;
     }
+}
 
-    @media (max-width: 768px) {
-        .about-us-container {
-            padding: 1rem;
-        }
+/* Intersection Observer Animation */
+.about-us-card.animate-down {
+    opacity: 1;
+    transform: translateY(0);
+}
 
-        .section-header h2 {
-            font-size: 1.5rem;
-        }
-    }
+.about-us-card.animate-up {
+    opacity: 1;
+    transform: translateY(0);
+    transition: none; /* Remove transition when scrolling up */
+}
+
 </style>
 
 <!-- About Us Section -->
@@ -459,11 +463,40 @@
         </p>
     </div>
 </section>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const aboutUsSection = document.querySelector('#about-us');
+        const aboutUsCard = document.querySelector('.about-us-card');
 
+        let lastScrollPos = window.pageYOffset;
 
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
 
-   <style>
-       @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto&display=swap');
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const currentScrollPos = window.pageYOffset;
+                    if (currentScrollPos > lastScrollPos) {
+                        aboutUsCard.classList.add('animate-down');
+                    } else {
+                        aboutUsCard.classList.add('animate-up');
+                    }
+                    lastScrollPos = currentScrollPos;
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        observer.observe(aboutUsSection);
+    });
+</script>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto&display=swap');
 
 :root {
     --black: #000000ff;
@@ -486,6 +519,22 @@ html {
     overflow-x: hidden;
 }
 
+.orange-sheet {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--safety-orange);
+    z-index: -1;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+}
+
+.visible {
+    opacity: 1;
+}
+
 .services-container {
     display: flex;
     flex-direction: column;
@@ -493,6 +542,9 @@ html {
     justify-content: center;
     min-height: 100vh;
     padding: 2rem;
+    background-color: var(--gray-400);
+    position: relative;
+    z-index: 1;
 }
 
 .services-header {
@@ -501,31 +553,22 @@ html {
     color: var(--black);
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    text-align: center; /* Center the header */
-}
-
-.services-navigation {
-    position: relative;
-    display: flex;
-    align-items: center;
-    overflow-x: auto; /* Enable horizontal scrolling */
-    scrollbar-width: none; /* Hide scrollbar for cleaner look */
-    -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
-    width: 100%;
-    max-width: 1200px;
+    transition: color 0.5s ease-in-out;
 }
 
 .services-cards {
     display: flex;
+    justify-content: center;
     gap: 2rem;
-    padding: 0 1rem; /* Add padding to adjust scroll sensitivity */
-    scroll-snap-type: x mandatory; /* Enable snap scrolling */
-    overflow-x: auto; /* Ensure cards are scrollable */
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 2rem;
 }
 
 .services-card {
-    flex: 0 0 auto; /* Ensure cards do not shrink */
-    min-width: 360px; /* Maintain card width */
+    position: relative;
+    width: 100%;
+    max-width: 360px;
     padding: 2rem;
     background: var(--card-gray);
     border-radius: 1rem;
@@ -536,58 +579,88 @@ html {
     cursor: pointer;
     transform-origin: center bottom;
     animation: bob-up-down 4s infinite alternate;
-    position: relative;
-    scroll-snap-align: start; /* Ensure cards snap to start of container */
 }
 
-.tall-card {
-    height: calc(100vh - 200px); /* Example height for a taller card */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.services-card:hover {
+    box-shadow: 0 20px 40px var(--shadow-color-hover), 0 0 0 10px var(--card-gray);
+    background: var(--gray-300);
+    border-radius: 2rem;
+    transform: translateY(-5px);
 }
 
-.card-content {
-    flex-grow: 1; /* Ensure content stretches within the tall card */
-}
-
-/* Scroll navigation arrows */
-.scroll-left,
-.scroll-right {
+.services-card:before {
+    content: '';
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 40px;
-    height: 40px;
-    background-color: rgba(0, 0, 0, 0.3);
-    color: white;
-    font-size: 24px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    z-index: 2;
-}
-
-.scroll-left {
+    top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--card-gray);
+    border-radius: 1rem;
+    z-index: -1;
+    animation: shadow-pulse 2s infinite alternate;
 }
 
-.scroll-right {
-    right: 0;
+.services-card h3 {
+    font-size: 2.8rem; /* Increased font size for header */
+    margin-bottom: 1rem;
+    font-family: 'Roboto', sans-serif; /* Unique font family for headers */
 }
 
-/* Hide arrows initially if no scrolling is possible */
-.services-navigation .scroll-left.disabled,
-.services-navigation .scroll-right.disabled {
-    display: none;
+.services-card p {
+    font-size: 1.3rem; /* Decreased font size for paragraph */
+    line-height: 1.6;
+}
+
+.animate-in {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+@keyframes bob-up-down {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes shadow-pulse {
+    0% {
+        box-shadow: 0 0 0 var(--shadow-color);
+    }
+    100% {
+        box-shadow: 0 0 20px var(--shadow-color);
+    }
+}
+
+@media (max-width: 768px) {
+    .services-container {
+        padding: 1rem;
+    }
+
+    .services-header {
+        font-size: 2.5rem;
+    }
+
+    .services-cards {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .services-card {
+        width: calc(100% - 2rem);
+    }
 }
 
     </style>
-    <section id="services" class="services-container">
-    <h1 class="services-header">Services</h1>
-    <div class="services-navigation">
-        <div class="scroll-left">&#10094;</div>
+      <section id="services" class="services-container">
+        <h1 class="services-header">Services</h1>
         <div class="services-cards">
             <div class="services-card">
                 <h3>Event Design and Facilitation</h3>
@@ -602,43 +675,25 @@ html {
                 <p>We develop innovative and data-driven marketing campaigns that amplify your brand story and achieve your marketing objectives.</p>
             </div>
         </div>
-        <div class="scroll-right">&#10095;</div>
-    </div>
-</section>
-  <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const scrollLeft = document.querySelector('.scroll-left');
-    const scrollRight = document.querySelector('.scroll-right');
-    const servicesContainer = document.querySelector('.services-navigation');
+    </section>
 
-    scrollLeft.addEventListener('click', function() {
-        const cardsContainer = servicesContainer.querySelector('.services-cards');
-        cardsContainer.scrollBy({
-            left: -cardsContainer.clientWidth,
-            behavior: 'smooth'
-        });
-    });
+    <script>
+        // JavaScript for Service Page Animation
+        const servicesCards = document.querySelectorAll('.services-card');
 
-    scrollRight.addEventListener('click', function() {
-        const cardsContainer = servicesContainer.querySelector('.services-cards');
-        cardsContainer.scrollBy({
-            left: cardsContainer.clientWidth,
-            behavior: 'smooth'
-        });
-    });
+        function animateCards() {
+            servicesCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('animate-in');
+                }, index * 300);
+            });
+        }
 
-    // Show/hide arrows based on scroll position
-    servicesContainer.addEventListener('scroll', function() {
-        const cardsContainer = servicesContainer.querySelector('.services-cards');
-        const leftBtn = servicesContainer.querySelector('.scroll-left');
-        const rightBtn = servicesContainer.querySelector('.scroll-right');
+        window.addEventListener('load', animateCards);
+    </script>
 
-        leftBtn.classList.toggle('disabled', cardsContainer.scrollLeft === 0);
-        rightBtn.classList.toggle('disabled', cardsContainer.scrollLeft >= cardsContainer.scrollWidth - cardsContainer.clientWidth);
-    });
-});
 
-</script>
+
 
  <style>
      .portfolio-container {
