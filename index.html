@@ -419,22 +419,28 @@ body, html {
     padding: 2rem;
     border-radius: 0.5rem;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
-    margin: 2rem 1rem;
+    margin: 2rem 0; /* Centering adjustment */
     position: relative;
     color: var(--white);
     opacity: 0;
     transform: translateY(100%);
     transition: transform 1.5s ease-in-out, opacity 1.5s ease-in-out;
-}
-
-.about-us-card.animate {
-    opacity: 1;
-    transform: translateY(0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .about-us-card h2, .about-us-card p {
     opacity: 0;
     animation: textFadeIn 0.5s ease-in-out forwards 1.5s;
+}
+
+.card-image {
+    width: 100%; /* Ensure the image fills the width of the card */
+    max-width: 100%; /* Ensure the image doesn't exceed its intrinsic size */
+    max-height: 300px; /* Adjust the maximum height of the image */
+    object-fit: cover; /* Maintain aspect ratio and cover the entire area */
+    margin-top: 1rem; /* Adjust spacing between text and image */
 }
 
 @keyframes fadeIn {
@@ -478,8 +484,8 @@ body, html {
     transform: translateY(0);
     transition: none; /* Remove transition when scrolling up */
 }
-
 </style>
+
 
 <!-- About Us Section -->
 <section id="about-us" class="about-us-container">
@@ -492,8 +498,10 @@ body, html {
         <p>
             La Monje is a passionate data-driven creative firm with a heart for storytelling. We believe in the power of "telling your story" to forge connections and achieve results. Our passionate creatives combine strategic data analysis with captivating narratives to craft impactful events, curate compelling multimedia content, and develop innovative marketing campaigns. We don't just tell stories, we tell stories that resonate and drive results.
         </p>
+        <img src="haberka.jpg" alt="Placeholder Image" class="card-image">
     </div>
 </section>
+
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const aboutUsSection = document.querySelector('#about-us');
@@ -534,7 +542,7 @@ body, html {
 }
 
 .services-header {
-    font-size: 4rem; /* Increase header size */
+    font-size: 3rem; /* Increase header size */
     font-family: 'Montserrat', sans-serif; /* Ensure consistent font */
     margin-bottom: 2rem; /* Adjust spacing */
     color: var(--black); /* Text color */
@@ -552,7 +560,8 @@ body, html {
     width: 100%;
     max-width: 360px;
     background: rgba(255, 255, 255, 0.9); /* White background with slight opacity */
-    border-radius: 1rem;
+    border: 2px solid #000000; /* Black border around the card */
+    border-radius: 2rem; /* Adjusted border-radius for more oval corners */
     box-shadow: 0 15px 30px var(--shadow-color);
     overflow: hidden; /* Ensures content doesn't overflow */
     display: flex;
@@ -571,7 +580,7 @@ body, html {
     justify-content: center;
     align-items: center;
     background-color: #dad7cd; /* Light yellow overlay */
-    border-radius: 1rem;
+    border-radius: 2rem; /* Adjusted border-radius for more oval corners */
     width: 100%; /* Fill the width of the card */
     margin-top: auto; /* Push content to the top */
     margin: 1rem; /* Add margin for grid effect */
@@ -584,12 +593,20 @@ body, html {
     transform: translateX(-5px);
 }
 
-.card-content h3,
+.card-content h3 {
+    color: var(--black);
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.8rem; /* Larger font size for header */
+    text-align: center;
+    margin-bottom: 1rem; /* Adjust spacing between header and paragraph */
+}
+
 .card-content p {
     color: var(--black);
     font-family: 'Roboto', sans-serif;
+    font-size: 1.3rem; /* Font size for paragraph */
+    line-height: 1.6;
     text-align: center;
-    margin-bottom: 1rem; /* Adjust spacing between header and paragraph */
 }
 
 .card-image {
@@ -614,7 +631,6 @@ body, html {
         font-size: 3rem; /* Adjust header size for mobile */
     }
 }
-
     </style>
   <section id="services" class="services-container">
     <h2 class="services-header">Services</h2>
