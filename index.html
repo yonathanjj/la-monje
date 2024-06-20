@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
- <style>
+  <style>
         :root {
             --black: #000000ff;
             --safety-orange: #FF7A00ff;
@@ -18,8 +18,8 @@
             --gray-300: #D1D5DBff;
             --gray-400: #f3f4f6;
             --gray-500: #ccc;
-            --overlay-color: rgba(0, 0, 0, 0.3);
-            --dark-overlay-color: rgba(0, 0, 0, 0.4);
+            --overlay-color: rgba(0, 0, 0, 0.5); /* Darker overlay */
+            --dark-overlay-color: rgba(0, 0, 0, 0.6); /* Even darker overlay */
             --orange-text-color: #cc5803;
         }
 
@@ -70,7 +70,7 @@
             overflow: hidden;
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* Ensures the background image covers the whole viewport */
+            background-attachment: fixed;
             background-blend-mode: overlay;
         }
 
@@ -240,9 +240,8 @@
             </div>
             <div class="gallery-overlay">
                 <div class="gallery-text">
-                    Placeholder for image description
                 </div>
-                <div                class="learn-more">
+                <div class="learn-more">
                     <a href="#portfolio" class="text-orange-500">Learn more</a>
                 </div>
             </div>
@@ -268,7 +267,7 @@
             });
         };
 
-        const images = [
+        const desktopImages = [
             'gallery1.png',
             'gallery2.png',
             'gallery3.png',
@@ -277,7 +276,16 @@
             'gallery6.png'
         ];
 
-        preloadImages(images);
+        const mobileImages = [
+            'gallery1m.png',
+            'gallery2m.png',
+            'gallery3m.png',
+            'gallery4m.png',
+            'gallery5m.png',
+            'gallery6m.png'
+        ];
+
+        preloadImages([...desktopImages, ...mobileImages]);
 
         // Anime.js animations on page load
         anime({
@@ -318,17 +326,17 @@
         const overlayElement = document.querySelector('.gallery-overlay .gallery-text');
 
         function updateImage() {
-            currentImageIndex = (currentImageIndex + 1) % images.length;
-            galleryElement.style.backgroundImage = `url(${images[currentImageIndex]})`;
+            currentImageIndex = (currentImageIndex + 1) % (window.innerWidth <= 768 ? mobileImages.length : desktopImages.length);
+            galleryElement.style.backgroundImage = `url(${window.innerWidth <= 768 ? mobileImages[currentImageIndex] : desktopImages[currentImageIndex]})`;
 
             // Example text for each image
             const texts = [
-                'PEP-MCF, training validation workshop',
-                'HAFW, a week-long annual fashion week',
-                'Action-Aid-Ethiopia, Co-design of communication products',
-                'Mignot Bazaar, Co-organizing and Design of communication materials',
-                'PSY Addis, Co-organizing and Co-design of communication materials',
-                'Look-up, a community workshop of entrepreneurs'
+                '<h3>PEP-MCF</h3> training validation workshop',
+                '<h3>HAFW</h3> a week-long annual fashion week',
+                '<h3>Action-Aid-Ethiopia</h3> Co-design of communication products',
+                '<h3>Mignot Bazaar</h3> Co-organizing and Design of communication materials',
+                '<h3>PSY Addis</h3> Co-organizing and Co-design of communication materials',
+                '<h3>Look-up</h3> a community workshop of entrepreneurs'
             ];
 
             overlayElement.innerHTML = texts[currentImageIndex];
@@ -344,6 +352,11 @@
         // Make "Learn more" clickable
         document.querySelector('.learn-more a').addEventListener('click', () => {
             window.location.href = '#portfolio';
+        });
+
+        // Handle resizing
+        window.addEventListener('resize', () => {
+            updateImage();
         });
     </script>
     <br>
