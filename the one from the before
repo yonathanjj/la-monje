@@ -7,432 +7,537 @@
     <title>La-monje</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
-    <style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+ <style>
+          <style>
         :root {
-  --black: #000000ff;
-  --safety-orange: #FF7A00ff;
-  --white: #FFFFFFff;
-  --safety-orange-2: #FF7900ff;
-  --gray-300: #D1D5DBff;
-  --gray-400: #f3f4f6;
-  --gray-500: #ccc;
-}
-
-body, html {
-  margin: 0;
-  padding: 0;
-  font-family: 'Arial', sans-serif;
-  box-sizing: border-box;
-  background-color: var(--gray-400);
-}
-
-header {
-  width: 100%;
-  background-color: transparent;
-  position: fixed;
-  top: 0;
-  z-index: 10;
-}
-
-.header-logo {
-  font-family: 'Pacifico', cursive;
-  color: var(--black);
-}
-
-.nav-link {
-  position: relative;
-  padding-bottom: 5px;
-  transition: color 0.3s;
-}
-
-.nav-link::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  display: block;
-  margin-top: 5px;
-  right: 0;
-  background: #000;
-  transition: width 0.3s ease;
-}
-
-.nav-link:hover::after {
-  width: 100%;
-  left: 0;
-  background: #000;
-}
-
-.gallery-container {
-  position: relative;
-  width: 100%;
-  max-width: 1920px;
-  margin-bottom: 2rem;
-}
-
-.gallery-images {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
-.gallery-image {
-  height: 700px;
-  object-fit: cover;
-  border-radius: 0.5rem;
-  transition: transform 0.3s ease;
-}
-
-.gallery-image.hidden {
-  display: none;
-}
-
-.gallery-nav {
-  z-index: 20;
-}
-
-.gallery-nav.prev {
-  left: 1rem;
-}
-
-.gallery-nav.next {
-  right: 1rem;
-}
-
-.additional-images {
-  text-align: center;
-  margin-top: 2rem;
-}
-
-.company-motto {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: var(--black);
-  margin-top: 0.5rem;
-}
-
-.company-header {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--black);
-  margin-top: 1rem;
-}
-
-@media (max-width: 768px) {
-  .header-logo img {
-    height: 40px;
-  }
-
-  .nav-link {
-    display: block;
-    padding: 10px 0;
-  }
-
-  .gallery-container {
-    margin-bottom: 1rem;
-  }
-
-  .gallery-image {
-    width: 100%;
-    height: auto;
-  }
-
-   .additional-images img {
-                width: 100%;
-                max-width: 250px;
-            }
-
-            .additional-images .large-img {
-                max-width: 300px; /* Increase size for the lamonjenew.jpeg image */
-            }
+            --black: #000000ff;
+            --safety-orange: #FF7A00ff;
+            --light-orange: rgba(255, 122, 0, 0.5);
+            --white: #FFFFFFff;
+            --gray-300: #D1D5DBff;
+            --gray-400: #f3f4f6;
+            --gray-500: #ccc;
+            --overlay-color: rgba(0, 0, 0, 0.3);
+            --dark-overlay-color: rgba(0, 0, 0, 0.4);
+            --orange-text-color: #cc5803;
         }
-    .company-motto {
-            font-size: 1.2rem; /* Thinner font size */
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            box-sizing: border-box;
+            background-color: var(--gray-400);
+        }
+
+        header {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            position: fixed;
+            top: 0;
+            z-index: 10;
+            padding: 10px 0;
+        }
+
+        .header-logo {
+            font-family: 'Pacifico', cursive;
+            color: var(--safety-orange);
+        }
+
+        .nav-link {
+            position: relative;
+            padding-bottom: 5px;
+            transition: color 0.3s;
+            color: var(--safety-orange);
+        }
+
+        .nav-link:hover {
+            color: var(--white);
+        }
+
+        .gallery-images {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-blend-mode: overlay;
+        }
+
+        .dark-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dark-overlay-color);
+            z-index: 1;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px;
+            background: var(--overlay-color);
+            color: var(--white);
+            text-align: left;
+            z-index: 2;
+            transition: transform 1s ease-in-out;
+        }
+
+        .gallery-overlay .gallery-text {
+            font-size: 1.2rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        .gallery-overlay .learn-more {
+            font-size: 0.875rem;
+            font-family: 'Roboto', sans-serif;
+            color: var(--orange-text-color);
+            cursor: pointer;
+            text-decoration: underline;
+            display: block;
+            margin-top: 0.5rem;
+        }
+
+        .company-motto {
+            font-size: 1.2rem;
             font-weight: bold;
             color: var(--black);
             margin-top: 0.5rem;
             text-align: center;
         }
 
-        .company-header {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--black);
-            margin-top: 1rem;
+        .tell-your-story {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #ff8800;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: small;
+            color: var(--white);
             text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            z-index: 2;
         }
 
-        /* Added styles for mobile menu */
-        #mobileMenu {
-            display: none;
+        .tell-your-story:hover {
+            background-color: rgba(255, 122, 0, 0.7);
         }
 
-        .nav-open #mobileMenu {
-            display: block;
+        @media (max-width: 768px) {
+            .header-logo img {
+                height: 40px;
+            }
+
+            .nav-link {
+                display: block;
+                padding: 10px 0;
+            }
+
+            section {
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .gallery-container {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+
+            .gallery-images {
+                height: 100vh;
+                background-size: cover;
+                background-position: center;
+            }
+
+            .additional-images img {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .company-motto {
+                text-align: center;
+                color: #000000;
+            }
+
+            #mobileMenu {
+                display: none;
+                background: rgba(255, 255, 255, 0.1);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border: 1px solid rgba(255, 255, 255, 0.18);
+            }
+
+            .nav-open #mobileMenu {
+                display: block;
+            }
+
+            .nav-link {
+                color: var(--safety-orange);
+            }
         }
     </style>
 </head>
+
 <body>
-
-  <!-- header section -->
-  <header class="bg-white p-4 fixed w-full z-10 shadow-lg">
-    <nav class="container mx-auto flex justify-between items-center">
-      <a href="#home" class="text-3xl header-logo">
-        <img src="monk2.jpeg" alt="La Monje" class="h-8">
-      </a>
-      <ul class="hidden md:flex space-x-4">
-        <li><a href="#home" class="nav-link">Home</a></li>
-        <li><a href="#about-us" class="nav-link">About-Us</a></li>
-        <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#contact" class="nav-link">Contact Us</a></li>
-      </ul>
-      <button class="md:hidden text-black focus:outline-none" id="navToggle">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </button>
-    </nav>
-    <div class="md:hidden hidden" id="mobileMenu">
-      <ul class="flex flex-col space-y-4 mt-2 bg-white p-4">
-        <li><a href="#home" class="block text-black p-2 hover:bg-gray-700 rounded-full">Home</a></li>
-        <li><a href="#about-us" class="block text-black p-2 hover:bg-gray-700 rounded-full">About-Us</a></li>
-        <li><a href="#services" class="block text-black p-2 hover:bg-gray-700 rounded-full">Services</a></li>
-        <li><a href="#portfolio" class="block text-black p-2 hover:bg-gray-700 rounded-full">Portfolio</a></li>
-        <li><a href="#contact" class="block text-black p-2 hover:bg-gray-700 rounded-full">Contact Us</a></li>
-      </ul>
-    </div>
-  </header>
-
-  <!-- Home Section -->
-  <section id="home" class="min-h-screen bg-white flex flex-col items-center justify-center">
-    <div class="container mx-auto px-4 py-8">
-      <!-- Gallery Section -->
-      <div class="gallery-container relative">
-        <div class="gallery-images flex items-center justify-center overflow-hidden">
-          <img src="psy2.jpg" alt="Gallery Image 1" class="gallery-image w-1920 h-700 rounded-lg">
-          <img src="lookup3.jpg" alt="Gallery Image 2" class="gallery-image w-1920 h-700 rounded-lg hidden">
-          <img src="aid11.png" alt="Gallery Image 3" class="gallery-image w-1920 h-700 rounded-lg hidden">
-          <img src="bazaar3.jpg" alt="Gallery Image 4" class="gallery-image w-1920 h-700 rounded-lg hidden"><img src="Post_1.jpeg" alt="Gallery Image 5" class="gallery-image w-1920 h-700 rounded-lg hidden">
-            <img src="lookup4.jpg" alt="Gallery Image 5" class="gallery-image w-1920 h-700 rounded-lg hidden">
-          <img src="psy3.jpg" alt="Gallery Image 5" class="gallery-image w-1920 h-700 rounded-lg hidden">
-          <img src="aid12.png" alt="Gallery Image 5" class="gallery-image w-1920 h-700 rounded-lg hidden">
-          <img src="fashion3.png" alt="Gallery Image 5" class="gallery-image w-1920 h-700 rounded-lg hidden">
+    <header class="p-4 fixed w-full z-10 shadow-lg">
+        <nav class="container mx-auto flex justify-between items-center">
+            <a href="#home" class="text-3xl header-logo">
+                <img src="lamonjelogo1.png" alt="La Monje" class="h-8">
+            </a>
+            <ul class="hidden md:flex space-x-4">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about-us" class="nav-link">About-Us</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="#contact" class="nav-link">Contact Us</a></li>
+            </ul>
+            <button class="md:hidden text-white focus:outline-none" id="navToggle">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </nav>
+        <div class="md:hidden hidden" id="mobileMenu">
+            <ul class="flex flex-col space-y-4 mt-2 p-4">
+                <li><a href="#home" class="block text-white p-2 hover:bg-gray-700 rounded-full nav-link">Home</a></li>
+                <li><a href="#about-us" class="block text-white p-2 hover:bg-gray-700 rounded-full nav-link">About-Us</a></li>
+                <li><a href="#services" class="block text-white p-2 hover:bg-gray-700 rounded-full nav-link">Services</a></li>
+                <li><a href="#portfolio" class="block text-white p-2 hover:bg-gray-700 rounded-full nav-link">Portfolio</a></li>
+                <li><a href="#contact" class="block text-white p-2 hover:bg-gray-700 rounded-full nav-link">Contact Us</a></li>
+            </ul>
         </div>
-        <!-- Navigation arrows for gallery -->
-        <button class="gallery-nav prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-lg" onclick="prevImage()">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-          </svg>
-        </button>
-        <button class="gallery-nav next absolute right-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-lg" onclick="nextImage()">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-          </svg>
-        </button>
-      </div>
-      <!-- Additional Images and Text -->
-      <div class="additional-images mt-8 flex flex-col items-center justify-center">
+    </header>
+
+    <!-- Home Section -->
+    <section id="home" class="min-h-screen bg-white flex flex-col items-center justify-center">
+        <div class="gallery-images relative" style="background-image: url('gallery1.png');">
+            <div class="dark-overlay"></div>
+            <div class="tell-your-story" onclick="location.href='#contact';">
+                Tell your story
+            </div>
+            <div class="gallery-overlay">
+                <div class="gallery-text">
+                </div>
+                <div class="learn-more">
+                    <a href="#portfolio" class="text-orange-500">Learn more</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="additional-images mt-8 flex flex-col items-center justify-center">
         <img src="lamonjenew.jpeg" alt="Additional Image 2" class="large-img w-100 h-auto">
-        <div class="company-header mt-4">
-          Tell your story
-        </div>
         <div class="company-motto mt-2">
-          "Dedicated to empowering businesses through data and design, we believe that
-          data-driven insights are the key to more informed decisions and optimizing operations."
+            "Dedicated to empowering businesses through data and design, we believe that
+            data-driven insights are the key to more informed decisions and optimizing operations."
         </div>
-      </div>
     </div>
-  </section>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+        // Preload images to avoid flickering
+        const preloadImages = (urls) => {
+            urls.forEach((url) => {
+                const img = new Image();
+                img.src = url;
+            });
+        };
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-    const images = document.querySelectorAll('.gallery-image');
-    let currentIndex = 0;
+        const desktopImages = [
+            'gallery1.png',
+            'gallery2.png',
+            'gallery3.png',
+            'gallery4.png',
+            'gallery5.png',
+            'gallery6.png'
+        ];
 
-    function showImage(index) {
-        images.forEach((img, i) => {
-            if (i === index) {
-                img.classList.remove('hidden');
-            } else {
-                img.classList.add('hidden');
-            }
+        const mobileImages = [
+            'gallery1m.png',
+            'gallery2m.png',
+            'gallery3m.png',
+            'gallery4m.png',
+            'gallery5m.png',
+            'gallery6m.png'
+        ];
+
+        preloadImages([...desktopImages, ...mobileImages]);
+
+        // Anime.js animations on page load
+        anime({
+            targets: '.gallery-images',
+            opacity: [0, 1],
+            duration: 1500,
+            easing: 'easeInOutSine'
         });
-    }
 
-    function nextImage() {
-        currentIndex = (currentIndex + 1) % images.length;
-        showImage(currentIndex);
-    }
+        // ScrollReveal animations on scroll
+        ScrollReveal().reveal('.gallery-overlay', {
+            delay: 300,
+            distance: '50px',
+            origin: 'bottom',
+            easing: 'ease-in-out',
+            duration: 800,
+            reset: true
+        });
 
-    setInterval(nextImage, 7000); // Change image every 7 seconds
+        // Mobile menu toggle functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('navToggle').addEventListener('click', function () {
+                document.body.classList.toggle('nav-open');
+                document.getElementById('mobileMenu').classList.toggle('hidden');
+            });
 
-    // Initialize the gallery by showing the first image
-    showImage(currentIndex);
-});
+            document.querySelectorAll('#mobileMenu a').forEach(item => {
+                item.addEventListener('click', function () {
+                    document.body.classList.remove('nav-open');
+                    document.getElementById('mobileMenu').classList.add('hidden');
+                });
+            });
+        });
 
-      let currentImageIndex = 0;
-    const galleryImages = document.querySelectorAll('.gallery-image');
+        // Auto-scrolling images with consistent transitions
+        let currentImageIndex = 0;
+        const galleryElement = document.querySelector('.gallery-images');
+        const overlayElement = document.querySelector('.gallery-overlay .gallery-text');
 
-    function showImage(index) {
-      galleryImages.forEach((image, idx) => {
-        if (idx === index) {
-          image.classList.remove('hidden');
-        } else {
-          image.classList.add('hidden');
+        function updateImage() {
+            currentImageIndex = (currentImageIndex + 1) % (window.innerWidth <= 768 ? mobileImages.length : desktopImages.length);
+            galleryElement.style.backgroundImage = `url(${window.innerWidth <= 768 ? mobileImages[currentImageIndex] : desktopImages[currentImageIndex]})`;
+
+            // Example text for each image
+            const texts = [
+                '<h3>PEP-MCF</h3> training validation workshop',
+                '<h3>HAFW</h3> a week-long annual fashion week',
+                '<h3>Action-Aid-Ethiopia</h3> Co-design of communication products',
+                '<h3>Mignot Bazaar</h3> Co-organizing and Design of communication materials',
+                '<h3>PSY Addis</h3> Co-organizing and Co-design of communication materials',
+                '<h3>Look-up</h3> a community workshop of entrepreneurs'
+            ];
+
+            overlayElement.innerHTML = texts[currentImageIndex];
         }
-      });
-    }
 
-    function nextImage() {
-      currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
-      showImage(currentImageIndex);
-    }
+        setInterval(updateImage, 3000); // Change image every 3 seconds
 
-    function prevImage() {
-      currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
-      showImage(currentImageIndex);
-    }
-  document.addEventListener('DOMContentLoaded', function () {
-    // Add event listener to toggle button
-    document.getElementById('navToggle').addEventListener('click', function () {
-      // Toggle 'nav-open' class on body
-      document.body.classList.toggle('nav-open');
-      // Toggle 'hidden' class on mobile menu
-      document.getElementById('mobileMenu').classList.toggle('hidden');
-    });
+        // Make overlay text clickable
+        overlayElement.addEventListener('click', () => {
+            window.location.href = '#portfolio';
+        });
 
-    // Add event listeners to all links in the mobile menu
-    document.querySelectorAll('#mobileMenu a').forEach(link => {
-      link.addEventListener('click', function () {
-        // Close the mobile menu
-        document.body.classList.remove('nav-open');
-        document.getElementById('mobileMenu').classList.add('hidden');
-      });
-    });
-  });
-</script>
+        // Make "Learn more" clickable
+        document.querySelector('.learn-more a').addEventListener('click', () => {
+            window.location.href = '#portfolio';
+        });
+
+        // Handle resizing
+        window.addEventListener('resize', () => {
+            updateImage();
+        });
+    </script>
+    <br>
   <br>
   <br>
   <br>
-  <br>
- 
 
 
+<style>
+:root {
+    --black: #000000ff;
+    --safety-orange: #FF7A00ff;
+    --safety-orange-2: #FF7900ff;
+    --gray-200: #E5E7EBff;
+    --gray-300: #D1D5DBff;
+    --gray-400: #f3f4f6;
+    --white: #ffffff;
+}
 
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    box-sizing: border-box;
+    background-color: var(--gray-200);
+}
 
- <style>
-    :root {
-        --black: #000000ff;
-        --safety-orange: #FF7A00ff;
-        --safety-orange-2: #FF7900ff;
-        --gray-200: #E5E7EBff;
-        --gray-300: #D1D5DBff;
-        --gray-400: #f3f4f6;
-        --white: #ffffff; /* Added white color variable */
+.about-us-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+    background-color: var(--gray-400);
+    position: relative;
+    overflow: hidden;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.section-header h2 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 0;
+    color: var(--black);
+}
+
+.arrow {
+    width: 20px;
+    height: 20px;
+    background-color: var(--black);
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    transition: transform 0.3s ease;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out 1s forwards, bounce 2s infinite 2s;
+}
+
+.arrow.down {
+    margin-top: 1rem;
+    transform: rotate(45deg);
+}
+
+.about-us-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    background-color: #212529;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+    color: var(--white);
+    opacity: 0;
+    transform: translateY(100%);
+    transition: transform 1.5s ease-in-out, opacity 1.5s ease-in-out;
+}
+
+.about-us-text {
+    width: 50%;
+    padding-right: 1rem;
+}
+
+.about-us-text h2, .about-us-text p {
+    opacity: 0;
+    animation: textFadeIn 0.5s ease-in-out forwards 1.5s;
+}
+
+.about-us-image {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Ensures the zoom effect doesn't go outside the container */
+}
+
+.about-us-image img {
+    width: 100%;
+    height: auto;
+    max-height: 500px; /* Adjust based on your preference */
+    object-fit: cover;
+    border-radius: 0.5rem;
+    transition: transform 0.5s ease-in-out; /* Adds transition for zoom effect */
+}
+
+.about-us-image img:hover {
+    transform: scale(1.1); /* Zoom effect on hover */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
     }
-
-    body,
-    html {
-        margin: 0;
-        padding: 0;
-        font-family: 'Arial', sans-serif;
-        box-sizing: border-box;
-        background-color: var(--gray-200);
+    to {
+        opacity: 1;
     }
+}
 
-    .about-us-container {
-        display: flex;
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes textFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Intersection Observer Animation */
+.about-us-content.animate-down {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.about-us-content.animate-up {
+    opacity: 1;
+    transform: translateY(0);
+    transition: none; /* Remove transition when scrolling up */
+}
+
+/* Mobile view adjustments */
+@media (max-width: 768px) {
+    .about-us-content {
         flex-direction: column;
         align-items: center;
-        min-height: 100vh;
-        padding: 2rem;
-        background-color: var(--gray-400);
-        position: relative;
-        overflow: hidden;
+        padding: 1rem;
     }
 
-    .section-header {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 2rem;
-        position: relative;
-    }
-
-    .section-header h2 {
-        font-size: 2rem;
-        margin: 0;
-        color: var(--black);
-    }
-
-    .arrow {
-        width: 20px;
-        height: 20px;
-        background-color: var(--black);
-        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-        transition: transform 0.3s ease;
-    }
-
-    .arrow.down {
-        margin-top: 1rem;
-        transform: rotate(45deg);
-    }
-
-    .about-us-card {
+    .about-us-text, .about-us-image {
         width: 100%;
-        max-width: 600px;
-        background-color: #212529;
-        padding: 2rem;
-        border-radius: 0.5rem;
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        margin: 2rem 1rem;
-        transform: translateY(0);
-        position: relative;
-        z-index: 1;
+        text-align: center;
     }
 
-    .about-us-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 50px 100px rgba(0, 0, 0, 0.8);
-    }
-
-    .about-us-card:hover::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        box-shadow: 0 0 200px 50px rgba(0, 0, 0, 0.8);
-        border-radius: 0.5rem;
-        z-index: -1;
-    }
-
-    .about-us-card h2 {
-        color: var(--white); /* Changed text color to white */
-        font-size: 1.5rem;
+    .about-us-text {
+        padding-right: 0;
         margin-bottom: 1rem;
     }
 
-    .about-us-card p {
-        color: var(--white); /* Changed text color to white */
-        font-size: 1rem;
-        line-height: 1.6;
+    .about-us-image img {
+        max-width: 100%; /* Ensure the image scales correctly on mobile */
     }
-
-    @media (max-width: 768px) {
-        .about-us-container {
-            padding: 1rem;
-        }
-
-        .section-header h2 {
-            font-size: 1.5rem;
-        }
-    }
+}
 </style>
 
 <!-- About Us Section -->
@@ -441,83 +546,91 @@ header {
         <h2>About Us</h2>
     </div>
     <div class="arrow down"></div>
-    <div class="about-us-card">
-        <h2>Our goal is Telling your story</h2>
-        <p>
-            La Monje is a passionate data-driven creative firm with a heart for storytelling. We believe in the power of "telling your story" to forge connections and achieve results. Our passionate creatives combine strategic data analysis with captivating narratives to craft impactful events, curate compelling multimedia content, and develop innovative marketing campaigns. We don't just tell stories, we tell stories that resonate and drive results.
-        </p>
+    <div class="about-us-content">
+        <div class="about-us-text">
+            <h2>Our goal is Telling your story</h2>
+            <p>
+                La Monje is a passionate data-driven creative firm with a heart for storytelling. We believe in the power of "telling your story" to forge connections and achieve results. Our passionate creatives combine strategic data analysis with captivating narratives to craft impactful events, curate compelling multimedia content, and develop innovative marketing campaigns. We don't just tell stories, we tell stories that resonate and drive results.
+            </p>
+        </div>
+        <div class="about-us-image">
+            <img src="haberka.jpg" alt="Placeholder Image">
+        </div>
     </div>
 </section>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const aboutUsSection = document.querySelector('#about-us');
+        const aboutUsContent = document.querySelector('.about-us-content');
+
+        let lastScrollPos = window.pageYOffset;
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const currentScrollPos = window.pageYOffset;
+                    if (currentScrollPos > lastScrollPos) {
+                        aboutUsContent.classList.add('animate-down');
+                    } else {
+                        aboutUsContent.classList.add('animate-up');
+                    }
+                    lastScrollPos = currentScrollPos;
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        observer.observe(aboutUsSection);
+    });
+</script>
 
 
-   <style>
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto&display=swap');
 
+
+
+<style>
 :root {
     --black: #000000ff;
-    --white: #ffffff;
+    --safety-orange: #FF7A00ff;
+    --safety-orange-2: #FF7900ff;
     --gray-200: #E5E7EBff;
     --gray-300: #D1D5DBff;
     --gray-400: #f3f4f6;
-    --card-gray: #cccccc;
-    --shadow-color: rgba(0, 0, 0, 0.2);
-    --shadow-color-hover: rgba(0, 0, 0, 0.4);
+    --white: #ffffff;
 }
 
-body,
-html {
+body, html {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
     box-sizing: border-box;
     background-color: var(--gray-200);
-    overflow-x: hidden;
-}
-
-.orange-sheet {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--safety-orange);
-    z-index: -1;
-    transition: opacity 0.5s ease-in-out;
-    opacity: 0;
-}
-
-.visible {
-    opacity: 1;
 }
 
 .services-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 2rem;
-    background-color: var(--gray-400);
-    position: relative;
-    z-index: 1;
+    padding: 2rem; /* Adjust padding as needed */
+    background-color: var(--gray-200); /* Match your page background */
+    text-align: center; /* Center align content */
 }
 
 .services-header {
-    font-size: 3rem;
-    margin-bottom: 2rem;
-    color: var(--black);
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    transition: color 0.5s ease-in-out;
+    font-size: 3rem; /* Increase header size */
+    font-family: 'Montserrat', sans-serif; /* Ensure consistent font */
+    margin-bottom: 2rem; /* Adjust spacing */
+    color: var(--black); /* Text color */
 }
 
 .services-cards {
     display: flex;
-    justify-content: center;
-    gap: 2rem;
-    width: 100%;
-    max-width: 1200px;
+    justify-content: space-around; /* Horizontally center cards with space around them */
+    gap: 2rem; /* Adjust spacing between cards */
     margin-top: 2rem;
 }
 
@@ -525,128 +638,117 @@ html {
     position: relative;
     width: 100%;
     max-width: 360px;
-    padding: 2rem;
-    background: var(--card-gray);
-    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.9); /* White background with slight opacity */
+    border-radius: 2rem; /* Adjusted border-radius for more oval corners */
     box-shadow: 0 15px 30px var(--shadow-color);
-    color: var(--black);
-    text-align: center;
+    overflow: hidden; /* Ensures content doesn't overflow */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     cursor: pointer;
-    transform-origin: center bottom;
-    animation: bob-up-down 4s infinite alternate;
+}
+
+.card-content {
+    padding: 1.5rem; /* Padding inside the card content */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #dad7cd; /* Light yellow background */
+    width: 100%; /* Fill the width of the card */
+    flex: 1;
 }
 
 .services-card:hover {
     box-shadow: 0 20px 40px var(--shadow-color-hover), 0 0 0 10px var(--card-gray);
     background: var(--gray-300);
     border-radius: 2rem;
-    transform: translateY(-5px);
+    transform: translateX(-5px);
 }
 
-.services-card:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--card-gray);
-    border-radius: 1rem;
-    z-index: -1;
-    animation: shadow-pulse 2s infinite alternate;
+.card-content h3 {
+    color: var(--black);
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.8rem; /* Larger font size for header */
+    text-align: center;
+    margin-bottom: 1rem; /* Adjust spacing between header and paragraph */
 }
 
-.services-card h3 {
-    font-size: 2.8rem; /* Increased font size for header */
-    margin-bottom: 1rem;
-    font-family: 'Roboto', sans-serif; /* Unique font family for headers */
-}
-
-.services-card p {
-    font-size: 1.3rem; /* Decreased font size for paragraph */
+.card-content p {
+    color: var(--black);
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.3rem; /* Font size for paragraph */
     line-height: 1.6;
+    text-align: center;
 }
 
-.animate-in {
-    transform: translateY(0);
-    opacity: 1;
-}
-
-@keyframes bob-up-down {
-    0% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-    100% {
-        transform: translateY(0);
-    }
-}
-
-@keyframes shadow-pulse {
-    0% {
-        box-shadow: 0 0 0 var(--shadow-color);
-    }
-    100% {
-        box-shadow: 0 0 20px var(--shadow-color);
-    }
+.card-image {
+    width: 100%; /* Ensure images fill the width of the card */
+    height: 200px; /* Fixed height for uniformity */
+    object-fit: cover; /* Ensure images maintain aspect ratio */
+    border-top-left-radius: 2rem; /* Match border-radius of the card */
+    border-top-right-radius: 2rem; /* Match border-radius of the card */
 }
 
 @media (max-width: 768px) {
-    .services-container {
-        padding: 1rem;
-    }
-
-    .services-header {
-        font-size: 2.5rem;
-    }
-
     .services-cards {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
+        flex-direction: column; /* Stack cards vertically on smaller screens */
+        align-items: center; /* Center cards horizontally */
     }
 
     .services-card {
-        width: calc(100% - 2rem);
+        max-width: 100%; /* Ensure cards take full width of the container */
+    }
+
+    .services-header {
+        font-size: 3rem; /* Adjust header size for mobile */
     }
 }
+</style>
 
-    </style>
-      <section id="services" class="services-container">
-        <h1 class="services-header">Services</h1>
-        <div class="services-cards">
-            <div class="services-card">
+<section id="services" class="services-container">
+    <h2 class="services-header">Services</h2>
+    <div class="services-cards">
+        <div class="services-card">
+            <img src="event.jpeg" alt="Event Design" class="card-image">
+            <div class="card-content">
                 <h3>Event Design and Facilitation</h3>
                 <p>We meticulously plan and execute every aspect of your event, from conceptualization to execution.</p>
             </div>
-            <div class="services-card">
+        </div>
+        <div class="services-card">
+            <img src="media.jpeg" alt="Multimedia Content" class="card-image">
+            <div class="card-content">
                 <h3>Multimedia Content Curation</h3>
                 <p>We source, curate, and develop multimedia content (video, audio, text) tailored to your specific needs.</p>
             </div>
-            <div class="services-card">
+        </div>
+        <div class="services-card">
+            <img src="market.jpeg" alt="Creative Marketing" class="card-image">
+            <div class="card-content">
                 <h3>Creative Marketing</h3>
                 <p>We develop innovative and data-driven marketing campaigns that amplify your brand story and achieve your marketing objectives.</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <script>
-        // JavaScript for Service Page Animation
-        const servicesCards = document.querySelectorAll('.services-card');
+<script>
+    // JavaScript for Service Page Animation
+    const servicesCards = document.querySelectorAll('.services-card');
 
-        function animateCards() {
-            servicesCards.forEach((card, index) => {
-                setTimeout(() => {
-                    card.classList.add('animate-in');
-                }, index * 300);
-            });
-        }
+    function animateCards() {
+        servicesCards.forEach((card, index) => {
+            setTimeout(() => {
+                card.classList.add('animate-in');
+            }, index * 300);
+        });
+    }
 
-        window.addEventListener('load', animateCards);
-    </script>
+    window.addEventListener('load', animateCards);
+</script>
+
 
 
 
@@ -676,7 +778,7 @@ html {
 
     </style>
   <div id="portfolio">
-  <h2 class="text-4xl font-bold text-center text-black mt-8 mb-8">Portfolio</h2>
+  <h3 class="text-4xl font-bold text-center text-black mt-8 mb-8">Portfolio</h3>
 
    <!-- Action-aid-Ethiopia -->
     <div class="mb-12 company-section">
@@ -782,7 +884,7 @@ html {
 
 
 
-      <!-- Logos Slider -->
+        <!-- Logos Slider -->
 <style>
     .brand-container {
         background-color: #ced4da; /* Adjusted light grey background */
@@ -860,6 +962,7 @@ html {
         </div>
     </div>
 </div>
+
 
 
 <style>
